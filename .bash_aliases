@@ -7,4 +7,5 @@ alias rb="rhythmbox-client"
 alias rbn="rb --next"
 alias rbp="rb --previous"
 alias mount.iso="mount -t iso9660 -o loop"
-
+alias gs="git status"
+alias e=editor
