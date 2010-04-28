@@ -53,4 +53,4 @@ if [[ -s /home/wojtek/.rvm/scripts/rvm ]] ; then source /home/wojtek/.rvm/script
 export PATH=$HOME/.opt/bin:$PATH
 export PS1="\$(prompt_pwd)\$(parse_git_branch)% "
 export PROMPT_BASEDIR=/home/wojtek/.prompt_basedir
-export EDITPR="gvim"
+export EDITOR="gvim"
