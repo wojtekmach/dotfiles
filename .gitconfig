@@ -1,0 +1,7 @@
+[user]
+	name = Wojciech Mach
+	email = wojtekmach1@gmail.com
+[github]
+	user = wojtekmach
+[core]
+	editor = gvim -f 2>/dev/null
