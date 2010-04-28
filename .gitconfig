@@ -4,4 +4,4 @@
 [github]
 	user = wojtekmach
 [core]
-	editor = gvim -f 2>/dev/null
+	editor = editor -f
