@@ -8,5 +8,6 @@ alias rbn="rb --next"
 alias rbp="rb --previous"
 alias mount.iso="mount -t iso9660 -o loop"
 alias gs="git status"
+alias gl="git log --color --oneline"
 alias e=editor
 alias ack=ack-grep
