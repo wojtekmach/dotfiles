@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+cmd = "xsel --clipboard"
+n = ARGV[0] && ARGV[0] == '-n' ? "\n" : ""
+
+unless STDIN.tty?
+  IO.popen(cmd, "w") { |f| f.write(STDIN.read + n) }
+else
+  print(IO.popen(cmd, "r") { |f| f.read } + n)
+end

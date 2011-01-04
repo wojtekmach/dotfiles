@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+def set(file, value)
+  value = 12 if value == "0"
+  system("sudo bash -c 'echo -n #{value} > #{file}'")
+  icon = "/usr/share/icons/Human/scalable/status/notification-display-brightness-full.svg"
+  system("notify-send -i #{icon} 'oo'")
+end
+
+file = "/proc/acpi/video/VID1/LCD/brightness"
+text = File.read(file)
+levels = text.match(/levels: ([\d ]+)/)[1].strip.split(/ /)
+current = text.match(/current: (\d+)/)[1]
+
+unless ARGV[0]
+  puts File.read(file)
+  exit 0
+end
+
+if ARGV[0]
+  if ARGV[0] =~ /^[+-]/
+    i = levels.index(current).to_i + ARGV[0].to_i
+    set file, levels[i > 0 ? i : 0]
+  else
+    set(file, ARGV[0])
+  end
+end

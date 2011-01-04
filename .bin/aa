@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+unless ARGV[0]
+  puts "aa - alarm after"
+  puts "usage: aa <command> [<param1> [<param2> ...]]"
+  exit -1
+end
+
+system ARGV.join(" ")
+system "notify-send '#{ARGV[0]}' 'Done'"

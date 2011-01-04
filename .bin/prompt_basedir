@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+unless ENV["PROMPT_BASEDIR"]
+  puts "error: please set PROMPT_BASEDIR env variable"
+  exit -1
+end
+
+unless ARGV[0]
+	puts "usage: prompt_basedir <basedir> [<alias>]"
+	exit -1
+end
+
+path = File.expand_path(ARGV[0])
+if ARGV[1]
+  name = ARGV[1]
+else
+  name = File.basename(path)
+end
+
+File.open(ENV["PROMPT_BASEDIR"], "w") {|f| f.write "#{path}\n#{name}\n"}

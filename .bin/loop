@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+n = 1
+
+if ARGV[0] =~ /-\d+/
+  n = ARGV.shift.to_i * -1
+end
+
+loop do
+  system ARGV.join(" ")
+  sleep n
+end

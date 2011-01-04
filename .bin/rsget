@@ -1,0 +1,83 @@
+#!/usr/bin/env ruby
+
+require 'readline'
+
+def download(url)
+	if $quiet
+	  system "curl -L -O -C - --cookie ~/.cookies/rapidshare -s #{url} &> /dev/null"
+	else
+	  puts "start #{url}"
+	  IO.popen("curl -L -O -C - --cookie ~/.cookies/rapidshare #{url}", "r") do |f|
+      f.read
+    end
+
+	  puts "end #{url}"
+	  if IO.popen("which notify-send", "r") { |f| f.read != "" }
+	    IO.popen("notify-send end #{url}") { |f| }
+	  end
+	end
+end
+
+def setup(username, password)
+	cmd = <<CMD
+curl \
+  --cookie-jar ~/.cookies/rapidshare \
+  --data "login=#{username}&password=#{password}" \
+  https://ssl.rapidshare.com/cgi-bin/premiumzone.cgi \
+  > /dev/null
+CMD
+	system cmd
+end
+
+$quiet = false
+
+if ARGV[0] == '--setup'
+	username = Readline.readline("Username: ")
+	password = Readline.readline("Password: ")
+	setup(username, password)
+  exit 0
+end
+
+if ARGV[0] == '-q'
+	ARGV.shift
+	$quiet = true
+end
+
+if ARGV[0] == "-f"
+ 	unless file = ARGV[1]
+ 		puts "You must specify file with -f option"
+ 		exit -1
+ 	end
+
+	unless File.exists? file
+	  puts "File not found: #{file}"
+		exit -2
+	end
+
+	File.open(file) do |f|
+		f.readlines.each do |line|
+			download(line)
+		end
+	end
+	exit 0
+end
+
+def quit
+	system "pkill notify-osd"
+  puts "bye bye"
+end
+
+trap("INT")  { quit ; exit 0 }
+trap("TERM") { quit ; exit 0 }
+
+if url = ARGV[0]
+  download(url)
+  exit 0
+end
+
+begin
+  while line = STDIN.readline
+    download(line)
+  end
+end
+

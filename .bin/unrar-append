@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+rar, file = ARGV
+
+system "touch out"
+bs = 1024
+
+size = File.size("out") / bs
+system "unrar e -kb -o+ #{rar}"
+file = file.gsub(/ /, '\ ')
+system "dd if=#{file} of=out bs=#{bs} seek=#{size} skip=#{size}"
