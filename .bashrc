@@ -17,7 +17,7 @@ parse_git_branch() {
 }
 
 export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
-export PS1="\w\$(parse_git_branch)% "
+export PS1="\$(wdalias)\$(parse_git_branch)% "
 export EDITOR="gvim"
 
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
