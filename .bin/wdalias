@@ -1,0 +1,27 @@
+#!/bin/bash
+
+wdalias="$HOME/.wdalias"
+if [ ! -n $wdalias ]; then
+  echo $HOME > $wdalias
+  echo "~" >> $wdalias
+fi
+
+x=($( < $wdalias ))
+wd=$PWD
+
+if [ $1 ]; then
+  path=`ruby -r pathname -e 'print Pathname.new(ARGV[0]).realpath' $1`
+
+  if [ $2 ]; then
+    name=$2
+  else
+    name=`basename $path`
+  fi
+
+  echo $path > $wdalias
+  echo $name >> $wdalias
+else
+  wd=${wd/${x[0]}/${x[1]}}
+
+  echo -n $wd
+fi
