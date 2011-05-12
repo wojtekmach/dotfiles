@@ -13,7 +13,7 @@ task :install do
         system "mkdir -p #{$target_prefix+"/"+file}"
         files(file, file+"/")
       else
-        unless Dir.exists?($target_prefix+"/"+File.dirname(file))
+        unless File.exist?($target_prefix+"/"+File.dirname(file))
           system "mkdir -p #{$target_prefix+"/"+File.dirname(file)}"
         end
         puts file
