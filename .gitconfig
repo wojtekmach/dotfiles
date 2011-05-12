@@ -4,4 +4,4 @@
 [github]
 	user = wojtekmach
 [core]
-	editor = editor -f
+	editor = e
