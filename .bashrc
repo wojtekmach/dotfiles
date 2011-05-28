@@ -12,6 +12,8 @@ if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
 fi
 
+source $HOME/.bash_completion.d/git-flow-completion.bash
+
 parse_git_branch() {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/'
 }
