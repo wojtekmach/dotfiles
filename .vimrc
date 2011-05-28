@@ -1,3 +1,5 @@
+call pathogen#runtime_append_all_bundles()
+
 color twilight
 set guioptions-=T
 set autoindent             " automatic indent new lines
