@@ -5,9 +5,7 @@ alias cb=clipboard
 alias unrare="unrar e -kb -o+"                                                                                                                                                 
 alias mount.iso="mount -t iso9660 -o loop"                                                                                                                                     
                                                                                                                                                                                
-alias ack=ack-grep                                                                                                                                                             
 alias cl=clear                                                                                                                                                                 
-alias lsa="ls -la"                                                                                                                                                             
 # git                                                                                                                                                                          
 alias g="git"                                                                                                                                                                  
 alias gs="git status"                                                                                                                                                          
@@ -21,6 +19,11 @@ alias c="cd"
 alias ..="cd .."                                                                                                                                                               
 alias v="vim"                                                                                                                                                                  
 alias e="vim"                                                                                                                                                                  
-alias l="ls -CF --color=auto"                                                                                                                                                  
 alias r="rake"                                                                                                                                                                 
 alias t="touch tmp/restart.txt"
+
+if [ `uname -s` == "Darwin" ]; then
+  alias l="ls -CFG"
+else
+  alias l="ls -CF --color=auto"                                                                                                                                                  
+fi
