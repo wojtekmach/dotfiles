@@ -7,13 +7,21 @@ alias gdh="git diff --color HEAD"
 alias gc="git commit"
 alias gm="git commit -m"
 
+# ruby
+alias r="rake"
+
+# rails
+alias t="touch tmp/restart.txt"
+alias td="tail -f log/development.log"
+alias bers="bundle exec rspec"
+alias rt="ruby -Itest"
+
 # utils
 alias c="cd"
 alias ..="cd .."
+alias -="cd -"
 alias v="vim"
 alias e="vim"
-alias r="rake"
-alias t="touch tmp/restart.txt"
 alias 9="kill -9"
 alias cl=clear
 alias irbc="irb -r irb/completion"
