@@ -19,7 +19,6 @@ alias rt="ruby -Itest"
 # utils
 alias c="cd"
 alias ..="cd .."
-alias -="cd -"
 alias v="vim"
 alias e="vim"
 alias 9="kill -9"
