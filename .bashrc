@@ -22,4 +22,6 @@ export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
 export PS1="\$(wdalias)\$(parse_git_branch)% "
 export EDITOR="gvim"
 
+set -o vi
+
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi
