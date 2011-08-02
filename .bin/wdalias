@@ -1,7 +1,13 @@
 #!/bin/bash
+#
+# Usage:
+#   wdalias <PATH> - set working directory alias
+#   wdalias        - get working directory
+#
 
 wdalias="$HOME/.wdalias"
-if [ ! -n $wdalias ]; then
+
+if [ ! -f $wdalias ]; then
   echo $HOME > $wdalias
   echo "~" >> $wdalias
 fi
