@@ -4,6 +4,10 @@
 #   wdalias <PATH> - set working directory alias
 #   wdalias        - get working directory
 #
+# Setup:
+#   - add `wdalias` somewhere in $PATH
+#   - use it in PS1, ex in .bashrc:
+#         `PS1=\u@\h:\$(wdalias)$ `
 
 wdalias="$HOME/.wdalias"
 
