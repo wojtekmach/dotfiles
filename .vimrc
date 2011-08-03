@@ -1,6 +1,7 @@
 call pathogen#runtime_append_all_bundles()
 
 color twilight
+syntax on
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
 set nowrap                 " do not wrap lines
