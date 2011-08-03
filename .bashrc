@@ -18,7 +18,7 @@ fi
 
 source ~/.bash_completion.d/*
 
-export PATH=$HOME/.bin:$HOME/.local/bin:$PATH
+export PATH=$HOME/.bin:$HOME/.usr/bin:$PATH
 export PS1="\$(wdalias)\$(parse_git_branch)% "
 export EDITOR="gvim"
 
