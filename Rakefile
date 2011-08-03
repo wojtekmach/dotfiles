@@ -23,4 +23,6 @@ task :install do
   end
 
   files "."
+
+  system "rake -f ~/.vim/Rakefile"
 end
