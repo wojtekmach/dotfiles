@@ -26,3 +26,13 @@ task :install do
 
   system "rake -f ~/.vim/Rakefile"
 end
+
+desc "Symlink .bashrc etc"
+task :symlink do
+  prefix = File.dirname(__FILE__)
+  paths = %w{.bashrc .bash_aliases .bash_functions}
+  paths.each do |path|
+    system "rm ~/#{path}"
+    system "ln -s #{prefix}/#{path} ~/"
+  end
+end

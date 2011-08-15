@@ -12,11 +12,16 @@ alias r="rake"
 
 # rails
 alias t="touch tmp/restart.txt"
-alias td="tail -f log/development.log"
+alias tfd="tail -f log/development.log"
+alias tft="tail -f log/test.log"
+alias tfp="tail -f log/production.log"
+alias be="bundle exec"
 alias bers="bundle exec rspec"
 alias rt="ruby -Itest"
+alias rc="bundle exec rails console"
 
 # utils
+alias tf="tail -f"
 alias c="cd"
 alias ..="cd .."
 alias v="vim"
@@ -31,7 +36,9 @@ alias unrare="unrar e -kb -o+"
 alias mount.iso="mount -t iso9660 -o loop"
 
 if [ `uname -s` == "Darwin" ]; then
-  alias l="ls -CFG"
+  alias ls="ls -CFG"
 else
-  alias l="ls -CF --color=auto"
+  alias ls="ls -CF --color=auto"
 fi
+
+alias l=ls
