@@ -32,6 +32,8 @@ task :install do
       link_file(file)
     end
   end
+
+  system "cd ~/.vim ; rake"
 end
 
 def replace_file(file)
