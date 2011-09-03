@@ -4,6 +4,11 @@ if [ -x /usr/bin/dircolors ]; then
     alias ls='ls --color=auto'
 fi
 
+if [ -x /usr/bin/gdircolors ]; then
+    eval "`gdircolors -b`"
+    alias ls='ls --color=auto'
+fi
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
