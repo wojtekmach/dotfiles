@@ -34,11 +34,4 @@ alias lss="du -sh"
 alias cb=clipboard
 alias unrare="unrar e -kb -o+"
 alias mount.iso="mount -t iso9660 -o loop"
-
-if [ `uname -s` == "Darwin" ]; then
-  alias ls="ls -CFG"
-else
-  alias ls="ls -CF --color=auto"
-fi
-
 alias l=ls

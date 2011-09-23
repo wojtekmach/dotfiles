@@ -1,4 +1,4 @@
-:set iskeyword-=_
+":set iskeyword-=_
 
 nmap <Leader>A= :Tabularize /=<CR>
 vmap <Leader>A= :Tabularize /=<CR>
