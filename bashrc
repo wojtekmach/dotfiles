@@ -35,5 +35,5 @@ export PATH="$HOME/.bin:$PATH"
 export PS1="\$(wdalias)\$(parse_git_branch)% "
 export EDITOR="mvim"
 
-#set -o vi
+set -o vi
 [[ -s "/Users/wojtek/.rvm/scripts/rvm" ]] && source "/Users/wojtek/.rvm/scripts/rvm"
