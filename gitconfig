@@ -1,10 +1,12 @@
 [user]
-	name = Wojciech Mach
-	email = wojtek@wojtekmach.pl
+  name = Wojciech Mach
+  email = wojtek@wojtekmach.pl
+
 [github]
-	user = wojtekmach
+  user = wojtekmach
+
 [core]
-	editor = vim
+  editor = vim
 
 [color]
   branch = auto

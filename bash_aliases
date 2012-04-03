@@ -6,6 +6,7 @@ alias gd="git diff --color"
 alias gdh="git diff --color HEAD"
 alias gc="git commit"
 alias gm="git commit -m"
+alias gb="git branch"
 
 # ruby
 alias r="rake"
@@ -29,6 +30,8 @@ alias e="vim"
 alias 9="kill -9"
 alias cl=clear
 alias irbc="irb -r irb/completion"
+
+alias ls="ls -CFG"
 alias lsh="ls -l --human-readable"
 alias lss="du -sh"
 alias cb=clipboard

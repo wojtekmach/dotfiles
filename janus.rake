@@ -1,8 +1,0 @@
-vim_plugin_task "vim-slim", "git://github.com/bbommarito/vim-slim.git"
-vim_plugin_task "tabular", "git://github.com/godlygeek/tabular.git"
-vim_plugin_task "vim-bundler", "git://github.com/tpope/vim-bundler.git"
-vim_plugin_task "vim-rake", "git://github.com/tpope/vim-rake.git"
-vim_plugin_task "vim-reload", "git://github.com/xolox/vim-reload.git"
-vim_plugin_task "vim-liquid", "git://github.com/tpope/vim-liquid.git"
-vim_plugin_task "go.vim", "git://github.com/anzaika/go.vim.git"
-vim_plugin_task "camelcasemotion", "git://github.com/vim-scripts/camelcasemotion.git"

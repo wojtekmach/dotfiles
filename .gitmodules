@@ -1,0 +1,66 @@
+[submodule "vim/bundle/vim-slim"]
+	path = vim/bundle/vim-slim
+	url = git://github.com/bbommarito/vim-slim.git
+[submodule "vim/bundle/vim-tabular"]
+	path = vim/bundle/vim-tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/vim-rake"]
+	path = vim/bundle/vim-rake
+	url = git://github.com/tpope/vim-rake.git
+[submodule "vim/bundle/camelcasemotion"]
+	path = vim/bundle/camelcasemotion
+	url = git://github.com/vim-scripts/camelcasemotion.git
+[submodule "vim/bundle/vim-surround"]
+	path = vim/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "vim/bundle/vim-commentary"]
+	path = vim/bundle/vim-commentary
+	url = git://github.com/tpope/vim-commentary.git
+[submodule "vim/bundle/vim-haml"]
+	path = vim/bundle/vim-haml
+	url = git://github.com/tpope/vim-haml.git
+[submodule "vim/bundle/vim-git"]
+	path = vim/bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
+[submodule "vim/bundle/vim-cucumber"]
+	path = vim/bundle/vim-cucumber
+	url = git://github.com/tpope/vim-cucumber.git
+[submodule "vim/bundle/vim-rails"]
+	path = vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/vim-fugitive"]
+	path = vim/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/vim-rename"]
+	path = vim/bundle/vim-rename
+	url = git://github.com/tpope/vim-rename.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "vim/bundle/vim-unimpaired"]
+	path = vim/bundle/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vim/bundle/vim-rvm"]
+	path = vim/bundle/vim-rvm
+	url = git://github.com/tpope/vim-rvm.git
+[submodule "vim/bundle/vim-endwise"]
+	path = vim/bundle/vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
+[submodule "vim/bundle/vim-speeddating"]
+	path = vim/bundle/vim-speeddating
+	url = git://github.com/tpope/vim-speeddating.git
+[submodule "vim/bundle/vim-bundler"]
+	path = vim/bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
+[submodule "vim/bundle/vim-colors-twilight"]
+	path = vim/bundle/vim-colors-twilight
+	url = git://github.com/matthewtodd/vim-twilight.git
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/ZoomWin"]
+	path = vim/bundle/ZoomWin
+	url = git://github.com/vim-scripts/ZoomWin.git
+[submodule "vim/bundle/change-inside-surroundings.vim"]
+	path = vim/bundle/change-inside-surroundings.vim
+	url = git://github.com/briandoll/change-inside-surroundings.vim.git
