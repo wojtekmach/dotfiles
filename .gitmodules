@@ -52,9 +52,6 @@
 [submodule "vim/bundle/vim-bundler"]
 	path = vim/bundle/vim-bundler
 	url = git://github.com/tpope/vim-bundler.git
-[submodule "vim/bundle/vim-colors-twilight"]
-	path = vim/bundle/vim-colors-twilight
-	url = git://github.com/matthewtodd/vim-twilight.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
@@ -64,3 +61,9 @@
 [submodule "vim/bundle/change-inside-surroundings.vim"]
 	path = vim/bundle/change-inside-surroundings.vim
 	url = git://github.com/briandoll/change-inside-surroundings.vim.git
+[submodule "vim/bundle/vim-colors-twilight"]
+	path = vim/bundle/vim-colors-twilight
+	url = git://github.com/scottymoon/vim-twilight.git
+[submodule "vim/bundle/vim-repeat"]
+	path = vim/bundle/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
