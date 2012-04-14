@@ -31,9 +31,6 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/vim-rename"]
-	path = vim/bundle/vim-rename
-	url = git://github.com/tpope/vim-rename.git
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
 	url = git://github.com/tpope/vim-markdown.git
@@ -67,3 +64,6 @@
 [submodule "vim/bundle/vim-repeat"]
 	path = vim/bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
+[submodule "vim/bundle/vim-rename"]
+	path = vim/bundle/vim-rename
+	url = git://github.com/wojtekmach/vim-rename.git
