@@ -67,3 +67,9 @@
 [submodule "vim/bundle/vim-rename"]
 	path = vim/bundle/vim-rename
 	url = git://github.com/wojtekmach/vim-rename.git
+[submodule "bundle/vim/vim-eunuch"]
+	path = bundle/vim/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
+[submodule "vim/bundle/vim-eunuch"]
+	path = vim/bundle/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch
