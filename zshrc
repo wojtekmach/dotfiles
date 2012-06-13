@@ -36,5 +36,3 @@ set -o vi
 if [ -f $HOME/.zshrc.local ]; then
   source $HOME/.zshrc.local
 fi
-
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then source $HOME/.rvm/scripts/rvm ; fi

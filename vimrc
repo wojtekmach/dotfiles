@@ -212,3 +212,9 @@ map <Leader>9 9gt
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+autocmd User Rails Rnavcommand fabricator spec/fabricators -suffix=_fabricator.rb -default=model()
+autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -default=model()
+autocmd User Rails Rnavcommand context app/contexts -suffix=.rb -default=model()
+autocmd User Rails Rnavcommand role app/roles -suffix=.rb -default=model()
+autocmd User Rails Rnavcommand job app/jobs -suffix=.rb -default=model()

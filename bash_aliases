@@ -30,6 +30,7 @@ alias e="vim"
 alias 9="kill -9"
 alias cl=clear
 alias irbc="irb -r irb/completion"
+alias xargs="xargs "
 
 alias ls="ls -CFG"
 alias lsh="ls -l --human-readable"

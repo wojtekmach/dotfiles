@@ -73,3 +73,9 @@
 [submodule "vim/bundle/vim-eunuch"]
 	path = vim/bundle/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch
+[submodule "vim/bundle/vim-textile"]
+	path = vim/bundle/vim-textile
+	url = git://github.com/timcharper/textile.vim.git
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = git://github.com/kien/ctrlp.vim.git
