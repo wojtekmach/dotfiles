@@ -79,3 +79,21 @@
 [submodule "vim/bundle/ctrlp.vim"]
 	path = vim/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/vim-twilight"]
+	path = vim/bundle/vim-twilight
+	url = git://github.com/matthewtodd/vim-twilight.git
+[submodule "vim/bundle/vim-symbols-strings"]
+	path = vim/bundle/vim-symbols-strings
+	url = git://github.com/rorymckinley/vim-symbols-strings.git
+[submodule "vim/bundle/vim-greplace"]
+	path = vim/bundle/vim-greplace
+	url = git://github.com/vim-scripts/greplace.vim.git
+[submodule "vim/bundle/ack.vim"]
+	path = vim/bundle/ack.vim
+	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/vim-preview"]
+	path = vim/bundle/vim-preview
+	url = git://github.com/greyblake/vim-preview.git
+[submodule "vim/bundle/VimClojure"]
+	path = vim/bundle/VimClojure
+	url = git://github.com/vim-scripts/VimClojure.git

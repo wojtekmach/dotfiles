@@ -23,7 +23,7 @@ alias rc="bundle exec rails console"
 
 # utils
 alias tf="tail -f"
-alias c="cd"
+alias c="cd -P"
 alias ..="cd .."
 alias v="vim"
 alias e="vim"
@@ -39,3 +39,5 @@ alias cb=clipboard
 alias unrare="unrar e -kb -o+"
 alias mount.iso="mount -t iso9660 -o loop"
 alias l=ls
+
+alias frspec="FAST_SPEC=1 rspec"

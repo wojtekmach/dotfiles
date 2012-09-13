@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+ARGV[0].to_i.times { system ARGV[1..-1].join ' ' }

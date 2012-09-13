@@ -208,6 +208,8 @@ map <Leader>7 7gt
 map <Leader>8 8gt
 map <Leader>9 9gt
 
+set colorcolumn=83
+
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
@@ -218,3 +220,6 @@ autocmd User Rails Rnavcommand factory spec/factories -suffix=_factory.rb -defau
 autocmd User Rails Rnavcommand context app/contexts -suffix=.rb -default=model()
 autocmd User Rails Rnavcommand role app/roles -suffix=.rb -default=model()
 autocmd User Rails Rnavcommand job app/jobs -suffix=.rb -default=model()
+autocmd User Rails Rnavcommand uploader app/uploaders -suffix=_uploader.rb -default=model()
+autocmd User Rails Rnavcommand repository app/repositories -suffix=_repository.rb -default=model()
+autocmd User Rails Rnavcommand data app/data -suffix=.rb -default=model()

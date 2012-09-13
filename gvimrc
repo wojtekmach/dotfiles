@@ -78,11 +78,11 @@ function StartTerm()
 endfunction
 
 " Project Tree
-if exists("loaded_nerd_tree")
-  autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
-  autocmd FocusGained * call s:UpdateNERDTree()
-  autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
-endif
+" if exists("loaded_nerd_tree")
+"   autocmd VimEnter * call s:CdIfDirectory(expand("<amatch>"))
+"   autocmd FocusGained * call s:UpdateNERDTree()
+"   autocmd WinEnter * call s:CloseIfOnlyNerdTreeLeft()
+" endif
 
 " Close all open buffers on entering a window if the only
 " buffer that's left is the NERDTree buffer
@@ -206,7 +206,7 @@ if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
 
-"colorscheme twilight
+colorscheme Twilight
 set guioptions-=r
 set guioptions-=L
-set guifont=Menlo:h13
+set guifont=Menlo:h14
