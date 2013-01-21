@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -f $PWD/zeus.json ]; then
+    zeus console $@
+else
+    bundle exec rails console $@
+fi

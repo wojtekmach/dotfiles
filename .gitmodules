@@ -97,3 +97,6 @@
 [submodule "vim/bundle/VimClojure"]
 	path = vim/bundle/VimClojure
 	url = git://github.com/vim-scripts/VimClojure.git
+[submodule "vim/bundle/command-t"]
+	path = vim/bundle/command-t
+	url = git://git.wincent.com/command-t.git

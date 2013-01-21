@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ -f $PWD/zeus.json ]; then
+    zeus rake $@
+elif [ -f $PWD/Gemfile ]; then
+    bundle exec rake $@
+else
+    rake $@
+fi

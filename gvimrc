@@ -206,7 +206,7 @@ if filereadable(expand("~/.gvimrc.local"))
   source ~/.gvimrc.local
 endif
 
-colorscheme Twilight
+"colorscheme Twilight
 set guioptions-=r
 set guioptions-=L
 set guifont=Menlo:h14

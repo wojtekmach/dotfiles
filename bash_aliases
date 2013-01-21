@@ -1,25 +1,22 @@
 # git
 alias g="git"
 alias gs="git status"
-alias gl="git log --color"
+alias gl="git l"
 alias gd="git diff --color"
-alias gdh="git diff --color HEAD"
-alias gc="git commit"
-alias gm="git commit -m"
+alias gdh="git diff --color --cached"
+alias gdc="git diff --cached"
+alias gc="git commit -S"
+alias gm="gs -m"
 alias gb="git branch"
 
-# ruby
-alias r="rake"
-
 # rails
-alias t="touch tmp/restart.txt"
+alias tt="touch tmp/restart.txt"
 alias tfd="tail -f log/development.log"
 alias tft="tail -f log/test.log"
 alias tfp="tail -f log/production.log"
 alias be="bundle exec"
 alias bers="bundle exec rspec"
 alias rt="ruby -Itest"
-alias rc="bundle exec rails console"
 
 # utils
 alias tf="tail -f"
@@ -40,4 +37,6 @@ alias unrare="unrar e -kb -o+"
 alias mount.iso="mount -t iso9660 -o loop"
 alias l=ls
 
+alias time="time "
 alias frspec="FAST_SPEC=1 rspec"
+alias pyg=pygmentize

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -f "$PWD/script/test" ]; then
+    $PWD/script/test $*
+else
+    if [ -d $PWD/spec ]; then
+        CMD="rspec --color"
+    else
+        CMD="testrb -Itest"
+    fi
+
+    if [ -f $PWD/zeus.json ]; then
+        zeus $CMD $@
+    else
+        $CMD $@
+    fi
+fi

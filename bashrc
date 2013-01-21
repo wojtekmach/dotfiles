@@ -27,8 +27,8 @@ fi
 source ~/.bash_completion.d/*
 source ~/.bashrc.local
 
-export PATH="$HOME/.bin:$HOME/.usr/bin:$PATH:/usr/local/sbin"
-export PATH="$PATH:/usr/texbin:$HOME/Documents/Dev/vendor/julia/julia-c031eb03b7/bin/"
+export PATH="$HOME/.bin:$HOME/.usr/bin:/usr/local/sbin:$PATH"
+export PATH="$PATH:/usr/texbin"
 export NODE_PATH="/usr/local/lib/node_modules"
 #export PATH="$HOME/.rbenv/bin:$PATH"
 #export PATH="$HOME/.rbenv/shims:$PATH"
@@ -37,7 +37,15 @@ export NODE_PATH="/usr/local/lib/node_modules"
 export PS1="\$(wdalias)\$(parse_git_branch)% "
 export EDITOR="mvim"
 
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 set -o vi
 [[ -s "/Users/wojtek/.rvm/scripts/rvm" ]] && source "/Users/wojtek/.rvm/scripts/rvm"
 
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+export GREP_OPTIONS="--color"
