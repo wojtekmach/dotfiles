@@ -229,6 +229,8 @@ autocmd User Rails Rnavcommand data app/data -suffix=.rb -default=model()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>t :call RunTestFile()<cr>
 map <leader>T :call RunNearestTest()<cr>
+nnoremap t :call RunTestFile()<cr>
+nnoremap T :call RunTestFile()<cr>
 map <leader>a :call RunTests('')<cr>
 map <leader>c :w\|:!script/features<cr>
 map <leader>w :w\|:!script/features --profile wip<cr>
@@ -269,10 +271,16 @@ function! RunTests(filename)
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
+
     if match(a:filename, '\.feature$') != -1
         exec ":!script/features " . a:filename
     elseif match(a:filename, '_test\.rb$') != -1
-        exec ":!ruby -Itest " . a:filename
+        if filereadable("script/test")
+            exec ":!script/test " . a:filename
+        else
+            exec ":!ruby -Itest " . a:filename
+        end
     else
         if filereadable("script/test")
             exec ":!script/test " . a:filename
