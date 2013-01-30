@@ -9,7 +9,7 @@ else
         CMD="testrb -Itest"
     fi
 
-    if [ -f $PWD/zeus.json ]; then
+    if [ $(pidof zeus | wc -w) -gt 0 ]; then
         zeus $CMD $@
     else
         $CMD $@
