@@ -1,3 +1,10 @@
+# cd aliases
+alias code="cd $HOME/Code"
+alias vendor="cd $HOME/Code/vendor"
+alias dotfiles="cd $HOME/Code/vendor/dotfiles"
+alias vendor-rails="cd $HOME/Code/vendor/rails"
+alias vendor-ruby="cd $HOME/Code/vendor/ruby"
+
 # git
 alias g="git"
 alias gs="git status"
