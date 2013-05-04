@@ -2,6 +2,8 @@
 
 if [ -f "$PWD/script/test" ]; then
     $PWD/script/test $*
+elif [ -f "$PWD/tmp/test" ]; then
+    $PWD/tmp/test $*
 else
     if [ -d $PWD/spec ]; then
         CMD="rspec --color"
