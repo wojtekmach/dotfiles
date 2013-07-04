@@ -1,0 +1,40 @@
+#!/bin/sh -e
+#/ Usage: powctl [on|off]
+#/ Toggle between running Pow (http://pow.cx) and Apache on Mac OS X.
+
+# Show Usage
+function usage {
+    grep '^#/' "$0" | cut -c4-
+    exit 2
+}
+[ -z "$1" -o "$1" = "--help" ] && usage
+
+# Fail fast if we're on OS X
+if [ "$(uname -s)" != "Darwin" ]; then
+    echo "You're not on OS X, so methinks you're not running Pow." 1>&2
+    exit 1
+fi
+
+POWD_LAUNCHAGENT="$HOME/Library/LaunchAgents/cx.pow.powd.plist"
+POW_FIREWALL_LAUNCHDAEMON="/Library/LaunchDaemons/cx.pow.firewall.plist"
+# APACHE_LAUNCHDAEMON="/System/Library/LaunchDaemons/org.apache.httpd.plist"
+
+# Quick and dirty. Feel free to contribute nicer error handling, etc.
+toggle="$1"
+case "$toggle" in
+    'on')
+        # sudo launchctl unload $APACHE_LAUNCHDAEMON
+        sudo launchctl load $POW_FIREWALL_LAUNCHDAEMON
+        launchctl load $POWD_LAUNCHAGENT && launchctl list | grep pow
+        ;;
+    'off')
+        launchctl unload $POWD_LAUNCHAGENT
+        sudo launchctl unload $POW_FIREWALL_LAUNCHDAEMON
+        sudo ipfw show | grep ",20559 .* dst-port 80 in" | cut -d' ' -f1 | xargs sudo ipfw delete
+        # sudo launchctl load $APACHE_LAUNCHDAEMON &&
+        #   sudo launchctl list | grep apache
+        ;;
+    *)
+        usage
+        ;;
+esac

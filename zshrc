@@ -21,3 +21,5 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 rvm use 1.9.3-p194 &> /dev/null
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

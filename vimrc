@@ -220,3 +220,22 @@ augroup myvimrc
 augroup END
 
 set number
+
+inoremap <C-s> <esc>:w<cr>a
+nnoremap <C-s> :w<cr>a
+imap <F2> <esc>:w<CR>
+nmap <F2> :w<CR>
+
+function! RunThis()
+  :map t :w\|:exec '!ruby -Ilib -Itest %'<CR>
+endfunction
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap R :w\|:exec '!rake'<CR>
+
+function! RspecSyntax()
+  syn keyword rubyClass describe context it its specify shared_examples_for it_should_behave_like
+endfunction

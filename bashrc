@@ -32,6 +32,7 @@ export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.usr/bin:$PATH"
+export PATH="$HOME/Code/vendor/mruby/bin:$PATH"
 
 export PS1="\$(wdalias)\$(parse_git_branch)% "
 export EDITOR="vim"
@@ -50,7 +51,24 @@ export GREP_OPTIONS="--color"
 # vi
 
 set -o vi
+stty -ixon
 
 # rvm
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# export PATH="/Users/wojtek/.sm/bin:/Users/wojtek/.sm/pkg/active/bin:$PATH"
+ export PATH="${PATH}:/Users/wojtek/.sm/bin:/Users/wojtek/.sm/pkg/active/bin:/Users/wojtek/.sm/pkg/active/sbin"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# BEGIN Ruboto PATH setup
+export ANDROID_HOME="/Users/wojtek/android-sdk-macosx"
+export PATH="/Users/wojtek/android-sdk-macosx/tools:$PATH"
+export PATH="/Users/wojtek/android-sdk-macosx/platform-tools:$PATH"
+export PATH="/Users/wojtek/android-sdk-macosx/build-tools/17.0.0:$PATH"
+# END Ruboto PATH setup
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# export TOKAIDO_TMPDIR="/tmp/tokaido"

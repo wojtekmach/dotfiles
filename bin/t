@@ -1,19 +1,27 @@
 #!/bin/bash
 
-if [ -f "$PWD/script/test" ]; then
-    $PWD/script/test $*
-elif [ -f "$PWD/tmp/test" ]; then
-    $PWD/tmp/test $*
+if [ -f "$PWD/tmp/test" ]; then
+  $PWD/tmp/test $*
 else
-    if [ -d $PWD/spec ]; then
-        CMD="rspec --color"
-    else
-        CMD="testrb -Itest"
-    fi
+  if [ -d $PWD/spec ]; then
+    framework=rspec
+  else
+    framework=minitest
+  fi
 
-    if [ $(pidof zeus | wc -w) -gt 0 ]; then
-        zeus $CMD $@
+  if [ -S .zeus.sock ]; then
+    zeus test $@
+  elif which -s spring; then
+    if [ $framework == rspec ]; then
+      spring rspec $@
     else
-        $CMD $@
+      sprint testunit $@
     fi
+  else
+    if [ $framework == rspec ]; then
+      rspec $@
+    else
+      ruby -Ilib -Itest $@
+    fi
+  fi
 fi
