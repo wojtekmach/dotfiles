@@ -1,12 +1,18 @@
 #!/bin/bash
 
 if [ -f "$PWD/tmp/test" ]; then
-  $PWD/tmp/test $*
+  $PWD/tmp/test $@
 else
   if [ -d $PWD/spec ]; then
     framework=rspec
   else
     framework=minitest
+
+    if [ "$@" ]; then
+      files=$@
+    else
+      files="test/**/*_test.rb"
+    fi
   fi
 
   if [ -S .zeus.sock ]; then
@@ -15,13 +21,13 @@ else
     if [ $framework == rspec ]; then
       spring rspec $@
     else
-      sprint testunit $@
+      sprint testunit $files
     fi
   else
     if [ $framework == rspec ]; then
       rspec $@
     else
-      ruby -Ilib -Itest $@
+      ruby -Ilib -Itest $files
     fi
   fi
 fi
