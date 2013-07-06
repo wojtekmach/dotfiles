@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ "$1" == "" ]; then
+  echo "Usage: each COMMAND [arg1, ...]"
+  exit 1
+fi
+
+while read i; do
+  $1 $i
+done
