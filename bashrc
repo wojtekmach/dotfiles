@@ -56,8 +56,6 @@ stty -ixon
 # rvm
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-# export PATH="/Users/wojtek/.sm/bin:/Users/wojtek/.sm/pkg/active/bin:$PATH"
- export PATH="${PATH}:/Users/wojtek/.sm/bin:/Users/wojtek/.sm/pkg/active/bin:/Users/wojtek/.sm/pkg/active/sbin"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
