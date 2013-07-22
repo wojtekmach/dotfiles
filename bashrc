@@ -55,19 +55,23 @@ stty -ixon
 
 # rvm
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# BEGIN Ruboto PATH setup
-export ANDROID_HOME="/Users/wojtek/android-sdk-macosx"
-export PATH="/Users/wojtek/android-sdk-macosx/tools:$PATH"
-export PATH="/Users/wojtek/android-sdk-macosx/platform-tools:$PATH"
-export PATH="/Users/wojtek/android-sdk-macosx/build-tools/17.0.0:$PATH"
-export PATH="/Users/wojtek/.rvm/share/npm/bin:$PATH"
-# END Ruboto PATH setup
+# # BEGIN Ruboto PATH setup
+# export ANDROID_HOME="/Users/wojtek/android-sdk-macosx"
+# export PATH="/Users/wojtek/android-sdk-macosx/tools:$PATH"
+# export PATH="/Users/wojtek/android-sdk-macosx/platform-tools:$PATH"
+# export PATH="/Users/wojtek/android-sdk-macosx/build-tools/17.0.0:$PATH"
+# export PATH="/Users/wojtek/.rvm/share/npm/bin:$PATH"
+# # END Ruboto PATH setup
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# export TOKAIDO_TMPDIR="/tmp/tokaido"
+export PATH="$HOME/.homebrew/bin:$PATH"
+
+source $HOME/.homebrew/share/chruby/chruby.sh
+source $HOME/.homebrew/share/chruby/auto.sh
+chruby 2.0
+
+export LD_INCLUDE_PATH=$HOME/.homebrew/include:$LD_INCLUDE_PATH
