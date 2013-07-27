@@ -17,6 +17,10 @@ alias gdc="git diff --cached"
 alias gc="git commit --verbose"
 alias gm="gs -m"
 alias gb="git branch"
+alias ga="git add"
+alias gap="git add -p"
+alias gaa="git add --all"
+alias gaap="git add --all -p"
 
 # rails
 alias tt="touch tmp/restart.txt"
