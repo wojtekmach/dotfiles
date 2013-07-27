@@ -75,3 +75,5 @@ source $HOME/.homebrew/share/chruby/auto.sh
 chruby 2.0
 
 export LD_INCLUDE_PATH=$HOME/.homebrew/include:$LD_INCLUDE_PATH
+
+PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
