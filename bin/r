@@ -2,6 +2,8 @@
 
 if [ -S .zeus.sock ]; then
     zeus rake $@
+elif [ -d $PWD/tmp/spring ]; then
+    spring rake
 elif [ -f $PWD/Gemfile ]; then
     bundle exec rake $@
 else

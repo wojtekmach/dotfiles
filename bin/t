@@ -21,7 +21,7 @@ else
     if [ $framework == rspec ]; then
       spring rspec $@
     else
-      sprint testunit $files
+      spring testunit $files
     fi
   else
     if [ $framework == rspec ]; then
