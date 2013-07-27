@@ -14,7 +14,7 @@ alias gdw="git diff --color --word-diff=color"
 alias gdh="git diff --color --cached"
 alias gdhw="gdh --word-diff=color"
 alias gdc="git diff --cached"
-alias commit="git commit -S --verbose"
+alias commit="git commit --verbose"
 alias gm="gs -m"
 alias gb="git branch"
 
