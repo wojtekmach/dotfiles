@@ -76,7 +76,7 @@ elif [ -d /usr/local/Cellar ]; then
   export HOMEBREW_ROOT=/usr/local
 fi
 
-if [ -v HOMEBREW_ROOT ]; then
+if [ -n "$HOMEBREW_ROOT" ]; then
   export PATH="$HOMEBREW_ROOT/bin:$PATH"
 
   # chruby
