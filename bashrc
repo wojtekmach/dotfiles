@@ -62,7 +62,7 @@ stty -ixon
 # export PATH="/Users/wojtek/android-sdk-macosx/tools:$PATH"
 # export PATH="/Users/wojtek/android-sdk-macosx/platform-tools:$PATH"
 # export PATH="/Users/wojtek/android-sdk-macosx/build-tools/17.0.0:$PATH"
-# export PATH="/Users/wojtek/.rvm/share/npm/bin:$PATH"
+export PATH="/Users/wojtek/.rvm/share/npm/bin:$PATH"
 # # END Ruboto PATH setup
 
 ### Added by the Heroku Toolbelt
