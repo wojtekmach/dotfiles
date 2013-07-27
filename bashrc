@@ -55,24 +55,42 @@ stty -ixon
 
 # rvm
 
-# PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+function use_rvm() {
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+}
 
-# # BEGIN Ruboto PATH setup
+# ruboto
+
 # export ANDROID_HOME="/Users/wojtek/android-sdk-macosx"
 # export PATH="/Users/wojtek/android-sdk-macosx/tools:$PATH"
 # export PATH="/Users/wojtek/android-sdk-macosx/platform-tools:$PATH"
 # export PATH="/Users/wojtek/android-sdk-macosx/build-tools/17.0.0:$PATH"
-export PATH="/Users/wojtek/.rvm/share/npm/bin:$PATH"
 # # END Ruboto PATH setup
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-export PATH="$HOME/.homebrew/bin:$PATH"
+if [ -d $HOME/.homebrew/Cellar ]; then
+  export HOMEBREW_ROOT=$HOME/.homebrew
+elif [ -d /usr/local/Cellar ]; then
+  export HOMEBREW_ROOT=/usr/local
+fi
 
-source $HOME/.homebrew/share/chruby/chruby.sh
-source $HOME/.homebrew/share/chruby/auto.sh
-chruby 2.0
+if [ -v HOMEBREW_ROOT ]; then
+  export PATH="$HOMEBREW_ROOT/bin:$PATH"
+
+  # chruby
+
+  if [ -d $HOMEBREW_ROOT/share/chruby ]; then
+    source $HOME/.homebrew/share/chruby/chruby.sh
+    source $HOME/.homebrew/share/chruby/auto.sh
+    chruby 2.0
+  else
+    use_rvm
+  fi
+else
+  use_rvm
+fi
 
 export LD_INCLUDE_PATH=$HOME/.homebrew/include:$LD_INCLUDE_PATH
 
