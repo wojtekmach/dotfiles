@@ -36,7 +36,7 @@ export PATH="$HOME/Code/vendor/mruby/bin:$PATH"
 
 export PS1="\$(wdalias)\$(parse_git_branch)% "
 export EDITOR="vim"
-which -s mvim && export EDITOR="mvim"
+which mvim > /dev/null && export EDITOR="mvim"
 
 # enable color support of ls
 
