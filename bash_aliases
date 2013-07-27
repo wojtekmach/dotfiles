@@ -29,7 +29,6 @@ alias rt="ruby -Itest"
 
 # utils
 alias tf="tail -f"
-alias c="cd -P"
 alias ..="cd .."
 alias v="vim"
 alias e="vim"
