@@ -239,3 +239,5 @@ nnoremap <leader>r :w\|:exec '!rake'<CR>
 function! RspecSyntax()
   syn keyword rubyClass describe context it its specify shared_examples_for it_should_behave_like
 endfunction
+
+nnoremap <leader>r :w\|:exec '!r'<CR>
