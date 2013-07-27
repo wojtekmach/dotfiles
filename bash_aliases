@@ -43,7 +43,6 @@ alias lss="du -sh"
 alias cb=clipboard
 alias unrare="unrar e -kb -o+"
 alias mount.iso="mount -t iso9660 -o loop"
-alias l=ls
 
 alias time="time "
 alias frspec="FAST_SPEC=1 rspec"
