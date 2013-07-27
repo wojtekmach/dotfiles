@@ -53,6 +53,9 @@ export GREP_OPTIONS="--color"
 set -o vi
 stty -ixon
 
+# ctags
+export CTAGS="-f .tags"
+
 # rvm
 
 function use_rvm() {
