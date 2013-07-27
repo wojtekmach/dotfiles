@@ -103,3 +103,6 @@
 [submodule "vim/bundle/vim-copy-as-rtf"]
 	path = vim/bundle/vim-copy-as-rtf
 	url = git://github.com/zerowidth/vim-copy-as-rtf.git
+[submodule "vim/bundle/vim-golang"]
+	path = vim/bundle/vim-golang
+	url = git://github.com/jnwhiteh/vim-golang.git
