@@ -241,3 +241,5 @@ function! RspecSyntax()
 endfunction
 
 nnoremap <leader>r :w\|:exec '!r'<CR>
+
+set tags=./.tags,.tags
