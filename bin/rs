@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -S .zeus.sock ]; then
+    zeus server $@
+elif [ -d tmp/spring ]; then
+    spring rails server $@
+else
+    bundle exec rails server $@
+fi
