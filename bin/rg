@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ -S .zeus.sock ]; then
+    zeus generate $@
+elif [ -d tmp/spring ]; then
+    spring rails generate $@
+else
+    bundle exec rails generate $@
+fi
