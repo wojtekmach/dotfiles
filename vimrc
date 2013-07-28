@@ -242,3 +242,5 @@ endfunction
 
 nnoremap <leader>r :w\|:exec '!r'<CR>
 nnoremap <space> :noh<CR>
+
+set tags=./.tags,.tags

@@ -37,6 +37,7 @@ alias ..="cd .."
 alias v="vim"
 alias e="vim"
 alias 9="kill -9"
+alias p9="pkill -9 -f"
 alias cl=clear
 alias irbc="irb -r irb/completion"
 alias xargs="xargs "

@@ -53,6 +53,9 @@ export GREP_OPTIONS="--color"
 set -o vi
 stty -ixon
 
+# ctags
+export CTAGS="-f .tags"
+
 # rvm
 
 function use_rvm() {
@@ -76,7 +79,7 @@ elif [ -d /usr/local/Cellar ]; then
   export HOMEBREW_ROOT=/usr/local
 fi
 
-if [ -v HOMEBREW_ROOT ]; then
+if [ -n "$HOMEBREW_ROOT" ]; then
   export PATH="$HOMEBREW_ROOT/bin:$PATH"
 
   # chruby
