@@ -244,3 +244,5 @@ nnoremap <leader>r :w\|:exec '!r'<CR>
 nnoremap <space> :noh<CR>
 
 set tags=./.tags,.tags
+
+let g:ackprg = 'ag --nogroup --nocolor --column'
