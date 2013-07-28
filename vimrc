@@ -248,3 +248,6 @@ set tags=./.tags,.tags
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 autocmd BufWritePost *.rb silent exec '!ctags -R .'
+
+command! Plural execute "s/" . expand("<cword>") . "/" . rails#pluralize(expand("<cword>")) . "/" | execute "noh"
+command! Singular execute "s/" . expand("<cword>") . "/" . rails#singularize(expand("<cword>")) . "/" | execute "noh"
