@@ -247,4 +247,4 @@ set tags=./.tags,.tags
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-autocmd BufWritePost *.rb silent exec '!ctags -R .'
+autocmd BufWritePost *.rb silent exec '!test -f .tags && ctags -R .'
