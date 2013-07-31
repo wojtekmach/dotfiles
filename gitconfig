@@ -87,3 +87,5 @@
     tool = vimdiff
 [init]
 	templatedir = ~/.git_template
+[url "git://github.com/"]
+	insteadOf = gh:
