@@ -157,8 +157,8 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 map t :call RunTestFile()<cr>
 map T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!script/features<cr>
-map <leader>w :w\|:!script/features --profile wip<cr>
+map <leader>c :w\|:!c<cr>
+map <leader>w :w\|:!c --profile wip<cr>
 
 function! RunTestFile(...)
     if a:0
@@ -197,7 +197,7 @@ function! RunTests(filename)
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     if match(a:filename, '\.feature$') != -1
-        exec ":!script/features " . a:filename
+        exec ":!~/.bin/c " . a:filename
     else
         exec ":!~/.bin/t " . a:filename
     end
