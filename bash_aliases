@@ -21,6 +21,9 @@ alias ga="git add"
 alias gap="git add -p"
 alias gaa="git add --all"
 alias gaap="git add --all -p"
+alias push="git push"
+alias pull="git pull --ff-only"
+alias pullr="git pull --rebase"
 
 # rails
 alias tt="touch tmp/restart.txt"
