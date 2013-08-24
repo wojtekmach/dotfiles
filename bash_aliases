@@ -4,6 +4,9 @@ alias vendor="cd $HOME/Code/vendor"
 alias dotfiles="cd $HOME/Code/vendor/dotfiles"
 alias vendor-rails="cd $HOME/Code/vendor/rails"
 alias vendor-ruby="cd $HOME/Code/vendor/ruby"
+alias dropbox="cd $HOME/Documents/Dropbox"
+alias books="cd $HOME/Documents/Dropbox/Books"
+alias talks="cd $HOME/Documents/Dropbox/Talks"
 
 # git
 alias g="git"
