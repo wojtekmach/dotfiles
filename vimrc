@@ -157,7 +157,7 @@ nnoremap <leader>. :call OpenTestAlternate()<cr>
 map t :call RunTestFile()<cr>
 map T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('')<cr>
-map <leader>c :w\|:!c<cr>
+map <leader>cc :w\|:!c<cr>
 map <leader>w :w\|:!c --profile wip<cr>
 
 function! RunTestFile(...)
