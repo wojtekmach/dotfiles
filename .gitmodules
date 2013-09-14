@@ -106,3 +106,9 @@
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/vim-flavored-markdown"]
+	path = vim/bundle/vim-flavored-markdown
+	url = git://github.com/jtratner/vim-flavored-markdown.git
+[submodule "vim/bundle/vim-protobuf"]
+	path = vim/bundle/vim-protobuf
+	url = git@github.com:uarun/vim-protobuf.git
