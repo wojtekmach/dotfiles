@@ -240,7 +240,7 @@ function! RspecSyntax()
   syn keyword rubyClass describe context it its specify shared_examples_for it_should_behave_like
 endfunction
 
-nnoremap <leader>r :w\|:exec '!r'<CR>
+nnoremap <leader>r :wa\|:exec '!r'<CR>
 nnoremap <space> :noh<CR>
 
 set tags=./.tags,.tags
