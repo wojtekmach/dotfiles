@@ -80,7 +80,7 @@ elif [ -d /usr/local/Cellar ]; then
 fi
 
 if [ -n "$HOMEBREW_ROOT" ]; then
-  export PATH="$HOMEBREW_ROOT/bin:$PATH"
+  export PATH="$HOMEBREW_ROOT/bin:$HOMEBREW_ROOT/sbin:$PATH"
 
   # chruby
 
@@ -96,5 +96,6 @@ else
 fi
 
 export LD_INCLUDE_PATH=$HOME/.homebrew/include:$LD_INCLUDE_PATH
+export GOPATH=/Users/wojtek/.homebrew/Cellar/go/1.1
 
 PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
