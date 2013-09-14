@@ -248,3 +248,8 @@ set tags=./.tags,.tags
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
 autocmd BufWritePost *.rb silent exec '!test -f .tags && ctags -R .'
+
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
