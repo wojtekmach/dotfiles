@@ -1,0 +1,5 @@
+if [ -d $HOME/.homebrew/Cellar ]; then
+  export HOMEBREW_ROOT=$HOME/.homebrew
+elif [ -d /usr/local/Cellar ]; then
+  export HOMEBREW_ROOT=/usr/local
+fi
