@@ -24,6 +24,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.bin:$HOME/.usr/bin:$PATH"
 # prompt
 export PS1="\$(wdalias)\$(parse_git_branch)% "
 
+# ls
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+
 # vi
 export EDITOR="vim"
 which mvim > /dev/null && export EDITOR="mvim"
