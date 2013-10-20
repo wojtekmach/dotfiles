@@ -22,7 +22,7 @@ export LC_CTYPE=UTF-8
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.bin:$HOME/.usr/bin:$PATH"
 
 # prompt
-export PS1="\$(wdalias)\$(parse_git_branch)% "
+export PS1="\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
 
 # ls
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
@@ -36,4 +36,6 @@ stty -ixon
 # ctags
 export CTAGS="-f .tags"
 
-source $HOME/.bashrc.*
+for i in $HOME/.bashrc.*; do source $i ; done
+
+export PATH=$HOME/.rvm/bin:$PATH
