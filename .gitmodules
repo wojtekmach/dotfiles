@@ -109,3 +109,9 @@
 [submodule "vim/bundle/vim-abolish"]
 	path = vim/bundle/vim-abolish
 	url = git://github.com/tpope/vim-abolish.git
+[submodule "vim/bundle/vim-flavored-markdown"]
+	path = vim/bundle/vim-flavored-markdown
+	url = git://github.com/jtratner/vim-flavored-markdown.git
+[submodule "vim/bundle/vim-protobuf"]
+	path = vim/bundle/vim-protobuf
+	url = git@github.com:uarun/vim-protobuf.git

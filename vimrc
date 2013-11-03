@@ -240,7 +240,7 @@ function! RspecSyntax()
   syn keyword rubyClass describe context it its specify shared_examples_for it_should_behave_like
 endfunction
 
-nnoremap <leader>r :w\|:exec '!r'<CR>
+nnoremap <leader>r :wa\|:exec '!r'<CR>
 nnoremap <space> :noh<CR>
 
 set tags=./.tags,.tags
@@ -251,3 +251,8 @@ autocmd BufWritePost *.rb silent exec '!test -f .tags && ctags -R .'
 
 command! Plural execute "s/" . expand("<cword>") . "/" . rails#pluralize(expand("<cword>")) . "/" | execute "noh"
 command! Singular execute "s/" . expand("<cword>") . "/" . rails#singularize(expand("<cword>")) . "/" | execute "noh"
+
+augroup markdown
+  au!
+  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END

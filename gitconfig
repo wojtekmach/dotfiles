@@ -89,5 +89,5 @@
 	templatedir = ~/.git_template
 [url "git://github.com/"]
 	insteadOf = gh:
-[push]
-	default = simple
+; [push]
+; 	default = simple
