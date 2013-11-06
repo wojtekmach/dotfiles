@@ -36,7 +36,7 @@ stty -ixon
 # ctags
 export CTAGS="-f .tags"
 
-for i in $HOME/.bashrc.*; do source $i ; done
+for i in $HOME/.bashrc-*; do source $i ; done
 
 export PATH=$HOME/.rvm/bin:$PATH
 

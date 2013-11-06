@@ -59,3 +59,4 @@ alias mount.iso="mount -t iso9660 -o loop"
 alias time="time "
 alias frspec="FAST_SPEC=1 rspec"
 alias pyg=pygmentize
+alias catp=pygmentize
