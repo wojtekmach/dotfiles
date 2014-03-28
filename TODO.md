@@ -2,4 +2,5 @@
 - add note on discourse setup instructions about: `. /etc/profile.d/rvm.sh`
 - update docs abot secret token
 - add go support for `t`
-- put ~/ into git
+
+- [ ] put ~/ into git
