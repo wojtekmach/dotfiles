@@ -3,4 +3,4 @@
 - update docs abot secret token
 - add go support for `t`
 
-- [ ] put ~/ into git
+- put ~/ into git
