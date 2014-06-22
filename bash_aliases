@@ -60,3 +60,4 @@ alias time="time "
 alias frspec="FAST_SPEC=1 rspec"
 alias pyg=pygmentize
 alias catp=pygmentize
+alias ruby-httpd="ruby -run -ehttpd . -p8000"
