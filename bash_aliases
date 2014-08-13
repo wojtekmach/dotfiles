@@ -1,9 +1,9 @@
 # cd aliases
 alias code="cd $HOME/Code"
 alias vendor="cd $HOME/Code/vendor"
-alias dotfiles="cd $HOME/Code/vendor/dotfiles"
-alias vendor-rails="cd $HOME/Code/vendor/rails"
-alias vendor-ruby="cd $HOME/Code/vendor/ruby"
+alias dotfiles="cd $HOME/src/public/dotfiles"
+alias vendor-rails="cd $HOME/src/vendor/rails"
+alias vendor-ruby="cd $HOME/src/vendor/ruby"
 alias dropbox="cd $HOME/Documents/Dropbox"
 alias books="cd $HOME/Documents/Dropbox/Books"
 alias talks="cd $HOME/Documents/Dropbox/Talks"
@@ -28,6 +28,7 @@ alias push="git push"
 alias pull="git pull --ff-only"
 alias pullr="git pull --rebase"
 alias co="git checkout"
+alias changed-files="git diff-tree --no-commit-id --name-only -r "
 
 # rails
 alias tt="touch tmp/restart.txt"
@@ -61,3 +62,5 @@ alias frspec="FAST_SPEC=1 rspec"
 alias pyg=pygmentize
 alias catp=pygmentize
 alias ruby-httpd="ruby -run -ehttpd . -p8000"
+
+alias timestamp='date "+%Y-%m-%d-%H:%M:%S"'
