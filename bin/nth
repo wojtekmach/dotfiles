@@ -1,0 +1,23 @@
+#!/bin/sh
+
+function usage {
+  echo "Usage: nth N [FILE]"
+}
+
+n=$1
+if [ "$n" == "" ]; then
+  usage
+  exit 1
+fi
+
+cmd="sed -n ${n},${n}p"
+
+if [ -t 1 ] ; then
+  $cmd 
+else
+  if [ "$2" == "" ]; then
+    usage
+    exit 1
+  fi
+  $cmd $2
+fi
