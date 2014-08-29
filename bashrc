@@ -39,6 +39,7 @@ export CTAGS="-f .tags"
 for i in $HOME/.bashrc-*; do source $i ; done
 
 export PATH=$HOME/.rvm/bin:$PATH
+export PATH=$GOPATH/bin:$PATH
 
 paths=`echo $HOME/opt/**/bin | sed 's/\s/\n/g'`
 for i in $paths; do
