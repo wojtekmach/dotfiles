@@ -30,7 +30,6 @@ export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 # vi
 export EDITOR="vim"
 which mvim > /dev/null && export EDITOR="mvim"
-set -o vi
 stty -ixon
 
 # ctags
@@ -45,3 +44,6 @@ paths=`echo $HOME/opt/**/bin | sed 's/\s/\n/g'`
 for i in $paths; do
   export PATH=$i:$PATH
 done
+
+export DOCKER_HOST=tcp://192.168.59.103:2375
+export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin/:$PATH"
