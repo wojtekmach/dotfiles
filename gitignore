@@ -8,3 +8,4 @@
 /.env
 /.tags
 /Procfile.local
+/.powenv
