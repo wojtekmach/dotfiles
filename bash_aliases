@@ -64,3 +64,4 @@ alias catp=pygmentize
 alias ruby-httpd="ruby -run -ehttpd . -p8000"
 
 alias timestamp='date "+%Y-%m-%d-%H:%M:%S"'
+alias sshconfigd='catd -dir ~/.ssh/config.d -file ~/ssh/config -once'
