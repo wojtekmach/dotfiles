@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -f "$PWD/tmp/t" ]; then
+if [ -x "$PWD/tmp/t" ]; then
   $PWD/tmp/t $@
 else
   if [ -d $PWD/spec ]; then
