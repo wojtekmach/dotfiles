@@ -35,9 +35,12 @@ stty -ixon
 # ctags
 export CTAGS="-f .tags"
 
+set -o emacs
+
 for i in $HOME/.bashrc-*; do source $i ; done
 
 export PATH=$HOME/.rvm/bin:$PATH
+export PATH=$HOME/opt/elixir/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 
 paths=`echo $HOME/opt/**/bin | sed 's/\s/\n/g'`
