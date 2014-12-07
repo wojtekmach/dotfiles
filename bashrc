@@ -49,4 +49,12 @@ for i in $paths; do
 done
 
 export DOCKER_HOST=tcp://192.168.59.103:2375
+export DOCKER_HOST=tcp://$(boot2docker ip 2> /dev/null):2375
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/wojtek/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin/:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
