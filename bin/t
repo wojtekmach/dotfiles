@@ -17,7 +17,7 @@ else
 
   if [ -S .zeus.sock ]; then
     zeus test $@
-  elif [ -d tmp/spring ]; then
+  elif [ -f tmp/spring ]; then
     if [ $framework == rspec ]; then
       spring rspec $@
     else
