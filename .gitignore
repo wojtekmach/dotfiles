@@ -1,3 +1,4 @@
 .*.sw*
 vim/backup
 vim/.netrwhist
+bin/exercism
