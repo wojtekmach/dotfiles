@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -name 'suma.txt' -exec cat {} \; | ruby -e 'puts STDIN.readlines.map(&:to_f).reduce(:+)'
