@@ -23,7 +23,6 @@ export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 
 # vi
 export EDITOR="vim"
-which mvim > /dev/null && export EDITOR="mvim"
 stty -ixon
 
 # ctags
