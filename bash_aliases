@@ -9,7 +9,7 @@ alias books="cd $HOME/Documents/Dropbox/Books"
 alias talks="cd $HOME/Documents/Dropbox/Talks"
 
 # git
-alias g="git"
+alias g="hub"
 alias gs="git status"
 alias gl="git l"
 alias gd="git diff --color"
