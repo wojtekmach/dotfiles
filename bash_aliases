@@ -1,7 +1,7 @@
 # cd aliases
 alias code="cd $HOME/Code"
 alias vendor="cd $HOME/Code/vendor"
-alias dotfiles="cd $HOME/src/public/dotfiles"
+alias dotfiles="cd $HOME/src/wojtekmach/dotfiles"
 alias vendor-rails="cd $HOME/src/vendor/rails"
 alias vendor-ruby="cd $HOME/src/vendor/ruby"
 alias dropbox="cd $HOME/Documents/Dropbox"
