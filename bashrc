@@ -56,7 +56,7 @@ source $HOME/.rvm/scripts/rvm
 export GOPATH=$HOME/src/go
 
 # PATH
-export PATH="/usr/local/bin:/usr/local/sbin:$HOME/.bin:$HOME/.usr/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.usr/bin:$PATH"
 export PATH=$HOME/.rvm/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin/:$PATH"
