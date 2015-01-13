@@ -197,9 +197,9 @@ function! RunTests(filename)
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
     if match(a:filename, '\.feature$') != -1
-        exec ":!~/.bin/c " . a:filename
+        exec ":!~/bin/c " . a:filename
     else
-        exec ":!~/.bin/t " . a:filename
+        exec ":!~/bin/t " . a:filename
     end
 endfunction
 
