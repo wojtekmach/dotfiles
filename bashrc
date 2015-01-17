@@ -65,3 +65,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 for i in `echo $HOME/opt/**/bin`; do
   export PATH=$i:$PATH
 done
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
