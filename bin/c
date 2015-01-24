@@ -1,7 +1,0 @@
-#!/bin/sh
-
-if [ -f .bin/cucumber ]; then
-  .bin/cucumber $@
-else
-  cucumber $@
-fi
