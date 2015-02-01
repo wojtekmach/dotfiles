@@ -208,6 +208,6 @@ augroup END
 cmap w!! w !sudo tee % >/dev/null
 
 " nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> t :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> t :wa\|:TestFile<CR>
+nmap <silent> <leader>a :wa\|:TestSuite<CR>
 " nmap <silent> tt :TestLast<CR>
