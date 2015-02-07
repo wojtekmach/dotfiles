@@ -1,7 +1,115 @@
-#!/bin/bash
+#!/usr/bin/env ruby
+require 'open-uri'
+require 'nokogiri'
+require 'time'
+require 'pathname'
+require 'logger'
 
-if [ "$1" == "logs" ]; then
-  tail -f ~/.meritum.log
-else
-  cat $HOME/.meritum/* | grep USD
-fi
+def main
+  @logger = Logger.new(STDERR)
+  @logger.formatter = proc { |severity, datetime, progname, msg|
+    "#{datetime} #{severity} #{msg}"
+  }
+
+  case ARGV[0]
+  when "fetch"
+    fetch
+  when "logs"
+    logs
+  when "launch-agent-xml"
+    puts launch_agent_xml
+  when "install-launch-agent"
+    install_launch_agent
+  else
+    show
+  end
+end
+
+def log_path
+  Pathname.new(ENV['HOME'] + "/.meritum.log")
+end
+
+def data_path
+  Pathname.new(ENV['HOME'] + "/.meritum")
+end
+
+def extract_time(doc)
+  m = doc.css(".curr-box-note").text.match(/(\d{1,2}\.\d{1,2}\.\d{4}).*?(\d{1,2}:\d{1,2})/)
+  Time.parse(m[1] + " " + m[2])
+end
+
+def parse_number(x)
+  "%.4f" % x.gsub(",", ".").to_f
+end
+
+def extract_rates(doc)
+  ary = doc.css("#currency_table td").map(&:text).each_slice(3).map { |currency, a, b|
+    [currency, [parse_number(a), parse_number(b)]]
+  }
+  Hash[ary]
+end
+
+def get_doc(uri)
+  html = open(uri).read
+  Nokogiri::HTML(html)
+end
+
+def fetch
+  uri = "http://meritumbank.pl/finanse_osobiste/e-kantor/e-kantor.html"
+  doc = get_doc(uri)
+  time = extract_time(doc)
+  rates = extract_rates(doc)
+
+  @logger.info "#{time.to_i} #{rates.inspect}"
+
+  save(time, rates)
+end
+
+def save(time, rates)
+  data_path.join(time.to_i.to_s).open "w" do |f|
+    f.puts rates.map { |currency, (a, b)| [currency, a, b].join(" ") }
+  end
+end
+
+def logs
+  system "tail -f #{log_path}"
+end
+
+def show
+  puts Dir.glob(data_path.join("*")).map { |f| File.readlines(f).grep(/USD/) }
+end
+
+def launch_agent_xml
+  <<-XML
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>pl.wojtekmach.meritum</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/env</string>
+        <string>ruby</string>
+        <string>/Users/wojtek/bin/meritum</string>
+    </array>
+    <key>StartInterval</key>
+    <integer>600</integer>
+    <key>StandardOutPath</key>
+    <string>#{log_path}</string>
+    <key>StandardErrorPath</key>
+    <string>#{log_path}</string>
+</dict>
+</plist>
+  XML
+end
+
+def install_launch_agent
+  path = Pathname.new(ENV['HOME'] + "/Library/LaunchAgents/meritum.plist")
+  path.open "w" do |f|
+    f.puts launch_agent_xml
+  end
+  system "launchctl load #{path}"
+end
+
+main
