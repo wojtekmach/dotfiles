@@ -91,3 +91,5 @@
 	insteadOf = gh:
 ; [push]
 ; 	default = simple
+[push]
+	default = simple
