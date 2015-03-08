@@ -41,6 +41,7 @@ alias bers="bundle exec rspec"
 alias rt="ruby -Itest"
 
 # utils
+alias rsetup="rake setup"
 alias tf="tail -f"
 alias ..="cd .."
 alias v="vim"
