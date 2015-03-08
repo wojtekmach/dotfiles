@@ -1,8 +1,10 @@
 source $HOME/.bashrc.local
 source $HOME/.bash_aliases
 source $HOME/.bash_aliases.local
-source $HOME/.bash_completion.d/*
+source $HOME/.bash_completion.d/*.sh
 source $HOME/.bash_functions
+
+complete -C $HOME/.bash_completion.d/rake_autocomplete.rb -o default rake
 
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
@@ -68,3 +70,10 @@ done
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+function pkill2() {
+  local pid
+  pid=$(ps ax | grep $1 | grep -v grep | awk '{ print $1 }')
+  kill -9 $pid
+  echo -n "Killed $1 (process $pid)"
+}
