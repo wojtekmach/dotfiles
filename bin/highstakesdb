@@ -1,0 +1,178 @@
+#!/usr/bin/env ruby
+require 'uri'
+require 'open-uri'
+require 'nokogiri'
+require 'pp'
+
+class CachedBackend
+  def initialize(backend)
+    @backend = backend
+  end
+
+  def result(path)
+    file = path.sub("/", "-")
+    file = Dir.glob(root + "/#{file}:*").last
+
+    if fresh?(file)
+      load(file)
+    else
+      file = path.sub("/", "-")
+      result = @backend.result(path)
+      save(file, result)
+      result
+    end
+  end
+
+  private
+
+  def root
+    ENV['HOME'] + "/.highstakesdb"
+  end
+
+  def fresh?(file)
+    if file
+      timestamp = file[-10..-1]
+      Time.now - Time.at(timestamp.to_i) < 30 * 60
+    end
+  end
+
+  def load(path)
+    File.read(path)
+  end
+
+  def save(path, result)
+    File.open(root + "/#{path}:#{Time.now.to_i.to_s}", "w") { |f|
+      f.write(result)
+    }
+  end
+end
+
+class Backend
+  def result(path)
+    uri = URI("http://www.highstakesdb.com#{path}")
+    open(uri).read
+  end
+end
+
+class LiveResults
+  Results = Struct.new :winners, :losers
+  Player = Struct.new :name, :site, :profit, :online
+
+  def self.run
+    def self.player_row(player)
+      online = player.online ? "online" : ""
+      "%s | %s | %s | %s" % [player.name.rjust(20), player.site.rjust(3), player.profit.rjust(9), online]
+    end
+
+    client = LiveResults.new(CachedBackend.new(Backend.new))
+    result = client.result
+
+    puts
+    puts "Winners".center(20 + 3 + 7 + 2*3)
+    puts
+    puts result.winners.take(10).map { |player| player_row(player) }
+
+    puts
+    puts "Losers".center(20 + 3 + 7 + 2*3)
+    puts
+    puts result.losers.take(10).map { |player| player_row(player) }
+  end
+
+  def initialize(backend)
+    @backend = backend
+  end
+
+  def result
+    html = @backend.result("/live-results.aspx")
+    doc = Nokogiri::HTML(html)
+    Results.new(winners(doc), losers(doc))
+  end
+
+  private
+
+  def winners(doc)
+    doc.css("#divwinners .WinnerCont").map { |node|
+      Player.new(name(node), site(node), profit(node), online?(node))
+    }
+  end
+
+  def losers(doc)
+    doc.css("#divlosers .LoserCont").map { |node|
+      Player.new(name(node), site(node), "-#{profit(node)}", online?(node))
+    }
+  end
+
+  def name(node)
+    node.css('.PlayerCont a').text.strip
+  end
+
+  def online?(node)
+    node.css('.PlayerCont sup').text.length > 0
+  end
+
+  def profit(node)
+    node.css('.ProfitCont').text
+  end
+
+  def site(node)
+    case node.css('.LogoCont img').attr('src').value
+    when /stars/
+      "PS"
+    else
+      "FTP"
+    end
+  end
+end
+
+class LiveTracking
+  Table = Struct.new :site, :game, :blinds
+
+  def self.run
+    client = new(CachedBackend.new(Backend.new))
+    client.result.each do |table|
+      puts "%s | %s | %s" % [table.game.rjust(20), table.blinds.rjust(10), table.site]
+    end
+  end
+
+  def initialize(backend)
+    @backend = backend
+  end
+
+  def result
+    html = @backend.result("/")
+    doc = Nokogiri::HTML(html)
+    doc.css(".LiveTableContainerLight").map { |node|
+      Table.new(site(node), game_type(node), blinds(node))
+    }
+  end
+
+  private
+
+  def site(node)
+    case node.css('img').attr('src').value
+    when /stars/
+      "PS"
+    else
+      "FTP"
+    end
+  end
+
+  def game_type(node)
+    node.css(".LiveTableGameType").text.strip
+  end
+
+  def blinds(node)
+    node.css(".LiveTableBlinds").text.strip
+  end
+end
+
+if $0 == __FILE__
+  case ARGV[0]
+  when 'live-results'
+    LiveResults.run
+  when 'live-tracking'
+    LiveTracking.run
+  else
+    LiveResults.run
+  end
+end
