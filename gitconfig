@@ -9,6 +9,7 @@
 [core]
   editor = vim
   excludesfile = ~/.gitignore
+	autocrlf = input
 
 ; [color]
 ;   branch = auto
