@@ -1,0 +1,2 @@
+#!/bin/bash
+cat <(echo) <(seq 2 8) | while read i; do rake db:migrate RAILS_ENV=test ENV_TEST_NUMBER=$i ; done
