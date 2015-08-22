@@ -4,6 +4,9 @@ source $HOME/.bash_aliases.local
 source $HOME/.bash_completion.d/*.sh
 source $HOME/.bash_functions
 
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home"
+export EC2_HOME="$HOME/opt/ec2-api-tools"
+
 complete -C $HOME/.bash_completion.d/rake_autocomplete.rb -o default rake
 
 if [ -f /etc/bash_completion ]; then
@@ -13,6 +16,9 @@ fi
 if [ -f /usr/local/etc/bash_completion ]; then
   . /usr/local/etc/bash_completion
 fi
+
+# SSL
+export SSL_CERT_FILE=$HOME/etc/cacert.pem
 
 # utf-8
 export LC_ALL=en_US.UTF-8
@@ -35,9 +41,7 @@ export PS1="\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
 set -o emacs
 
 ### Docker
-export DOCKER_HOST=tcp://192.168.59.103:2375
-export DOCKER_HOST=tcp://$(boot2docker ip 2> /dev/null):2375
-export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_HOST=tcp://$(boot2docker ip 2> /dev/null):2376
 export DOCKER_CERT_PATH=/Users/wojtek/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 

@@ -195,7 +195,7 @@ set tags=./.tags,.tags
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-autocmd BufWritePost *.rb silent exec '!test -f .tags && ctags -R .'
+autocmd BufWritePost *.rb silent exec '!test -f .tags && ctags -R --exclude=.git --exclude=node_modules --exclude=bower_components --exclude=dist --exclude=tmp .'
 
 command! Plural execute "s/" . expand("<cword>") . "/" . rails#pluralize(expand("<cword>")) . "/" | execute "noh"
 command! Singular execute "s/" . expand("<cword>") . "/" . rails#singularize(expand("<cword>")) . "/" | execute "noh"
@@ -211,3 +211,6 @@ cmap w!! w !sudo tee % >/dev/null
 nmap <silent> t :wa\|:TestFile<CR>
 nmap <silent> <leader>a :wa\|:TestSuite<CR>
 " nmap <silent> tt :TestLast<CR>
+
+command Setup :exec '!./bin/setup'
+command README :e README.md
