@@ -200,9 +200,6 @@ autocmd BufWritePost *.rb silent exec '!test -f .tags && ctags -R --exclude=.git
 command! Plural execute "s/" . expand("<cword>") . "/" . rails#pluralize(expand("<cword>")) . "/" | execute "noh"
 command! Singular execute "s/" . expand("<cword>") . "/" . rails#singularize(expand("<cword>")) . "/" | execute "noh"
 
-augroup markdown
-  au!
-  au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
 cmap w!! w !sudo tee % >/dev/null
@@ -214,3 +211,5 @@ nmap <silent> <leader>a :wa\|:TestSuite<CR>
 
 command Setup :exec '!./bin/setup'
 command README :e README.md
+
+let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
