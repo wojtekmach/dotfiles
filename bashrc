@@ -81,3 +81,6 @@ function pkill2() {
   kill -9 $pid
   echo -n "Killed $1 (process $pid)"
 }
+
+# added by travis gem
+[ -f /Users/wojtek/.travis/travis.sh ] && source /Users/wojtek/.travis/travis.sh
