@@ -210,6 +210,8 @@ nmap <silent> <leader>a :wa\|:TestSuite<CR>
 " nmap <silent> tt :TestLast<CR>
 
 command Setup :exec '!./bin/setup'
+command Seed :exec '!rake db:seed'
+command LiveReload :exec '!touch app/controllers/application_controller.rb'
 command README :e README.md
 
 let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml', 'html']
