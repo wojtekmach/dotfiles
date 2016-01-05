@@ -55,8 +55,7 @@ elif [ -d /usr/local/Cellar ]; then
   export HOMEBREW_ROOT=/usr/local
 fi
 
-# # Ruby
-# source $HOME/.rvm/scripts/rvm
+# Ruby
 source '/usr/local/share/chruby/chruby.sh'
 source '/usr/local/share/chruby/auto.sh'
 
@@ -65,7 +64,6 @@ export GOPATH=$HOME/src/go
 
 # PATH
 export PATH="/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.usr/bin:$PATH"
-# export PATH=$HOME/.rvm/bin:$PATH
 export PATH=$HOME/src/vendor/elixir/bin:$PATH
 export PATH=$GOPATH/bin:$PATH
 export PATH="/Applications/Postgres.app/Contents/Versions/9.4/bin/:$PATH"
