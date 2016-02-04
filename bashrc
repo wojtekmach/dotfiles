@@ -41,9 +41,10 @@ export PS1="\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
 set -o emacs
 
 ### Docker
-export DOCKER_HOST=tcp://$(boot2docker ip 2> /dev/null):2376
-export DOCKER_CERT_PATH=/Users/wojtek/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+DOCKER_HOST=tcp://192.168.99.100:2376
+DOCKER_MACHINE_NAME=default
+DOCKER_TLS_VERIFY=1
+DOCKER_CERT_PATH=/Users/wojtek/.docker/machine/machines/default
 
 # Node
 export NODE_PATH="/usr/local/lib/node_modules"

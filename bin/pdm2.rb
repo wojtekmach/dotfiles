@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# encoding: utf-8
 require "logger"
 require "nokogiri"
 
@@ -20,7 +19,10 @@ class PDM
     ids = text.split("\n").grep(/PHPSESSID/)
     @phpsessid = ids[1].match(/PHPSESSID=(.*?);/)[1]
     logger.debug("PHPSESSID: #{phpsessid}")
+    player_info
+  end
 
+  def player_info
     text = request("/main")
     unless text =~ /Your info/
       raise text.inspect
@@ -42,6 +44,11 @@ class PDM
     unless text =~ /And apparently they are free, well thats just great./
       raise text.inspect
     end
+  end
+
+  def set_health(percentage)
+    logger.info("set_health #{percentage}")
+    request("/redirect.php?percentage=#{percentage}&page=main")
   end
 
   def fight_by_name(name)
@@ -92,25 +99,37 @@ class PDM
   end
 end
 
-username = ARGV[0].strip
-op1 = ARGV[1].to_s.strip
-op2 = ARGV[2].to_s.strip
+if $0 == __FILE__
+  username = ARGV[0].strip
+  op1 = ARGV[1].to_s.strip
+  op2 = ARGV[2].to_s.strip
 
-pdm = PDM.new(username)
-pdm.logger.info [username, op1, op2].inspect
+  pdm = PDM.new(username)
+  pdm.logger.info [username, op1, op2].inspect
 
+  pdm.set_health(ENV["SET_HEALTH"]) if ENV["SET_HEALTH"]
 
-i = 0
-loop do
-  sleep Integer(ENV["SLEEP"]) if ENV["SLEEP"]
+  i = -1
+  loop do
+    i += 1
+    if ENV["SLEEP"]
+      seconds = Integer(ENV["SLEEP"])
+      pdm.logger.info "sleep: #{seconds}s"
+      sleep seconds
+    end
 
-  pdm.reset_health if (i % 5 == 0 && (ENV["RESET"] || ENV["RESET_ONLY"]) || ENV["RESET_ALWAYS"])
-  i += 1
-  next if ENV["RESET_ONLY"]
+    exit if ENV["N"] && Integer(ENV["N"]) == i
+    pdm.reset_health if ENV["RESET_ONLY"]
+    next if ENV["RESET_ONLY"]
 
-  pdm.logger.info "iteration: #{i}"
+    pdm.reset_health if (i % 5 == 0 && (ENV["RESET"] || ENV["RESET_ALWAYS"]))
 
-  pdm.fight_by_name(op1)
-  pdm.reset_health if ENV["RESET_ALWAYS"]
-  pdm.fight_by_name(op2)
+    pdm.player_info if i % 25 == 0
+
+    pdm.logger.info "iteration: #{i}"
+
+    pdm.fight_by_name(op1)
+    pdm.reset_health if ENV["RESET_ALWAYS"]
+    pdm.fight_by_name(op2)
+  end
 end
