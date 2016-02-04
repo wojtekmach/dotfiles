@@ -2,7 +2,6 @@ source $HOME/.bashrc.local
 source $HOME/.bash_aliases
 source $HOME/.bash_aliases.local
 source $HOME/.bash_completion.d/*.sh
-source $HOME/.bash_functions
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home"
 export EC2_HOME="$HOME/opt/ec2-api-tools"
@@ -37,6 +36,9 @@ stty -ixon
 export CTAGS="-f .tags"
 
 # bash
+function parse_git_branch {
+  cat .git/HEAD 2> /dev/null | grep ref: | sed 's/ref: refs\/heads\/\(.*\)/[\1]/'
+}
 export PS1="\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
 set -o emacs
 
