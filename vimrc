@@ -151,6 +151,36 @@ function! AlternateForCurrentFile()
 endfunction
 nnoremap <leader>. :call OpenTestAlternate()<cr>
 
+function! ExOpenTestAlternate()
+  let new_file = ExAlternateForCurrentFile()
+  exec ':e ' . new_file
+endfunction
+function! ExAlternateForCurrentFile()
+  let current_file = expand("%")
+  let new_file = current_file
+  let in_spec = match(current_file, '^test/') != -1
+  let going_to_spec = !in_spec
+  let in_web = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
+  if going_to_spec
+    if in_web
+      let new_file = substitute(new_file, '^web/', '', '')
+    end
+    let new_file = substitute(new_file, '^lib/', '', '')
+    let new_file = substitute(new_file, '\.ex$', '_test.exs', '')
+    let new_file = 'test/' . new_file
+  else
+    let new_file = substitute(new_file, '_test\.exs$', '.ex', '')
+    let new_file = substitute(new_file, '^test/', '', '')
+    if in_web
+      let new_file = 'web/' . new_file
+    else
+      let new_file = 'lib/' . new_file
+    end
+  endif
+  return new_file
+endfunction
+nnoremap <leader>, :call ExOpenTestAlternate()<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " InsertTime COMMAND
 " Insert the current time
