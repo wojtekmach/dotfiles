@@ -8,6 +8,7 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Hom
 export EC2_HOME="$HOME/opt/ec2-api-tools"
 
 complete -C $HOME/.bash_completion.d/rake_autocomplete.rb -o default rake
+source $HOME/.bash_completion.d/elixir_auto_complete.bash
 
 if [ -f /etc/bash_completion ]; then
   . /etc/bash_completion
