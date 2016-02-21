@@ -139,3 +139,6 @@
 [submodule "vim/bundle/vim-test"]
 	path = vim/bundle/vim-test
 	url = git@github.com:janko-m/vim-test.git
+[submodule "vim/bundle/file-line"]
+	path = vim/bundle/file-line
+	url = git@github.com:bogado/file-line.git
