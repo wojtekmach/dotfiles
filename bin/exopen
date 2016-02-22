@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+
+def parse(line)
+  app, file, _ = line.split(" ")
+
+  app = app[1..-2] # "(ecto)" -> "ecto"
+  file, line, _ = file.split(":")
+
+  path(app, file, line)
+end
+
+def path(app, file, line)
+  if ["elixir", "ex_unit", "mix", "logger"].include?(app)
+    "~/src/vendor/elixir/lib/#{app}/#{file}:#{line}"
+  else
+    "./deps/#{app}/#{file}:#{line}"
+  end
+end
+
+args = if ARGV.empty?
+         STDIN.readlines
+       else
+         ARGV
+       end
+
+args = args.map { |arg| parse(arg) }
+
+`vim -O #{args.join(" ")}`
