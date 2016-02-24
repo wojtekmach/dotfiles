@@ -142,3 +142,9 @@
 [submodule "vim/bundle/file-line"]
 	path = vim/bundle/file-line
 	url = git@github.com:bogado/file-line.git
+[submodule "vim/bundle/vim-terraform"]
+	path = vim/bundle/vim-terraform
+	url = git@github.com:hashivim/vim-terraform
+[submodule "vim/bundle/vim-vagrant"]
+	path = vim/bundle/vim-vagrant
+	url = git@github.com:hashivim/vim-vagrant
