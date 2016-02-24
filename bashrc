@@ -19,7 +19,7 @@ if [ -f /usr/local/etc/bash_completion ]; then
 fi
 
 # SSL
-export SSL_CERT_FILE=$HOME/etc/cacert.pem
+# export SSL_CERT_FILE=$HOME/etc/cacert.pem
 
 # utf-8
 export LC_ALL=en_US.UTF-8
