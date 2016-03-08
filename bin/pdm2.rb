@@ -66,6 +66,12 @@ class PDM
     x = 1
     y = 1
     html = request("/fight", "x=#{x}&y=#{y}&fodder=#{id}")
+
+    if html =~ /Bot detection time/
+      puts "Bot detection time"
+      exit
+    end
+
     html = Nokogiri::HTML(html)
     logger.debug(html.css(".sheader").text)
   end
