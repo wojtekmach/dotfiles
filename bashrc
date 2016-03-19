@@ -4,7 +4,6 @@ source $HOME/.bash_aliases.local
 source $HOME/.bash_completion.d/*.sh
 source $HOME/.bash_functions
 
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home"
 export EC2_HOME="$HOME/opt/ec2-api-tools"
 
 complete -C $HOME/.bash_completion.d/rake_autocomplete.rb -o default rake
