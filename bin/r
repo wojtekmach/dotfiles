@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ -S .zeus.sock ]; then
-    zeus rake $@
-elif [ -d $PWD/tmp/spring ]; then
-    spring rake $@
-else
-    rake $@
-fi

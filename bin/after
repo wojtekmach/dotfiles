@@ -1,7 +1,0 @@
-#!/usr/bin/ruby
-argv = ARGV.dup
-time = argv.shift.to_i
-
-sleep time
-
-system argv.join(' ')

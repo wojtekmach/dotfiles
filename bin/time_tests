@@ -1,2 +1,0 @@
-#!/bin/zsh
-git rev-list --reverse master~50..master | while read rev; do git checkout -q $rev && rspec spec/models | grep Finished | awk '{ print $3 }' | read time && ((hashes = $time * 50)) && echo $rev `jot -b '#' - 1 $hashes | xargs | tr -d ' '` $time; done

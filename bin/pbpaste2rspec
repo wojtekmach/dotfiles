@@ -1,1 +1,0 @@
-pbpaste | grep ^rspec | grep _spec | cut -d' ' -f2 | cut -d: -f1 | xargs echo

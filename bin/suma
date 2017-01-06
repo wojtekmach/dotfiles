@@ -1,7 +1,0 @@
-#!/bin/bash
-if [ "$1" != "" ]; then
-  dir="$*"
-else
-  dir="."
-fi
-find $dir -name 'suma.txt' -exec cat {} \; | ruby -e 'puts STDIN.readlines.map(&:to_f).reduce(:+)'

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ -S .zeus.sock ]; then
-    zeus console $@
-elif [ -d tmp/spring ]; then
-    spring rails console $@
-else
-    bundle exec rails console $@
-fi
