@@ -5,4 +5,5 @@ all:
 	ln -f -s $(CURDIR)/vim/.vimrc ~/
 	ln -f -s $(CURDIR)/bin/wdalias ~/bin/
 	ln -f -s $(CURDIR)/bin/pr ~/bin/
+	ln -f -s $(CURDIR)/bin/find-and-replace ~/bin/
 	curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

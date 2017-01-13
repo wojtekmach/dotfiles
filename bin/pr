@@ -1,5 +1,5 @@
 #!/bin/sh
 pr=$1
 
-git fetch origin pull/$pr/head:pr-$1
-git checkout pr-$1
+git fetch origin pull/$pr/head:pr-$pr
+git checkout pr-$pr
