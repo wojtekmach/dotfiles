@@ -4,6 +4,11 @@
 call plug#begin('~/.vim/plugged')
 Plug 'elixir-lang/vim-elixir'
 Plug 'mileszs/ack.vim'
+Plug 'janko-m/vim-test'
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 set nocompatible
@@ -99,24 +104,24 @@ endfunction
 function! ExAlternateForCurrentFile()
   let current_file = expand("%")
   let new_file = current_file
-  let in_spec = match(current_file, '^test/') != -1
+  let in_spec = match(current_file, 'test/') != -1
   let going_to_spec = !in_spec
-  let in_web = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<models\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
+  let in_web = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
+  let in_umbrella = match(current_file, '\apps') != -1
   if going_to_spec
     if in_web
       let new_file = substitute(new_file, '^web/', '', '')
     end
-    let new_file = substitute(new_file, '^lib/', '', '')
+    let new_file = substitute(new_file, 'lib/', 'test/', '')
     let new_file = substitute(new_file, '\.ex$', '_test.exs', '')
-    let new_file = 'test/' . new_file
   else
     let new_file = substitute(new_file, '_test\.exs$', '.ex', '')
-    let new_file = substitute(new_file, '^test/', '', '')
-    if in_web
-      let new_file = 'web/' . new_file
-    else
-      let new_file = 'lib/' . new_file
-    end
+    let new_file = substitute(new_file, 'test/', 'lib/', '')
+    " if in_web
+    "   let new_file = 'web/' . new_file
+    " else
+    "   let new_file = 'lib/' . new_file
+    " end
   endif
   return new_file
 endfunction
@@ -129,8 +134,14 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 let g:ackprg = 'ag --vimgrep'
 
 """""""""""""""""""""
-" vim-test extensions
+" vim-test
 """""""""""""""""""""
+nmap <silent> T :wa\|:TestNearest<CR>
+nmap <silent> t :wa\|:TestFile<CR>
+nmap <silent> <leader>a :wa\|:TestSuite<CR>
+nmap <silent> <leader>l :wa\|:TestLast<CR>
+nmap <silent> <leader>g :wa\|:TestVisit<CR>
+
 function! ElixirUmbrellaTransform(cmd) abort
   if match(a:cmd, 'apps/') != -1
     return substitute(a:cmd, 'mix test apps/\([^/]*/\)', 'cd apps/\1 \&\& mix test ', '')

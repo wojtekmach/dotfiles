@@ -1,4 +1,13 @@
-PS1="\w% "
+function parse_git_branch {
+  b=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"`
+  if [ "$b" != "" ]; then
+    echo "[$b]"
+  fi
+}
+
+PS1="\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
+
+export PATH="$HOME/bin:$PATH"
 
 # aliases
 alias ..="cd .."
@@ -20,3 +29,6 @@ alias cb="cd ~/src/clubcollect/clubbase"
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# direnv
+eval "$(direnv hook bash)"

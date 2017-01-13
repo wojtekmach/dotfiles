@@ -1,0 +1,38 @@
+#!/bin/bash
+#
+# Usage:
+#   wdalias <PATH> - set working directory alias
+#   wdalias        - get working directory
+#
+# Setup:
+#   - add `wdalias` somewhere in $PATH
+#   - use it in PS1, ex in .bashrc:
+#         `PS1=\u@\h:\$(wdalias)$ `
+
+wdalias="$HOME/.wdalias"
+
+if [ ! -f $wdalias ]; then
+  echo $HOME > $wdalias
+  echo "~" >> $wdalias
+fi
+
+x=($( < $wdalias ))
+wd=$PWD
+
+if [ $1 ]; then
+  path=`ruby -r pathname -e 'print Pathname.new(ARGV[0]).realpath' $1`
+
+  if [ $2 ]; then
+    name=$2
+  else
+    name=`basename $path`
+  fi
+
+  echo $path > $wdalias
+  echo $name >> $wdalias
+else
+  wd=${wd/${x[0]}/${x[1]}}
+  wd=${wd/$HOME/\~}
+
+  echo -n $wd
+fi
