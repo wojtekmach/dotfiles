@@ -13,6 +13,8 @@ export PATH="$HOME/bin:$PATH"
 alias ..="cd .."
 # git
 alias gaa="git add --all "
+alias gb="git branch "
+alias gbc="git rev-parse --abbrev-ref HEAD "
 alias gc="git commit --verbose "
 alias gd="git diff "
 alias gdh="git diff HEAD "
