@@ -1,0 +1,10 @@
+#!/bin/bash
+set -e
+dir=`find . -type d -path "*priv/repo/migrations" -not -path "./deps*" | xargs dirname | xargs dirname | xargs dirname`
+
+set -x
+mix compile
+cd $dir
+mix ecto.drop
+mix ecto.create
+mix ecto.migrate

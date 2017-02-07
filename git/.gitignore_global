@@ -1,2 +1,6 @@
 .tool-versions*
 .envrc
+.DS_Store
+tmp/
+tags
+vendor/bundle
