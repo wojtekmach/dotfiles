@@ -3,6 +3,7 @@ all:
 	ln -f -s $(CURDIR)/git/.gitconfig ~/
 	ln -f -s $(CURDIR)/git/.gitignore_global ~/
 	ln -f -s $(CURDIR)/vim/.vimrc ~/
+	ln -f -s $(CURDIR)/ssh/config ~/.ssh/
 	ln -f -s $(CURDIR)/bin/wdalias ~/bin/
 	ln -f -s $(CURDIR)/bin/pr ~/bin/
 	ln -f -s $(CURDIR)/bin/find-and-replace ~/bin/
