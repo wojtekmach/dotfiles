@@ -20,6 +20,7 @@ alias gd="git diff "
 alias gdh="git diff HEAD "
 alias gl="git l "
 alias gs="git status "
+alias mps="iex -S mix phoenix.server"
 # projects
 alias dotfiles="cd ~/src/wojtekmach/dotfiles"
 alias hexpm="cd ~/src/hexpm"
