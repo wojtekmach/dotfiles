@@ -5,4 +5,4 @@ dir=`find . -type d -path "*priv/repo/migrations" -not -path "./deps*" | xargs d
 set -x
 mix compile
 cd $dir
-mix ecto.build
+mix ecto.rebuild
