@@ -10,6 +10,7 @@ PS1="\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
 # exports
 export EDITOR="vim"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # aliases
 alias ..="cd .."
