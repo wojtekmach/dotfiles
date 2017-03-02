@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$1" = "" ]; then
+  branch="HEAD"
+else
+  branch=$1
+fi
+
+git log --oneline origin/production..$branch
