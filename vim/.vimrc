@@ -155,3 +155,6 @@ let g:test#custom_transformations = {'elixir_umbrella': function('ElixirUmbrella
 let g:test#transformation = 'elixir_umbrella'
 
 let NERDTreeShowHidden=1
+
+noremap c[ :cprev<CR>
+noremap c] :cnext<CR>
