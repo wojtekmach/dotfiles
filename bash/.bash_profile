@@ -27,9 +27,11 @@ alias iexm="iex -S mix"
 alias mps="iex -S mix phoenix.server"
 # projects
 alias dotfiles="cd ~/src/wojtekmach/dotfiles"
-alias hexpm="cd ~/src/hexpm"
-alias hex_web="cd ~/src/hexpm/hex_web"
+alias hex="cd ~/src/hexpm/hex"
+alias hexpm="cd ~/src/hexpm/hexpm"
 alias ecto="cd ~/src/elixir-ecto/ecto"
+alias phoenix="cd ~/src/phoenixframework/phoenix"
+alias cc="cd ~/src/clubcollect"
 alias be="cd ~/src/clubcollect/billing-engine"
 alias cb="cd ~/src/clubcollect/clubbase"
 
