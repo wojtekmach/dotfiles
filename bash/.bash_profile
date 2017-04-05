@@ -36,6 +36,7 @@ alias be="cd ~/src/clubcollect/billing-engine"
 alias cb="cd ~/src/clubcollect/clubbase"
 
 # asdf
+source $HOME/.asdf.sh
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
