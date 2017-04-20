@@ -156,5 +156,5 @@ let g:test#transformation = 'elixir_umbrella'
 
 let NERDTreeShowHidden=1
 
-noremap c[ :cprev<CR>
-noremap c] :cnext<CR>
+noremap c[ :w\|:cprev<CR>
+noremap c] :w\|:cnext<CR>
