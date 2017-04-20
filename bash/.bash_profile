@@ -21,7 +21,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # aliases
 alias ..="cd .."
-# git
+## git
 alias gaa="git add --all "
 alias gb="git branch "
 alias gbc="git rev-parse --abbrev-ref HEAD "
@@ -30,9 +30,13 @@ alias gd="git diff "
 alias gdh="git diff HEAD "
 alias gl="git l "
 alias gs="git status "
+## elixir
 alias iexm="iex -S mix"
 alias mps="iex -S mix phoenix.server"
-# projects
+alias mc="mix compile"
+alias tmc="MIX_ENV=test mix compile "
+alias t="mix test "
+## projects
 alias dotfiles="cd ~/src/wojtekmach/dotfiles"
 alias hex="cd ~/src/hexpm/hex"
 alias hexpm="cd ~/src/hexpm/hexpm"
