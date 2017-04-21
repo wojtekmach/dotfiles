@@ -34,6 +34,7 @@ alias gs="git status "
 alias iexm="iex -S mix"
 alias mps="iex -S mix phoenix.server"
 alias mc="mix compile"
+alias tm="MIX_ENV=test mix "
 alias tmc="MIX_ENV=test mix compile "
 alias t="mix test "
 ## projects
