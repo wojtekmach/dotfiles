@@ -9,6 +9,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'rizzatti/dash.vim'
 call plug#end()
 
 set nocompatible

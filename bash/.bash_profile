@@ -43,9 +43,11 @@ alias hex="cd ~/src/hexpm/hex"
 alias hexpm="cd ~/src/hexpm/hexpm"
 alias ecto="cd ~/src/elixir-ecto/ecto"
 alias phoenix="cd ~/src/phoenixframework/phoenix"
+alias plug="cd ~/src/phoenixframework/plug"
 alias cc="cd ~/src/clubcollect"
 alias be="cd ~/src/clubcollect/billing-engine"
 alias cb="cd ~/src/clubcollect/clubbase"
+alias purpose="cd ~/src/clubcollect/purpose"
 
 # asdf
 source $HOME/.asdf.sh
