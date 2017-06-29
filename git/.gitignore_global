@@ -7,3 +7,5 @@ tmp/
 tags
 vendor/bundle
 .mix
+.projections.json
+.elixir_core

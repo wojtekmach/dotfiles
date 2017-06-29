@@ -2,6 +2,7 @@
 " Mostly stolen from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
 
 call plug#begin('~/.vim/plugged')
+Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mileszs/ack.vim'
 Plug 'janko-m/vim-test'
@@ -10,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-projectionist'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'mattn/webapi-vim'
@@ -99,38 +101,38 @@ function! RenameFile()
 endfunction
 map <leader>n :call RenameFile()<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OPEN ALTERNATE FILE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! ExOpenTestAlternate()
-  let new_file = ExAlternateForCurrentFile()
-  exec ':e ' . new_file
-endfunction
-function! ExAlternateForCurrentFile()
-  let current_file = expand("%")
-  let new_file = current_file
-  let in_spec = match(current_file, 'test/') != -1
-  let going_to_spec = !in_spec
-  let in_web = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
-  let in_umbrella = match(current_file, '\apps') != -1
-  if going_to_spec
-    if in_web && in_umbrella
-      let new_file = substitute(new_file, '\/web', '\/test', '')
-    end
-    let new_file = substitute(new_file, 'lib/', 'test/', '')
-    let new_file = substitute(new_file, '\.ex$', '_test.exs', '')
-  else
-    let new_file = substitute(new_file, '_test\.exs$', '.ex', '')
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" " OPEN ALTERNATE FILE
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" function! ExOpenTestAlternate()
+"   let new_file = ExAlternateForCurrentFile()
+"   exec ':e ' . new_file
+" endfunction
+" function! ExAlternateForCurrentFile()
+"   let current_file = expand("%")
+"   let new_file = current_file
+"   let in_spec = match(current_file, 'test/') != -1
+"   let going_to_spec = !in_spec
+"   let in_web = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
+"   let in_umbrella = match(current_file, '\apps') != -1
+"   if going_to_spec
+"     if in_web && in_umbrella
+"       let new_file = substitute(new_file, '\/web', '\/test', '')
+"     end
+"     let new_file = substitute(new_file, 'lib/', 'test/', '')
+"     let new_file = substitute(new_file, '\.ex$', '_test.exs', '')
+"   else
+"     let new_file = substitute(new_file, '_test\.exs$', '.ex', '')
 
-    if in_web && in_umbrella
-      let new_file = substitute(new_file, 'test/', 'web/', '')
-    else
-      let new_file = substitute(new_file, 'test/', 'lib/', '')
-    end
-  endif
-  return new_file
-endfunction
-nnoremap <leader>, :call ExOpenTestAlternate()<cr>
+"     if in_web && in_umbrella
+"       let new_file = substitute(new_file, 'test/', 'web/', '')
+"     else
+"       let new_file = substitute(new_file, 'test/', 'lib/', '')
+"     end
+"   endif
+"   return new_file
+" endfunction
+nnoremap <leader>, :A<CR>
 
 """""""""""""""""""""
 " ack.vim
@@ -165,6 +167,25 @@ let g:test#transformation = 'custom'
 " vim-gist
 """""""""""""""""""""
 let g:gist_post_private = 1
+
+"""""""""""""""""""""
+" vim-projectionist
+"""""""""""""""""""""
+
+let g:projectionist_heuristics = {
+    \   ".elixir_core": {
+    \     "lib/elixir/lib/*.ex": { "alternate": "lib/elixir/test/elixir/{}_test.exs", "type": "source" },
+    \     "lib/elixir/test/elixir/*_test.exs": { "alternate": "lib/elixir/lib/{}.ex", "type": "source" }
+    \   },
+    \   "mix.exs": {
+    \     "web/*.ex": { "alternate": "test/{}_test.exs", "type": "source" },
+    \     "test/controllers/*_test.exs":  { "alternate": "web/controllers/{}.ex", "type": "test" },
+    \     "test/views/*_test.exs":  { "alternate": "web/views/{}.ex", "type": "test" },
+    \     "test/plugs/*_test.exs":  { "alternate": "web/plugs/{}.ex", "type": "test" },
+    \     "lib/*.ex":        { "alternate": "test/{}_test.exs", "type": "source" },
+    \     "test/*_test.exs": { "alternate": "lib/{}.ex", "type": "test" },
+    \   },
+    \ }
 
 """""""""""""""""""""
 " random
