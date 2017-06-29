@@ -9,7 +9,11 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-rhubarb'
 Plug 'rizzatti/dash.vim'
+Plug 'rizzatti/dash.vim'
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'
 call plug#end()
 
 set nocompatible
@@ -110,19 +114,19 @@ function! ExAlternateForCurrentFile()
   let in_web = match(current_file, '\<controllers\>') != -1 || match(current_file, '\<views\>') != -1 || match(current_file, '\<helpers\>') != -1
   let in_umbrella = match(current_file, '\apps') != -1
   if going_to_spec
-    if in_web
-      let new_file = substitute(new_file, '^web/', '', '')
+    if in_web && in_umbrella
+      let new_file = substitute(new_file, '\/web', '\/test', '')
     end
     let new_file = substitute(new_file, 'lib/', 'test/', '')
     let new_file = substitute(new_file, '\.ex$', '_test.exs', '')
   else
     let new_file = substitute(new_file, '_test\.exs$', '.ex', '')
-    let new_file = substitute(new_file, 'test/', 'lib/', '')
-    " if in_web
-    "   let new_file = 'web/' . new_file
-    " else
-    "   let new_file = 'lib/' . new_file
-    " end
+
+    if in_web && in_umbrella
+      let new_file = substitute(new_file, 'test/', 'web/', '')
+    else
+      let new_file = substitute(new_file, 'test/', 'lib/', '')
+    end
   endif
   return new_file
 endfunction
@@ -143,19 +147,34 @@ nmap <silent> <leader>a :wa\|:TestSuite<CR>
 nmap <silent> <leader>l :wa\|:TestLast<CR>
 nmap <silent> <leader>g :wa\|:TestVisit<CR>
 
-function! ElixirUmbrellaTransform(cmd) abort
+function! CustomTransform(cmd) abort
   if match(a:cmd, 'apps/') != -1
     return substitute(a:cmd, 'mix test apps/\([^/]*/\)', 'cd apps/\1 \&\& mix test ', '')
+  elseif match(a:cmd, 'lib/eex') != -1 || match(a:cmd, 'lib/elixir') != -1 || match(a:cmd, 'lib/ex_unit') != -1 || match(a:cmd, 'lib/iex') != -1 || match(a:cmd, 'lib/logger') != -1 || match(a:cmd, 'lib/mix') != -1
+    return substitute(a:cmd, 'mix test ', 'make compile \&\& bin/elixir ', '')
   else
     return a:cmd
   end
 endfunction
 
 let g:test#preserve_screen = 0
-let g:test#custom_transformations = {'elixir_umbrella': function('ElixirUmbrellaTransform')}
-let g:test#transformation = 'elixir_umbrella'
+let g:test#custom_transformations = {'custom': function('CustomTransform')}
+let g:test#transformation = 'custom'
+
+"""""""""""""""""""""
+" vim-gist
+"""""""""""""""""""""
+let g:gist_post_private = 1
+
+"""""""""""""""""""""
+" random
+"""""""""""""""""""""
 
 let NERDTreeShowHidden=1
 
 noremap c[ :w\|:cprev<CR>
 noremap c] :w\|:cnext<CR>
+nnoremap <C-a> 0<CR>
+nnoremap <C-e> $<CR>
+inoremap <C-a> <Esc>0<CR>
+inoremap <C-e> <Esc>$<CR>

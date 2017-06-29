@@ -37,6 +37,7 @@ alias mc="mix compile"
 alias tm="MIX_ENV=test mix "
 alias tmc="MIX_ENV=test mix compile "
 alias t="mix test "
+alias xref="time mix compile.xref"
 ## projects
 alias dotfiles="cd ~/src/wojtekmach/dotfiles"
 alias hex="cd ~/src/hexpm/hex"
@@ -48,6 +49,7 @@ alias cc="cd ~/src/clubcollect"
 alias be="cd ~/src/clubcollect/billing-engine"
 alias cb="cd ~/src/clubcollect/clubbase"
 alias purpose="cd ~/src/clubcollect/purpose"
+alias shipit="cd ~/src/wojtekmach/shipit"
 
 # asdf
 source $HOME/.asdf.sh

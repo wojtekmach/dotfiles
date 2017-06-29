@@ -108,3 +108,7 @@
 	helper = osxkeychain
 [diff]
 	indentHeuristic = true
+[web]
+	browser = open
+[rebase]
+	autosquash = true

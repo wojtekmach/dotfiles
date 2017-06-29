@@ -6,3 +6,4 @@
 tmp/
 tags
 vendor/bundle
+.mix
