@@ -41,6 +41,7 @@ alias xref="time mix compile.xref"
 ## projects
 alias dotfiles="cd ~/src/wojtekmach/dotfiles"
 alias hex="cd ~/src/hexpm/hex"
+alias mini_hex="cd ~/src/wojtekmach/mini_hex"
 alias hexpm="cd ~/src/hexpm/hexpm"
 alias ecto="cd ~/src/elixir-ecto/ecto"
 alias plug="cd ~/src/elixir-lang/plug"
