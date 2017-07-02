@@ -50,6 +50,7 @@ alias cd-elixir="cd ~/src/elixir-lang/elixir"
 alias cc="cd ~/src/clubcollect"
 alias be="cd ~/src/clubcollect/billing-engine"
 alias cb="cd ~/src/clubcollect/clubbase"
+alias groundhog="cd ~/src/clubcollect/groundhog"
 alias purpose="cd ~/src/clubcollect/purpose"
 alias shipit="cd ~/src/wojtekmach/shipit"
 
