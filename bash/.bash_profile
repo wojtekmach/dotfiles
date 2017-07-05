@@ -39,6 +39,7 @@ alias tmc="MIX_ENV=test mix compile "
 alias t="mix test "
 alias xref="time mix compile.xref"
 ## projects
+alias wojtekmach="cd ~/src/wojtekmach"
 alias dotfiles="cd ~/src/wojtekmach/dotfiles"
 alias hex="cd ~/src/hexpm/hex"
 alias mini_hex="cd ~/src/wojtekmach/mini_hex"

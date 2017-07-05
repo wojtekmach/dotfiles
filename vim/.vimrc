@@ -4,6 +4,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
 Plug 'mileszs/ack.vim'
 Plug 'janko-m/vim-test'
 Plug 'kien/ctrlp.vim'
