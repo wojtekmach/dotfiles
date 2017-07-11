@@ -33,6 +33,9 @@ set laststatus=2
 set showmatch
 set incsearch
 set hlsearch
+" list
+set list
+set listchars=tab:⎵·,trail:␠,nbsp:⎵
 " make searches case-sensitive only if they contain upper-case characters
 set ignorecase smartcase
 set cmdheight=2
