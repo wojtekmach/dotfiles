@@ -6,7 +6,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
 Plug 'mileszs/ack.vim'
-Plug 'janko-m/vim-test'
+Plug 'wojtekmach/vim-test', {'branch': 'wm-erlang-eunit'}
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -181,6 +181,10 @@ let g:projectionist_heuristics = {
     \     "lib/elixir/lib/*.ex": { "alternate": "lib/elixir/test/elixir/{}_test.exs", "type": "source" },
     \     "lib/elixir/test/elixir/*_test.exs": { "alternate": "lib/elixir/lib/{}.ex", "type": "source" }
     \   },
+    \   "rebar.config": {
+    \     "src/*.erl": { "alternate": "test/{}_tests.erl", "type": "source" },
+    \     "test/*_tests.erl": { "alternate": "src/{}.erl", "type": "source" }
+    \   },
     \   "mix.exs": {
     \     "web/*.ex": { "alternate": "test/{}_test.exs", "type": "source" },
     \     "test/controllers/*_test.exs":  { "alternate": "web/controllers/{}.ex", "type": "test" },
@@ -203,3 +207,5 @@ nnoremap <C-a> 0<CR>
 nnoremap <C-e> $<CR>
 inoremap <C-a> <Esc>0<CR>
 inoremap <C-e> <Esc>$<CR>
+
+autocmd BufRead,BufNewFile   *.erl,*.hrl setlocal sw=4 sts=4 et

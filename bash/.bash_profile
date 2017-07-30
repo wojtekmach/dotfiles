@@ -18,6 +18,7 @@ export GREP_OPTIONS="--color"
 export EDITOR="vim"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.mix:$PATH"
 
 # aliases
 alias ..="cd .."
