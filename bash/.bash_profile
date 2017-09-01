@@ -37,7 +37,6 @@ alias mps="iex -S mix phoenix.server"
 alias mc="mix compile"
 alias tm="MIX_ENV=test mix "
 alias tmc="MIX_ENV=test mix compile "
-alias t="mix test "
 alias xref="time mix compile.xref"
 ## projects
 alias wojtekmach="cd ~/src/wojtekmach"
@@ -45,15 +44,13 @@ alias dotfiles="cd ~/src/wojtekmach/dotfiles"
 alias hex="cd ~/src/hexpm/hex"
 alias mini_hex="cd ~/src/wojtekmach/mini_hex"
 alias hexpm="cd ~/src/hexpm/hexpm"
+alias hextar="cd ~/src/hexpm/hex_tar"
+alias hexregistry="cd ~/src/hexpm/hex_registry"
 alias ecto="cd ~/src/elixir-ecto/ecto"
 alias plug="cd ~/src/elixir-lang/plug"
 alias phoenix="cd ~/src/phoenixframework/phoenix"
 alias cd-elixir="cd ~/src/elixir-lang/elixir"
-alias cc="cd ~/src/clubcollect"
-alias be="cd ~/src/clubcollect/billing-engine"
-alias cb="cd ~/src/clubcollect/clubbase"
-alias groundhog="cd ~/src/clubcollect/groundhog"
-alias purpose="cd ~/src/clubcollect/purpose"
+alias cd-erlang="cd ~/src/erlang/otp"
 alias shipit="cd ~/src/wojtekmach/shipit"
 
 # asdf
@@ -63,3 +60,7 @@ source $HOME/.asdf.sh
 
 # direnv
 eval "$(direnv hook bash)"
+
+if [ -f ~/.bash_profile.local ]; then
+  . ~/.bash_profile.local
+fi
