@@ -1,4 +1,5 @@
 all:
+	mkdir -p ~/bin
 	ln -f -s $(CURDIR)/ag/.agignore ~/
 	ln -f -s $(CURDIR)/asdf/.asdf.sh ~/
 	ln -f -s $(CURDIR)/bash/.bash_profile ~/
