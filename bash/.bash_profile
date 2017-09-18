@@ -33,7 +33,7 @@ alias gl="git l "
 alias gs="git status "
 ## elixir
 alias iexm="iex -S mix"
-alias mps="iex -S mix phoenix.server"
+alias mps="[ -d assets ] && iex -S mix phx.server || iex -S mix phoenix.server"
 alias mc="mix compile"
 alias tm="MIX_ENV=test mix "
 alias tmc="MIX_ENV=test mix compile "
@@ -64,3 +64,5 @@ eval "$(direnv hook bash)"
 if [ -f ~/.bash_profile.local ]; then
   . ~/.bash_profile.local
 fi
+
+export ERL_AFLAGS="-kernel shell_history enabled"

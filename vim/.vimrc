@@ -3,6 +3,8 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
 Plug 'mileszs/ack.vim'
@@ -154,13 +156,7 @@ nmap <silent> <leader>l :wa\|:TestLast<CR>
 nmap <silent> <leader>g :wa\|:TestVisit<CR>
 
 function! CustomTransform(cmd) abort
-  if match(a:cmd, 'apps/') != -1
-    return substitute(a:cmd, 'mix test apps/\([^/]*/\)', 'cd apps/\1 \&\& mix test ', '')
-  elseif match(a:cmd, 'lib/eex') != -1 || match(a:cmd, 'lib/elixir') != -1 || match(a:cmd, 'lib/ex_unit') != -1 || match(a:cmd, 'lib/iex') != -1 || match(a:cmd, 'lib/logger') != -1 || match(a:cmd, 'lib/mix') != -1
-    return substitute(a:cmd, 'mix test ', 'make compile \&\& bin/elixir ', '')
-  else
-    return a:cmd
-  end
+  return substitute(a:cmd, 'mix test', 't', '')
 endfunction
 
 let g:test#preserve_screen = 0
@@ -209,3 +205,4 @@ inoremap <C-a> <Esc>0<CR>
 inoremap <C-e> <Esc>$<CR>
 
 autocmd BufRead,BufNewFile   *.erl,*.hrl setlocal sw=4 sts=4 et
+set number

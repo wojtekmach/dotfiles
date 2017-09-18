@@ -1,0 +1,15 @@
+#!/bin/bash
+
+file=$1
+args=""
+if [[ $file =~ ^apps\/ ]]; then
+  cmd=$(echo $file | sed -E 's/(apps\/[^/]+\/)/cd \1 \&\& t /')
+  eval $cmd $args $2 $3 $4 $5
+else
+  if [ -d lib/elixir ]; then
+    cmd=$(echo $file | sed -E 's/(lib\/[^/]+\/)/make compile \&\& cd \1 \&\& t /')
+    eval $cmd $args $2 $3 $4 $5
+  else
+    mix test $file $args $2 $3 $4 $5
+  fi
+fi
