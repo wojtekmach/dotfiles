@@ -9,3 +9,4 @@ vendor/bundle
 .mix
 .projections.json
 .elixir_core
+curl.sh
