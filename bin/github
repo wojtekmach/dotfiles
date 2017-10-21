@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+base_url=https://api.github.com
+path=$1
+curl -H "Authorization: token $GITHUB_TOKEN" ${base_url}${path}

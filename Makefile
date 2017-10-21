@@ -6,6 +6,7 @@ all:
 	ln -f -s $(CURDIR)/bin/ecto.rebuild ~/bin/
 	ln -f -s $(CURDIR)/bin/ecto.reset ~/bin/
 	ln -f -s $(CURDIR)/bin/find-and-replace ~/bin/
+	ln -f -s $(CURDIR)/bin/github ~/bin/
 	ln -f -s $(CURDIR)/bin/glp ~/bin/
 	ln -f -s $(CURDIR)/bin/pr ~/bin/
 	ln -f -s $(CURDIR)/bin/t ~/bin/
