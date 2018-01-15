@@ -60,9 +60,11 @@ alias phoenix="cd ~/src/phoenixframework/phoenix"
 alias cd-elixir="cd ~/src/elixir-lang/elixir"
 alias cd-changelog="cd ~/src/wojtekmach/changelog"
 alias foo="cd ~/src/elixir-lang/foo"
+alias decimal="cd ~/src/other/decimal"
 alias cd-erlang="cd ~/src/erlang/otp"
 alias cd-ex_doc="cd ~/src/elixir-lang/ex_doc"
 alias cd-shipit="cd ~/src/wojtekmach/shipit"
+alias dotlocal="cd ~/src/wojtekmach/dotlocal"
 
 # asdf
 source $HOME/.asdf.sh
