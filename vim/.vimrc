@@ -3,6 +3,7 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'editorconfig/editorconfig-vim'
+Plug 'bogado/file-line'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'elixir-lang/vim-elixir'
@@ -15,10 +16,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-dispatch'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
+Plug 'zanloy/vim-colors-grb256'
 call plug#end()
 
 set nocompatible
@@ -153,6 +156,7 @@ nmap <silent> T :wa\|:TestNearest<CR>
 nmap <silent> t :wa\|:TestFile<CR>
 nmap <silent> <leader>a :wa\|:TestSuite<CR>
 nmap <silent> <leader>l :wa\|:TestLast<CR>
+nmap <silent> e :wa\|:TestLast<CR>
 nmap <silent> <leader>g :wa\|:TestVisit<CR>
 
 function! CustomTransform(cmd) abort

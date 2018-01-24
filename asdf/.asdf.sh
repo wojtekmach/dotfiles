@@ -9,7 +9,6 @@ export ERLANG_EXTRA_CONFIGURE_OPTIONS="--enable-hipe
                                        --enable-smp-support
                                        --enable-threads
                                        --enable-kernel-poll
-                                       --enable-wx
                                        --enable-darwin-64bit
                                        --enable-gettimeofday-as-os-system-time
                                        --enable-dirty-schedulers

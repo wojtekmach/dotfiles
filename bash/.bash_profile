@@ -19,9 +19,11 @@ export EDITOR="vim"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.mix:$PATH"
+export MIX_ARCHIVES="$HOME/.mix/archives"
 
 # aliases
 alias ..="cd .."
+alias iex="iex -pa $MIX_ARCHIVES/**/ebin/ "
 ## git
 alias gaa="git add --all "
 alias gb="git branch "
@@ -50,7 +52,9 @@ alias ecto="cd ~/src/elixir-ecto/ecto"
 alias plug="cd ~/src/elixir-lang/plug"
 alias phoenix="cd ~/src/phoenixframework/phoenix"
 alias cd-elixir="cd ~/src/elixir-lang/elixir"
+alias foo="cd ~/src/elixir-lang/foo"
 alias cd-erlang="cd ~/src/erlang/otp"
+alias cd-ex_doc="cd ~/src/elixir-lang/ex_doc"
 alias shipit="cd ~/src/wojtekmach/shipit"
 
 # asdf
@@ -66,4 +70,4 @@ if [ -f ~/.bash_profile.local ]; then
 fi
 
 export ERL_AFLAGS="-kernel shell_history enabled"
-export EDITOR="subl"
+export EDITOR=subl

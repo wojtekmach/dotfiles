@@ -7,7 +7,7 @@ if [[ $file =~ ^apps\/ ]]; then
   eval $cmd $args $2 $3 $4 $5
 else
   if [ -d lib/elixir ]; then
-    cmd=$(echo $file | sed -E 's/(lib\/[^/]+\/)/make compile \&\& cd \1 \&\& t /')
+    cmd=$(echo $file | sed -E 's/(lib\/[^/]+\/)/make compile \&\& cd \1 \&\& elixir /')
     eval $cmd $args $2 $3 $4 $5
   else
     mix test $file $args $2 $3 $4 $5
