@@ -33,6 +33,7 @@ alias gd="git diff "
 alias gdh="git diff HEAD "
 alias gl="git l "
 alias gs="git status "
+alias gt="git tag -l --sort=-v:refname "
 ## elixir
 alias iexm="iex -S mix"
 alias mps="[ -d assets ] && iex -S mix phx.server || iex -S mix phoenix.server"
@@ -61,6 +62,7 @@ alias shipit="cd ~/src/wojtekmach/shipit"
 source $HOME/.asdf.sh
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+. ~/.git-completion.bash
 
 # direnv
 eval "$(direnv hook bash)"
