@@ -18,8 +18,11 @@ export GREP_OPTIONS="--color"
 export EDITOR="vim"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.mix:$PATH"
+export PATH="$HOME/src/elixir-lang/elixir/.mix/escripts:$PATH"
 export MIX_ARCHIVES="$HOME/.mix/archives"
+export MIX_ESCRIPTS="$HOME/.mix/escripts"
+
+source $HOME/.cargo/env
 
 # aliases
 alias ..="cd .."
@@ -57,7 +60,7 @@ alias cd-changelog="cd ~/src/wojtekmach/changelog"
 alias foo="cd ~/src/elixir-lang/foo"
 alias cd-erlang="cd ~/src/erlang/otp"
 alias cd-ex_doc="cd ~/src/elixir-lang/ex_doc"
-alias shipit="cd ~/src/wojtekmach/shipit"
+alias cd-shipit="cd ~/src/wojtekmach/shipit"
 
 # asdf
 source $HOME/.asdf.sh

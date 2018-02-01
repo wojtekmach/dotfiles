@@ -22,6 +22,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'zanloy/vim-colors-grb256'
+Plug 'wlangstroth/vim-racket'
 call plug#end()
 
 set nocompatible
