@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+# https://dockyard.com/blog/2017/08/24/elixir-open-command-with-terminal-emacs
+
+if git rev-parse --git-dir > /dev/null 2>&1; then
+  echo `basename $(git rev-parse --show-toplevel)`
+else
+  echo `basename $(pwd)`
+fi

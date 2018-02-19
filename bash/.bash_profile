@@ -16,6 +16,7 @@ export GREP_OPTIONS="--color"
 
 # exports
 export EDITOR="vim"
+export ELIXIR_EDITOR="itermvim __FILE__:__LINE__"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/src/elixir-lang/elixir/.mix/escripts:$PATH"
@@ -25,6 +26,7 @@ export MIX_ESCRIPTS="$HOME/.mix/escripts"
 source $HOME/.cargo/env
 
 # aliases
+alias vi="vim "
 alias ..="cd .."
 alias iex="iex -pa $MIX_ARCHIVES/**/ebin/ "
 ## git
@@ -76,4 +78,3 @@ if [ -f ~/.bash_profile.local ]; then
 fi
 
 export ERL_AFLAGS="-kernel shell_history enabled"
-export EDITOR=subl

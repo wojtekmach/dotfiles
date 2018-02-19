@@ -17,12 +17,16 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-endwise'
 Plug 'rizzatti/dash.vim'
 Plug 'rizzatti/dash.vim'
 Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'zanloy/vim-colors-grb256'
 Plug 'wlangstroth/vim-racket'
+Plug 'endel/vim-github-colorscheme'
+Plug 'altercation/vim-colors-solarized'
+Plug 'wolverian/minimal'
 call plug#end()
 
 set nocompatible
@@ -211,3 +215,42 @@ inoremap <C-e> <Esc>$<CR>
 
 autocmd BufRead,BufNewFile   *.erl,*.hrl setlocal sw=4 sts=4 et
 set number
+
+" https://vi.stackexchange.com/a/679
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre *
+    \ if !isdirectory(expand("<afile>:p:h")) |
+        \ call mkdir(expand("<afile>:p:h"), "p") |
+    \ endif
+augroup END
+
+
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+        set cmdheight=1
+        set showtabline=0
+        set nonumber
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+        set cmdheight=2
+        set showtabline=1
+        set number
+    endif
+endfunction
+
+nnoremap <S-h> :call ToggleHiddenAll()<CR>
+call ToggleHiddenAll()
+
+colorscheme minimal
+highlight! EndOfBuffer ctermfg=white

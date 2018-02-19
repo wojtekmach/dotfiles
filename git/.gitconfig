@@ -112,3 +112,5 @@
 	browser = open
 [rebase]
 	autosquash = true
+[commit]
+	verbose = true
