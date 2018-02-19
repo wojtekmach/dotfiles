@@ -41,6 +41,7 @@ alias gs="git status "
 alias gt="git tag -l --sort=-v:refname "
 ## elixir
 alias iexm="iex -S mix"
+alias iexs="iex -S mix server"
 alias mps="[ -d assets ] && iex -S mix phx.server || iex -S mix phoenix.server"
 alias mc="mix compile"
 alias tm="MIX_ENV=test mix "

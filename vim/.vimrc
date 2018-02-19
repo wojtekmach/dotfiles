@@ -254,3 +254,4 @@ call ToggleHiddenAll()
 
 colorscheme minimal
 highlight! EndOfBuffer ctermfg=white
+let g:ctrlp_custom_ignore = 'node_modules\|git\|_build\|deps\|priv/static'
