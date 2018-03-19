@@ -73,6 +73,7 @@ source $HOME/.asdf.sh
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 . ~/.git-completion.bash
+export PATH="$HOME/bin:$PATH"
 
 # direnv
 eval "$(direnv hook bash)"

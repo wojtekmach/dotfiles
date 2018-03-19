@@ -22,4 +22,6 @@ all:
 	ln -f -s $(CURDIR)/git/.gitignore_global ~/
 	ln -f -s $(CURDIR)/ssh/config ~/.ssh/
 	ln -f -s $(CURDIR)/vim/.vimrc ~/
+	rm -rf ~/.iterm2
+	ln -f -s $(CURDIR)/iterm2 ~/.iterm2
 	curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
