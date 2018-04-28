@@ -10,4 +10,5 @@ vendor/bundle
 .projections.json
 .elixir_core
 curl.sh
+curl.json
 package-lock.json
