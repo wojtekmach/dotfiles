@@ -69,6 +69,7 @@ alias cd-erlang="cd ~/src/erlang/otp"
 alias cd-ex_doc="cd ~/src/elixir-lang/ex_doc"
 alias cd-shipit="cd ~/src/wojtekmach/shipit"
 alias dotlocal="cd ~/src/wojtekmach/dotlocal"
+alias resourceful="cd ~/src/wojtekmach/resourceful"
 
 # asdf
 source $HOME/.asdf.sh
