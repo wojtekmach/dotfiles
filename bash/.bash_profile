@@ -88,3 +88,4 @@ if [ -f ~/.bash_profile.local ]; then
 fi
 
 export ERL_AFLAGS="-kernel shell_history enabled"
+export GPG_TTY=$(tty)
