@@ -26,7 +26,6 @@ Plug 'zanloy/vim-colors-grb256'
 Plug 'wlangstroth/vim-racket'
 Plug 'endel/vim-github-colorscheme'
 Plug 'altercation/vim-colors-solarized'
-Plug 'wolverian/minimal'
 call plug#end()
 
 set nocompatible
@@ -252,6 +251,6 @@ endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
 call ToggleHiddenAll()
 
-colorscheme minimal
+colorscheme wojtek
 highlight! EndOfBuffer ctermfg=white
 let g:ctrlp_custom_ignore = 'node_modules\|git\|_build\|deps\|priv/static'
