@@ -16,6 +16,7 @@ export GREP_OPTIONS="--color"
 
 # exports
 export EDITOR="vim"
+# export ECTO_EDITOR="itermvim"
 export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
