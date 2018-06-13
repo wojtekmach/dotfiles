@@ -218,7 +218,7 @@ inoremap <F6> <Esc>:w<CR>
 autocmd BufRead,BufNewFile   *.erl,*.hrl setlocal sw=4 sts=4 et
 set number
 
-let g:mix_format_on_save = 1
+" let g:mix_format_on_save = 1
 
 " https://vi.stackexchange.com/a/679
 augroup Mkdir

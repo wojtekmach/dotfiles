@@ -26,3 +26,8 @@ all:
 	rm -rf ~/.iterm2
 	ln -f -s $(CURDIR)/iterm2 ~/.iterm2
 	curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+	# brew install postgresql
+	# brew services start postgresql
+	# createuser $USER
+	# createuser postgres --password --superuser
