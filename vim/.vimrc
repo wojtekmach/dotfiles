@@ -7,6 +7,7 @@ Plug 'bogado/file-line'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'mhinz/vim-mix-format'
 Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
 Plug 'mileszs/ack.vim'
 Plug 'wojtekmach/vim-test', {'branch': 'wm-erlang-eunit'}
@@ -211,9 +212,13 @@ nnoremap <C-a> 0<CR>
 nnoremap <C-e> $<CR>
 inoremap <C-a> <Esc>0<CR>
 inoremap <C-e> <Esc>$<CR>
+nnoremap <F6> :w<CR>
+inoremap <F6> <Esc>:w<CR>
 
 autocmd BufRead,BufNewFile   *.erl,*.hrl setlocal sw=4 sts=4 et
 set number
+
+let g:mix_format_on_save = 1
 
 " https://vi.stackexchange.com/a/679
 augroup Mkdir

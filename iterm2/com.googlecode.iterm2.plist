@@ -244,6 +244,13 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x73-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>10</integer>
+			<key>Text</key>
+			<string>[17~</string>
+		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -353,7 +360,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Desktop</string>
+	<string>~/Documents</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -392,22 +399,10 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
-	<key>NSWindow Frame NSFontPanel</key>
-	<string>2048 37 445 77 0 0 2560 1417 </string>
-	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>970 783 620 392 0 0 2560 1417 </string>
-	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 212 606 469 0 0 2560 1418 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1303 938 796 473 0 0 2560 1418 </string>
-	<key>NSWindow Frame UKCrashReporter</key>
-	<string>230 834 592 584 0 0 2560 1418 </string>
+	<string>138 248 796 473 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>72 615 898 787 0 0 2560 1418 </string>
-	<key>NSWindow Frame iTerm Window 1</key>
-	<string>242 444 898 787 0 0 2560 1418 </string>
-	<key>NSWindow Frame iTerm Window 2</key>
-	<string>1195 173 898 787 0 0 2560 1440 </string>
+	<string>190 82 898 787 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_4C7B92A3-3456-4E84-A909-A97AFFE5B611</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_4C7B92A3-3456-4E84-A909-A97AFFE5B611_selection</key>
@@ -2363,56 +2358,18 @@
 			<string>/Users/wojtek</string>
 		</dict>
 	</array>
-	<key>NoSyncHaveUsedCopyMode</key>
-	<true/>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
-	<string>5FFD2F35-8A28-48C2-A5B1-0065272C8639</string>
-	<key>NoSyncLastTipTime</key>
-	<real>530830488.96119601</real>
+	<string>338D88E2-B33A-4C29-853F-C6718677C286</string>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
-	<true/>
+	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
-	<real>526690196.24687999</real>
-	<key>NoSyncTipsDisabled</key>
-	<true/>
-	<key>NoSyncTipsToNotShow</key>
-	<array>
-		<string>000</string>
-		<string>0000</string>
-		<string>0001</string>
-		<string>0002</string>
-		<string>0003</string>
-		<string>0004</string>
-		<string>0005</string>
-		<string>0006</string>
-		<string>0007</string>
-		<string>0008</string>
-		<string>0009</string>
-		<string>0010</string>
-		<string>0011</string>
-		<string>0012</string>
-		<string>0013</string>
-		<string>0014</string>
-		<string>0015</string>
-		<string>0016</string>
-		<string>0017</string>
-		<string>0018</string>
-		<string>0019</string>
-		<string>0020</string>
-		<string>0021</string>
-		<string>0022</string>
-		<string>0023</string>
-		<string>0024</string>
-		<string>0025</string>
-		<string>0026</string>
-		<string>0027</string>
-	</array>
+	<real>549523268.49957299</real>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>
 	<key>PointerActions</key>
@@ -2456,18 +2413,16 @@
 	<real>0.015151514671742916</real>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
-	<key>SUAutomaticallyUpdate</key>
-	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final.xml?shard=92</string>
+	<string>https://iterm2.com/appcasts/final.xml?shard=31</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-05-31T15:16:50Z</date>
+	<date>2018-06-12T22:05:48Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2484,8 +2439,6 @@
 	<integer>1</integer>
 	<key>TabViewType</key>
 	<integer>0</integer>
-	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1518377728</real>
 	<key>UseBorder</key>
 	<false/>
 	<key>WindowNumber</key>
