@@ -10,7 +10,8 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
 Plug 'mileszs/ack.vim'
-Plug 'wojtekmach/vim-test', {'branch': 'wm-erlang-eunit'}
+" Plug 'wojtekmach/vim-test', {'branch': 'wm-erlang-eunit'}
+Plug 'wojtekmach/vim-test', {'dir': '~/src/other/vim-test'}
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
