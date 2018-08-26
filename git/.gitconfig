@@ -1,7 +1,7 @@
 [user]
 	name = Wojtek Mach
 	email = wojtek@wojtekmach.pl
-	signingkey = 95997701189D319B
+	; signingkey = 95997701189D319B
 
 [github]
   user = wojtekmach
@@ -114,6 +114,6 @@
 	autosquash = true
 [commit]
 	verbose = true
-	gpgsign = true
-[gpg]
-	program = /usr/local/bin/gpg
+	; gpgsign = true
+; [gpg]
+; 	program = /usr/local/bin/gpg

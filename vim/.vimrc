@@ -260,3 +260,18 @@ call ToggleHiddenAll()
 colorscheme wojtek
 highlight! EndOfBuffer ctermfg=white
 let g:ctrlp_custom_ignore = 'node_modules\|git\|_build\|deps\|priv/static'
+
+function! WinZoomToggle() abort
+  if !exists('w:WinZoomIsZoomed') 
+    let w:WinZoomIsZoomed = 0
+  endif
+  if w:WinZoomIsZoomed == 0
+    execute "tabedit %"
+    let w:WinZoomIsZoomed = 1
+  elseif w:WinZoomIsZoomed == 1
+    execute "tabclose"
+    let w:WinZoomIsZoomed = 0
+  endif
+endfunction
+
+nmap <leader>z :call WinZoomToggle()<cr>
