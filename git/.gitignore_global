@@ -1,5 +1,5 @@
 .DS_Store
-.tool-versions*
+/.tool-versions*
 .envrc
 .envrc.*
 .DS_Store

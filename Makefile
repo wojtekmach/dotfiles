@@ -1,7 +1,9 @@
 all:
 	mkdir -p ~/bin
+	mkdir -p ~/.vim
 	ln -f -s $(CURDIR)/ag/.agignore ~/
 	ln -f -s $(CURDIR)/asdf/.asdf.sh ~/
+	ln -f -s $(CURDIR)/asdf/.tool-versions ~/
 	ln -f -s $(CURDIR)/bash/.bash_profile ~/
 	ln -f -s $(CURDIR)/bash/.git-completion.bash ~/
 	ln -f -s $(CURDIR)/bin/ecto.rebuild ~/bin/
@@ -29,5 +31,5 @@ all:
 
 	# brew install postgresql
 	# brew services start postgresql
-	# createuser $USER
+	# createuser ${USER}
 	# createuser postgres --password --superuser
