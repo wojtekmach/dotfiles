@@ -21,7 +21,6 @@ export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/src/elixir-lang/elixir/.mix/escripts:$PATH"
-export PATH=/Users/wojtek/.asdf/installs/elixir/1.3.4-otp-19/.mix/escripts:$PATH
 export MIX_ARCHIVES="$HOME/.mix/archives"
 export MIX_ESCRIPTS="$HOME/.mix/escripts"
 
@@ -82,10 +81,9 @@ alias dotlocal="cd ~/src/wojtekmach/dotlocal"
 alias resourceful="cd ~/src/wojtekmach/resourceful"
 
 # asdf
+source /usr/local/opt/asdf/asdf.sh
 source $HOME/.asdf.sh
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
-. ~/.git-completion.bash
+source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 export PATH="$HOME/bin:$PATH"
 
 # direnv
