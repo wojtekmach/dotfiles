@@ -255,7 +255,7 @@ function! ToggleHiddenAll()
 endfunction
 
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
-call ToggleHiddenAll()
+" call ToggleHiddenAll()
 
 colorscheme wojtek
 highlight! EndOfBuffer ctermfg=white

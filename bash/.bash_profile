@@ -30,6 +30,7 @@ fi
 
 # aliases
 alias vi="vim "
+alias git="hub "
 alias ..="cd .."
 alias iex="iex -pa $MIX_ARCHIVES/**/ebin/ "
 ## git
@@ -60,6 +61,7 @@ alias mini_repo="cd ~/src/hexpm/mini_repo"
 alias hexpm="cd ~/src/hexpm/hexpm"
 alias hexregistry="cd ~/src/hexpm/hex_registry"
 alias ecto="cd ~/src/elixir-ecto/ecto"
+alias ecto_sql="cd ~/src/elixir-ecto/ecto_sql"
 alias postgrex="cd ~/src/elixir-ecto/postgrex"
 alias mariaex="cd ~/src/elixir-ecto/mariaex"
 alias myxql="cd ~/src/elixir-ecto/myxql"
@@ -96,3 +98,4 @@ fi
 export ERL_AFLAGS="-kernel shell_history enabled"
 export GPG_TTY=$(tty)
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+export PATH="/usr/local/opt/libxml2/bin:$PATH"
