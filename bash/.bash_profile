@@ -34,6 +34,7 @@ alias git="hub "
 alias ..="cd .."
 alias iex="iex -pa $MIX_ARCHIVES/**/ebin/ "
 ## git
+alias git="hub "
 alias gaa="git add --all "
 alias gb="git branch "
 alias gbc="git rev-parse --abbrev-ref HEAD "
@@ -65,6 +66,7 @@ alias ecto_sql="cd ~/src/elixir-ecto/ecto_sql"
 alias postgrex="cd ~/src/elixir-ecto/postgrex"
 alias mariaex="cd ~/src/elixir-ecto/mariaex"
 alias myxql="cd ~/src/elixir-ecto/myxql"
+alias db_connection="cd ~/src/elixir-ecto/db_connection"
 alias ecto="cd ~/src/elixir-ecto/ecto"
 alias ectoplasma="cd ~/src/wojtekmach/ectoplasma"
 alias plug="cd ~/src/elixir-lang/plug"
@@ -85,7 +87,6 @@ alias resourceful="cd ~/src/wojtekmach/resourceful"
 # asdf
 source /usr/local/opt/asdf/asdf.sh
 source $HOME/.asdf.sh
-source /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 export PATH="$HOME/bin:$PATH"
 
 # direnv
@@ -99,3 +100,7 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export GPG_TTY=$(tty)
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 export PATH="/usr/local/opt/libxml2/bin:$PATH"
+
+# bash-completion
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
+[ -f /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash ] && . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
