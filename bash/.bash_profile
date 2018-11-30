@@ -30,7 +30,6 @@ fi
 
 # aliases
 alias vi="vim "
-alias git="hub "
 alias ..="cd .."
 alias iex="iex -pa $MIX_ARCHIVES/**/ebin/ "
 ## git
@@ -85,6 +84,7 @@ alias cd-ex_doc="cd ~/src/elixir-lang/ex_doc"
 alias cd-shipit="cd ~/src/wojtekmach/shipit"
 alias dotlocal="cd ~/src/wojtekmach/dotlocal"
 alias resourceful="cd ~/src/wojtekmach/resourceful"
+# alias diff="colordiff "
 
 # asdf
 source /usr/local/opt/asdf/asdf.sh
