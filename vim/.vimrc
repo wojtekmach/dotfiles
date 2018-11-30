@@ -10,8 +10,9 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
 Plug 'mileszs/ack.vim'
-" Plug 'wojtekmach/vim-test', {'branch': 'wm-erlang-eunit'}
-Plug 'wojtekmach/vim-test', {'dir': '~/src/other/vim-test'}
+Plug 'wojtekmach/vim-test', {'branch': 'wm-erlang-eunit'}
+" Plug 'wojtekmach/vim-test', {'dir': '~/src/oss/vim-test'}
+" Plug 'janko-m/vim-test'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -44,6 +45,7 @@ set laststatus=2
 set showmatch
 set incsearch
 set hlsearch
+set textwidth=98
 " list
 set list
 set listchars=tab:⎵·,trail:␠,nbsp:⎵
@@ -275,3 +277,5 @@ function! WinZoomToggle() abort
 endfunction
 
 nmap <leader>z :call WinZoomToggle()<cr>
+
+let g:mix_format_on_save = 1
