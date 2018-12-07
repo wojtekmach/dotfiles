@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if grep --quiet -E "ex_doc.*:docs" mix.exs; then
+  MIX_ENV=docs mix docs
+else
+  mix docs
+fi
