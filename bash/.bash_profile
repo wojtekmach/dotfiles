@@ -5,7 +5,7 @@ function parse_git_branch {
   fi
 }
 
-PS1="\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
+PS1="\h:\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
 
 # colors
 export TERM='xterm-color'
