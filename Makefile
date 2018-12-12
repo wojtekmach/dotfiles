@@ -6,6 +6,7 @@ all:
 	ln -f -s $(CURDIR)/asdf/.tool-versions ~/
 	ln -f -s $(CURDIR)/bash/.bash_profile ~/
 	ln -f -s $(CURDIR)/bash/.git-completion.bash ~/
+	ln -f -s $(CURDIR)/bash/.hushlogin ~/
 	ln -f -s $(CURDIR)/bin/ecto.rebuild ~/bin/
 	ln -f -s $(CURDIR)/bin/itermvim ~/bin/
 	ln -f -s $(CURDIR)/bin/current_project_name ~/bin/
