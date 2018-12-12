@@ -5,7 +5,12 @@ function parse_git_branch {
   fi
 }
 
-PS1="\h:\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
+if [ -n "$SSH_CLIENT" ]; then
+  ps1_host="\h:"
+else
+  ps1_host=""
+fi
+PS1="$ps1_host\$(wdalias)\[\e[1;32m\]\$(parse_git_branch)\[\e[0m\]% "
 
 # colors
 export TERM='xterm-color'
