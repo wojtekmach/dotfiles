@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+
+if [ -f .formatter.exs ]; then
+  mix format --check-formatted
+fi
+
+if grep --quiet dialyxir mix.exs; then
+  mix dialyzer
+fi
+
+if [ -f mix.exs ]; then
+  mix test
+fi

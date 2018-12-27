@@ -94,6 +94,9 @@ alias dotfiles="cd ~/src/oss/dotfiles"
 alias dotlocal="cd ~/src/oss/dotlocal"
 alias ectoplasma="cd ~/src/oss/ectoplasma"
 alias resourceful="cd ~/src/oss/resourceful"
+# other
+alias lockscreen="pmset displaysleepnow "
+
 # asdf
 source /usr/local/opt/asdf/asdf.sh
 source $HOME/.asdf.sh

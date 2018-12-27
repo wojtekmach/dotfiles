@@ -1,3 +1,0 @@
-#!/bin/bash
-
-mix test && git commit || git reset --hard HEAD

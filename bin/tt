@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mix compile && mix format && (mix test && git add . && git commit || git reset --hard HEAD)
