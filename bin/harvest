@@ -1,0 +1,95 @@
+#!/usr/bin/env elixir
+
+defmodule Harvest do
+  def list_invoices(query_string \\ "") do
+    curl("/invoices?#{query_string}")
+  end
+
+  def create_invoice(params) do
+    curl("/invoices", ["-X", "POST", "-d", json_encode(params)])
+  end
+
+  def curl(path, args \\ [], opts \\ []) do
+    account_id = System.get_env("HARVEST_ACCOUNT_ID")
+    token = System.get_env("HARVEST_TOKEN")
+
+    cmd([
+      "curl",
+      "--silent",
+      "https://api.harvestapp.com/v2#{path}",
+      "-H", "Content-Type: application/json",
+      "-H", "Authorization: Bearer #{token}",
+      "-H", "Harvest-Account-ID: #{account_id}"
+      | args
+    ], opts)
+    |> json_decode()
+    |> Map.fetch!("invoices")
+    |> Enum.map(&IO.puts([String.pad_leading(&1["number"], 10, "0"), " ", format_amount(&1["amount"]), " ", &1["currency"]]))
+  end
+
+  defp format_amount(amount) do
+    :io_lib.format('~8.2f', [amount]) |> List.to_string()
+  end
+
+  defp json_decode(json) do
+    json
+    |> String.replace("{", "%{")
+    |> String.replace("\":", "\" => ")
+    |> String.replace("null", "nil")
+    |> String.trim()
+    |> Code.eval_string()
+    |> elem(0)
+  end
+
+  def json_encode(params) do
+    params
+    |> inspect(limit: :infinity)
+    |> String.replace("%{", "{")
+    |> String.replace("\" => ", "\": ")
+    |> String.replace("nil", "null")
+  end
+
+  def cmd([cmd | args], opts \\ []) do
+    {out, result} = System.cmd(cmd, args, opts)
+
+    if result != 0 do
+      raise "Non-zero result (#{inspect(result)}) from: #{cmd} #{Enum.map_join(args, " ", &inspect/1)}"
+    end
+
+    out
+  end
+end
+
+case System.argv() do
+  ["create", invoice_number, invoice_price] ->
+    invoice_client_id = System.get_env("HARVEST_INVOICE_CLIENT_ID")
+    invoice_description = System.get_env("HARVEST_INVOICE_DESCRIPTION")
+
+    Harvest.create_invoice(%{
+      "client_id" => invoice_client_id,
+      "number" => invoice_number,
+      "line_items" => [
+        %{
+          "kind" => "Service",
+          "description" => invoice_description,
+          "unit_price" => invoice_price
+        }
+      ]
+    })
+    |> IO.inspect(limit: :infinity)
+
+  ["list"] ->
+    Harvest.list_invoices()
+
+  ["list", query_string] ->
+    Harvest.list_invoices(query_string)
+
+  _ ->
+    IO.puts("""
+    Usage:
+
+        harvest create NUMBER PRICE
+        harvest list [QUERY_STRING]
+    """)
+    System.halt(1)
+end
