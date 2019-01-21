@@ -10,6 +10,7 @@
   editor = vim
 	excludesfile = /Users/wojtek/.gitignore_global
 	autocrlf = input
+	hooksPath = /Users/wojtek/.git_template/hooks
 
 ; [color]
 ;   branch = auto
