@@ -397,13 +397,15 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>970 782 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 203 928 394 0 0 2560 1417 </string>
+	<string>269 271 918 452 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1605 55 898 787 0 0 2560 1417 </string>
+	<string>0 649 898 764 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>349 229 2210 1038 0 0 2560 1417 </string>
+	<string>0 23 2560 1381 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>364 158 1530 787 0 0 2560 1417 </string>
+	<string>1171 130 898 787 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>1310 156 898 787 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_4C7B92A3-3456-4E84-A909-A97AFFE5B611</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_4C7B92A3-3456-4E84-A909-A97AFFE5B611_selection</key>
@@ -2369,6 +2371,10 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>2B65E492-1D83-4DCC-BBE0-B2F7959E49D3</string>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -2427,7 +2433,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-12-08T20:15:22Z</date>
+	<date>2019-02-08T09:16:49Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
@@ -2457,7 +2463,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.2.6</string>
+	<string>3.2.7</string>
 	<key>kCPFavoritesUserDefaultsKey</key>
 	<array/>
 	<key>kCPKSelectionViewPreferredModeKey</key>

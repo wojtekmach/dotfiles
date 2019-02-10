@@ -48,6 +48,7 @@ alias gdh="git diff HEAD "
 alias gl="git l "
 alias gs="git status "
 alias gt="git tag -l --sort=-v:refname "
+alias amend="git commit --amend --no-edit "
 ## elixir
 alias iexm="iex -S mix"
 alias iexs="iex -S mix server"
@@ -94,6 +95,7 @@ alias dotfiles="cd ~/src/oss/dotfiles"
 alias dotlocal="cd ~/src/oss/dotlocal"
 alias ectoplasma="cd ~/src/oss/ectoplasma"
 alias resourceful="cd ~/src/oss/resourceful"
+alias calendar_interval="cd ~/src/oss/calendar_interval"
 # other
 alias lockscreen="pmset displaysleepnow "
 
