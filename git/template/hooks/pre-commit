@@ -1,14 +1,14 @@
 #!/bin/bash
 set -e
 
-if [ -f .formatter.exs ]; then
+if [ -f .formatter.exs ] && [ -z "$SKIP_FORMAT" ]; then
   mix format --check-formatted
 fi
 
-if grep --quiet dialyxir mix.exs; then
+if [ -f mix.exs ] && grep --quiet dialyxir mix.exs && (git status -s | grep --quiet lib) && [ -z "$SKIP_DIALYZER" ]; then
   mix dialyzer
 fi
 
-if [ -f mix.exs ]; then
+if [ -f mix.exs ] && [ -z "$SKIP_TEST" ]; then
   mix test
 fi
