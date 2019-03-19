@@ -5,10 +5,6 @@ if [ -f .formatter.exs ] && [ -z "$SKIP_FORMAT" ]; then
   mix format --check-formatted
 fi
 
-if [ -f mix.exs ] && grep --quiet dialyxir mix.exs && (git status -s | grep --quiet lib) && [ -z "$SKIP_DIALYZER" ]; then
-  mix dialyzer
-fi
-
 if [ -f mix.exs ] && [ -z "$SKIP_TEST" ]; then
   mix test
 fi

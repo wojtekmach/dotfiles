@@ -97,6 +97,7 @@ alias ectoplasma="cd ~/src/oss/ectoplasma"
 alias resourceful="cd ~/src/oss/resourceful"
 alias calendar_interval="cd ~/src/oss/calendar_interval"
 # other
+alias mint="cd ~/src/oss/mint"
 alias lockscreen="pmset displaysleepnow "
 
 # asdf

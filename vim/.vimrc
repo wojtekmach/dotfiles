@@ -209,15 +209,6 @@ let g:projectionist_heuristics = {
 
 let NERDTreeShowHidden=1
 
-noremap c[ :w\|:cprev<CR>
-noremap c] :w\|:cnext<CR>
-nnoremap <C-a> 0<CR>
-nnoremap <C-e> $<CR>
-inoremap <C-a> <Esc>0<CR>
-inoremap <C-e> <Esc>$<CR>
-nnoremap <F6> :w<CR>
-inoremap <F6> <Esc>:w<CR>
-
 autocmd BufRead,BufNewFile   *.erl,*.hrl setlocal sw=4 sts=4 et
 set number
 
@@ -279,3 +270,10 @@ endfunction
 nmap <leader>z :call WinZoomToggle()<cr>
 
 " let g:mix_format_on_save = 1
+
+noremap c[ :w\|:cprev<CR>
+noremap c] :w\|:cnext<CR>
+nnoremap <C-a> 0
+nnoremap <C-e> $
+inoremap <C-a> <Esc>0
+inoremap <C-e> <Esc>$
