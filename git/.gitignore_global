@@ -12,3 +12,4 @@ vendor/bundle
 curl.sh
 curl.json
 package-lock.json
+/.vscode

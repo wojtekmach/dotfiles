@@ -6,6 +6,8 @@
 	<true/>
 	<key>AboutToPasteTabsWithCancel_selection</key>
 	<integer>2</integer>
+	<key>AllowClipboardAccess</key>
+	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
 	<key>AppleScrollAnimationEnabled</key>
@@ -247,9 +249,16 @@
 		<key>0x73-0x100000</key>
 		<dict>
 			<key>Action</key>
-			<integer>10</integer>
+			<integer>38</integer>
 			<key>Text</key>
-			<string>[17~</string>
+			<string>:w\n</string>
+		</dict>
+		<key>0x78-0x100000</key>
+		<dict>
+			<key>Action</key>
+			<integer>38</integer>
+			<key>Text</key>
+			<string>x</string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
@@ -378,7 +387,7 @@
 	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
 	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
 	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdKGdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
+	DIAIgAlRMSNAc7Gdsi0OVtIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
 	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
 	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
 	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
@@ -397,11 +406,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>970 782 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>269 271 918 452 0 0 2560 1417 </string>
+	<string>269 399 958 470 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 649 898 764 0 0 2560 1417 </string>
+	<string>0 0 2560 1417 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 23 2560 1381 0 0 2560 1417 </string>
+	<string>1162 557 1322 787 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>1171 130 898 787 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -2371,6 +2380,8 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>2B65E492-1D83-4DCC-BBE0-B2F7959E49D3</string>
+	<key>NoSyncLastTipTime</key>
+	<real>574163446.47035694</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2379,6 +2390,10 @@
 	<false/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>559672716.46430397</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+	</array>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>
 	<key>PointerActions</key>
@@ -2433,7 +2448,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-02-08T09:16:49Z</date>
+	<date>2019-03-20T08:54:29Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>

@@ -72,6 +72,7 @@ alias hex_core="cd ~/src/oss/hex_core"
 alias hex_core_example="cd ~/src/oss/hex_core_example"
 alias hexpm-ops="cd ~/src/oss/hexpm-ops"
 alias hexpm="cd ~/src/oss/hexpm"
+alias hexdocs="cd ~/src/oss/hexdocs"
 alias mini_repo="cd ~/src/oss/mini_repo"
 # erlang
 alias cd-erlang="cd ~/src/oss/otp"
