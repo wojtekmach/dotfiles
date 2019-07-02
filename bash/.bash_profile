@@ -26,6 +26,7 @@ export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/src/elixir/.mix/escripts:$PATH"
+export PATH="$HOME/src/elixir/bin:$PATH"
 export MIX_ARCHIVES="$HOME/.mix/archives"
 export MIX_ESCRIPTS="$HOME/.mix/escripts"
 
@@ -102,9 +103,8 @@ alias mint="cd ~/src/mint"
 alias lockscreen="pmset displaysleepnow "
 
 # asdf
-source /usr/local/opt/asdf/asdf.sh
-source $HOME/.asdf.sh
-export PATH="$HOME/bin:$PATH"
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf.sh
 
 # direnv
 eval "$(direnv hook bash)"
@@ -120,6 +120,6 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 
 # bash-completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-[ -f /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash ] && . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+. $HOME/.asdf/completions/asdf.bash
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"

@@ -1,4 +1,6 @@
-erlang 21.3
-elixir path:/Users/wojtek/src/oss/elixir
-ruby 2.6.0
+erlang 22.0.4
+elixir path:/Users/wojtek/src/elixir
+# elixir 1.9.0-otp-22
+ruby 2.6.3
 rebar 3.7.4
+nodejs 11.15.0
