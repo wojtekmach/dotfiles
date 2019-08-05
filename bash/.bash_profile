@@ -102,10 +102,6 @@ alias calendar_interval="cd ~/src/calendar_interval"
 alias mint="cd ~/src/mint"
 alias lockscreen="pmset displaysleepnow "
 
-# asdf
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf.sh
-
 # direnv
 eval "$(direnv hook bash)"
 
@@ -123,3 +119,23 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 . $HOME/.asdf/completions/asdf.bash
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# asdf-erlang
+export CFLAGS="-O2"
+export KERL_CONFIGURE_OPTIONS="--enable-hipe
+                               --disable-debug
+                               --disable-silent-rules
+                               --without-javac
+                               --enable-shared-zlib
+                               --enable-dynamic-ssl-lib
+                               --enable-sctp
+                               --enable-smp-support
+                               --enable-threads
+                               --enable-kernel-poll
+                               --enable-darwin-64bit
+                               --enable-gettimeofday-as-os-system-time
+                               --enable-dirty-schedulers
+                               --with-ssl=/usr/local/opt/openssl"
+
+# asdf
+. $HOME/.asdf/asdf.sh

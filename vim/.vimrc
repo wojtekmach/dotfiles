@@ -9,7 +9,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mhinz/vim-mix-format'
 Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
-Plug 'mileszs/ack.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'wojtekmach/vim-test', {'branch': 'wm-erlang-eunit'}
 " Plug 'wojtekmach/vim-test', {'dir': '~/src/oss/vim-test'}
 " Plug 'janko-m/vim-test'
