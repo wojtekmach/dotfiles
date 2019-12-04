@@ -116,7 +116,7 @@ export PATH="/usr/local/opt/libxml2/bin:$PATH"
 
 # bash-completion
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
-. $HOME/.asdf/completions/asdf.bash
+# . $HOME/.asdf/completions/asdf.bash
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
@@ -138,4 +138,7 @@ export KERL_CONFIGURE_OPTIONS="--enable-hipe
                                --with-ssl=/usr/local/opt/openssl"
 
 # asdf
-. $HOME/.asdf/asdf.sh
+# . $HOME/.asdf/asdf.sh
+source /usr/local/opt/asdf/asdf.sh
+
+export BASH_SILENCE_DEPRECATION_WARNING=1
