@@ -10,6 +10,8 @@
 	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
+	<key>ApplePressAndHoldEnabled</key>
+	<false/>
 	<key>AppleScrollAnimationEnabled</key>
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
@@ -419,8 +421,12 @@
 	<string>0 163 224 275 0 0 2560 1417 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>880 746 799 448 0 0 2560 1417 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>970 768 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 80 1530 1337 0 0 2560 1417 </string>
+	<string>92 23 1226 1206 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>1217 115 1338 1016 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_4C7B92A3-3456-4E84-A909-A97AFFE5B611</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_4C7B92A3-3456-4E84-A909-A97AFFE5B611_selection</key>
@@ -2383,25 +2389,30 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.7</string>
+		<string>3.3.8</string>
 	</array>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
 		<string>{{0, 0}, {2560, 1440}}</string>
 		<key>topLeft</key>
-		<string>{1129, 1013}</string>
+		<string>{958, 1135}</string>
 	</dict>
 	<key>NoSyncInstallationId</key>
-	<string>21BF87DC-D9BD-47EE-B0E7-A28C9A73FE35</string>
+	<string>57D979CB-19C1-4FF2-9C66-563961B2E9B8</string>
+	<key>NoSyncLastTipTime</key>
+	<real>602519002.86178303</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>3</integer>
+	<integer>8</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
 	<key>NoSyncNextAnnoyanceTime</key>
-	<real>596921991.15317094</real>
+	<real>602335188.96662998</real>
 	<key>NoSyncOnboardingWindowHasBeenShown</key>
+	<true/>
+	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncRecordedVariables</key>
 	<dict>
@@ -3102,7 +3113,13 @@
 		</array>
 	</dict>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
-	<real>596749191.15302002</real>
+	<real>597487992.81522095</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+	</array>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>
 	<key>PointerActions</key>
@@ -3151,12 +3168,14 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/final_new.xml?shard=27</string>
+	<string>https://iterm2.com/appcasts/final_new.xml?shard=11</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-11-29T19:45:53Z</date>
+	<date>2020-02-04T17:48:55Z</date>
 	<key>SUSendProfileInfo</key>
+	<false/>
+	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>SeparateWindowTitlePerTab</key>
 	<true/>
@@ -3195,7 +3214,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.7</string>
+	<string>3.3.8</string>
 	<key>kCPFavoritesUserDefaultsKey</key>
 	<array/>
 	<key>kCPKSelectionViewPreferredModeKey</key>

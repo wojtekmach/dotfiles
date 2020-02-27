@@ -122,6 +122,7 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 
 # asdf-erlang
 export CFLAGS="-O2"
+export KERL_BUILD_DOCS=true
 export KERL_CONFIGURE_OPTIONS="--enable-hipe
                                --disable-debug
                                --disable-silent-rules
