@@ -1,7 +1,7 @@
-erlang git
-# erlang 22.2.7
+erlang 23.0-rc2
+# erlang 22.2.8
 elixir git
-# elixir 1.9.0-otp-22
+# elixir 1.10.2-otp-22
 ruby 2.7.0
-rebar 3.11.0
+rebar 3.13.0
 nodejs 12.14.1

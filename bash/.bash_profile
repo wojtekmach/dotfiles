@@ -29,6 +29,9 @@ export PATH="$HOME/src/elixir/.mix/escripts:$PATH"
 export PATH="$HOME/src/elixir/bin:$PATH"
 export MIX_ARCHIVES="$HOME/.mix/archives"
 export MIX_ESCRIPTS="$HOME/.mix/escripts"
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.data
 
 if [ -f $HOME/.cargo/env ]; then
   source $HOME/.cargo/env
@@ -89,6 +92,8 @@ alias postgrex="cd ~/src/postgrex"
 alias phoenix="cd ~/src/phoenix"
 alias phoenix_ecto="cd ~/src/phoenix_ecto"
 alias phoenix_html="cd ~/src/phoenix_html"
+alias phoenix_live_dashboard="cd ~/src/phoenix_live_dashboard"
+alias phoenix_live_view="cd ~/src/phoenix_live_view"
 alias plug="cd ~/src/plug"
 alias plug_cowboy="cd ~/src/plug_cowboy"
 # mine

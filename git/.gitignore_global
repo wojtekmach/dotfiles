@@ -13,3 +13,4 @@ curl.sh
 curl.json
 package-lock.json
 /.vscode
+/.tm_properties

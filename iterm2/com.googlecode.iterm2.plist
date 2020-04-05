@@ -424,9 +424,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>970 768 620 392 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>92 23 1226 1206 0 0 2560 1417 </string>
+	<string>195 0 2362 1415 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>1217 115 1338 1016 0 0 2560 1417 </string>
+	<string>1017 306 1466 1111 0 0 2560 1417 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>1158 0 1402 1417 0 0 2560 1417 </string>
 	<key>NeverWarnAboutShortLivedSessions_4C7B92A3-3456-4E84-A909-A97AFFE5B611</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_4C7B92A3-3456-4E84-A909-A97AFFE5B611_selection</key>
@@ -2390,7 +2392,15 @@
 	<array>
 		<string>3.3.7</string>
 		<string>3.3.8</string>
+		<string>3.3.9</string>
 	</array>
+	<key>NoSyncFrame_SessionsPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{0, 0}, {2560, 1440}}</string>
+		<key>topLeft</key>
+		<string>{977, 1192}</string>
+	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
@@ -2401,9 +2411,9 @@
 	<key>NoSyncInstallationId</key>
 	<string>57D979CB-19C1-4FF2-9C66-563961B2E9B8</string>
 	<key>NoSyncLastTipTime</key>
-	<real>602519002.86178303</real>
+	<real>604059745.55732095</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>8</integer>
+	<integer>34</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -3114,12 +3124,31 @@
 	</dict>
 	<key>NoSyncTipOfTheDayEligibilityBeganTime</key>
 	<real>597487992.81522095</real>
+	<key>NoSyncTipsDisabled</key>
+	<true/>
 	<key>NoSyncTipsToNotShow</key>
 	<array>
-		<string>000</string>
+		<string>0004</string>
 		<string>0000</string>
+		<string>0010</string>
+		<string>0008</string>
+		<string>0007</string>
+		<string>0003</string>
+		<string>0013</string>
+		<string>0006</string>
+		<string>0002</string>
+		<string>000</string>
+		<string>0012</string>
+		<string>0009</string>
+		<string>0005</string>
 		<string>0001</string>
+		<string>0011</string>
+		<string>0015</string>
+		<string>0014</string>
+		<string>0016</string>
 	</array>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>2</integer>
 	<key>PointerActions</key>
@@ -3157,11 +3186,15 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/wojtek/.iterm2</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>QuickPasteBytesPerCall</key>
 	<integer>675</integer>
 	<key>QuickPasteDelayBetweenCalls</key>
 	<real>0.015151514671742916</real>
 	<key>QuitWhenAllWindowsClosed</key>
+	<true/>
+	<key>SUAutomaticallyUpdate</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
 	<true/>
@@ -3172,7 +3205,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-02-04T17:48:55Z</date>
+	<date>2020-03-26T13:22:25Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -3214,7 +3247,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.8</string>
+	<string>3.3.9</string>
 	<key>kCPFavoritesUserDefaultsKey</key>
 	<array/>
 	<key>kCPKSelectionViewPreferredModeKey</key>
