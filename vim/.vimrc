@@ -1,12 +1,108 @@
 " vim:set ts=2 sts=2 sw=2 expandtab:
-" Mostly stolen from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-
-Plug 'elixir-editors/vim-elixir'
+Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-dispatch'
+Plug 'bogado/file-line'
+Plug 'preservim/nerdtree'
+Plug 'wojtekmach/vim-test', {'branch': 'wm-last'}
+Plug 'skywind3000/asyncrun.vim'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'mattn/gist-vim'
+" elixir
+Plug 'elixir-editors/vim-elixir'
+Plug 'mhinz/vim-mix-format'
+call plug#end()
+
+" general
+colorscheme wojtek
+let mapleader=","
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" vim-projectionist
+let g:projectionist_heuristics = {
+    \   ".elixir_core": {
+    \     "lib/elixir/lib/*.ex": { "alternate": "lib/elixir/test/elixir/{}_test.exs", "type": "source" },
+    \     "lib/elixir/test/elixir/*_test.exs": { "alternate": "lib/elixir/lib/{}.ex", "type": "source" }
+    \   },
+    \   "rebar.config": {
+    \     "src/*.erl": { "alternate": "test/{}_tests.erl", "type": "source" },
+    \     "test/*_tests.erl": { "alternate": "src/{}.erl", "type": "source" }
+    \   },
+    \   "mix.exs": {
+    \     "lib/*.ex":        { "alternate": "test/{}_test.exs", "type": "source" },
+    \     "test/*_test.exs": { "alternate": "lib/{}.ex", "type": "test" },
+    \   },
+    \ }
+nnoremap <leader>, :A<CR>
+
+" fzf
+silent! nmap <leader>f :Rg<CR>
+silent! nmap <leader>t :GFiles<CR>
+
+" vim-test
+let test#strategy = "vimterminal"
+" augroup test
+"   autocmd!
+"   autocmd BufWrite * if test#exists() |
+"     \   TestFile |
+"     \ endif
+" augroup END
+nmap <silent> t :wa\|:TestLast<CR>
+nmap <silent> T :wa\|:TestSuite<CR>
+nmap <silent> <c-t> :wa\|:TestNearest<CR>
+nmap <silent> <m-t> :wa\|:TestFile<CR>
+
+" nmap <silent> T :wa\|:TestNearest<CR>
+" nmap <silent> t :wa\|:TestFile<CR>
+" nmap <silent> <leader>a :wa\|:TestSuite<CR>
+" nmap <silent> <leader>l :wa\|:TestLast<CR>
+" nmap <silent> e :wa\|:TestLast<CR>
+" nmap <silent> <leader>g :wa\|:TestVisit<CR>
+
+" vim-gist
+let g:gist_post_private = 1
+
+" vim-mix-format
+setlocal formatprg=mix\ format\ -
+let g:mix_format_on_save = 1
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Random
+"
+" Mostly stolen from https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
+
+" RENAME CURRENT FILE
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ', expand('%'), 'file')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        redraw!
+    endif
+endfunction
+map <leader>n :call RenameFile()<cr>
+
+" https://vi.stackexchange.com/a/679
+augroup Mkdir
+  autocmd!
+  autocmd BufWritePre *
+    \ if !isdirectory(expand("<afile>:p:h")) |
+        \ call mkdir(expand("<afile>:p:h"), "p") |
+    \ endif
+augroup END
+
+noremap c[ :w\|:cprev<CR>
+noremap c] :w\|:cnext<CR>
 
 
 
@@ -17,6 +113,18 @@ Plug 'tpope/vim-projectionist'
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+" Old
 
 "Plug 'editorconfig/editorconfig-vim'
 "Plug 'bogado/file-line'

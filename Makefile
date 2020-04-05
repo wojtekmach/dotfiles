@@ -19,6 +19,7 @@ all:
 	ln -f -s $(CURDIR)/bin/mdocs ~/bin/
 	ln -f -s $(CURDIR)/bin/tt ~/bin/
 	ln -f -s $(CURDIR)/bin/harvest ~/bin/
+	ln -f -s $(CURDIR)/bin/repush ~/bin/
 	ln -f -s $(CURDIR)/git/.gitconfig ~/
 	ln -f -s $(CURDIR)/git/.gitignore_global ~/
 	ln -f -s $(CURDIR)/git/template ~/.git_template
