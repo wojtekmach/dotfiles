@@ -1,0 +1,156 @@
+#!/bin/bash
+set -e
+
+if [ "$1" == help ]; then
+  cat <<EOF
+m is a small wrapper around Mix.
+
+Usage:
+
+  m
+
+    Starts IEx for the current project.
+
+  m deps.add PACKAGE
+
+    Adds PACKAGE to your dependencies.
+
+  m help
+
+    Displays this help.
+
+  m TASK [OPTION1 [OPTION2 ...]]
+
+    Same as "mix TASK [OPTION1 [OPTION2 ...]]".
+
+Features:
+
+1. Keeps your project clean; automatically creates and maintains (in \$PWD/.m
+   directory) all the files and directories that Mix requires, e.g.: mix.exs,
+   _build, deps/, etc.
+
+2. Dependencies are maintained as _data_ (and not arbitrary _code_) in
+   a deps.exs and can be easily added with: m deps.add PACKAGE.
+
+EOF
+  exit 0
+fi
+
+mix_exs=mix.exs
+
+# rm -rf .m
+
+if ! [ -f $mix_exs ]; then
+  mix_exs=.m/mix.exs
+
+  if ! [ -f $mix_exs ]; then
+    mkdir -p .m
+    echo [m] writing $mix_exs
+
+    cat > $mix_exs <<EOF
+defmodule MixProject do
+  use Mix.Project
+
+  def project() do
+    [
+      app: :example,
+      version: "0.1.0-dev",
+      build_path: ".m/_build",
+      deps_path: ".m/deps",
+      deps: deps()
+    ]
+  end
+
+  defp deps() do
+    case File.read("deps.exs") do
+      {:error, :enoent} ->
+        []
+
+      {:ok, contents} ->
+        for line <- String.split(contents, "\n", trim: true) do
+          case Code.string_to_quoted(line) do
+            {:ok, tuple} when is_tuple(tuple) ->
+              tuple
+
+            {:ok, {:{}, _, parts}} ->
+              List.to_tuple(parts)
+          end
+        end
+    end
+  end
+end
+EOF
+  fi
+fi
+
+export MIX_EXS=$mix_exs
+
+deps_exs=deps.exs
+
+if [ -f $deps_exs ] && [ "$deps_exs" -nt "mix.lock" ]; then
+  mix deps.get
+  # TODO update mix.get to touch it
+  touch mix.lock
+fi
+
+case $1 in
+  "")
+    iex -S mix
+    ;;
+
+  test)
+    test_helper_exs=test/test_helper.exs
+
+    if ! [ -f $test_helper_exs ]; then
+      mkdir -p test
+      echo [m] writing $test_helper_exs
+      echo "ExUnit.start()" > $test_helper_exs
+    fi
+
+    mix $@
+    ;;
+
+  format)
+
+    dot_formatter_exs=.formatter.exs
+
+    if ! [ -f $dot_formatter_exs ]; then
+      dot_formatter_exs=.m/.formatter.exs
+
+      if ! [ -f $dot_formatter_exs ]; then
+        echo [m] writing $dot_formatter_exs
+        cat > $dot_formatter_exs <<EOF
+[
+  inputs: ["{mix,.formatter}.exs", "{config,lib,test}/**/*.{ex,exs}"]
+]
+EOF
+      fi
+    fi
+
+    mix format --dot-formatter=$dot_formatter_exs
+    ;;
+
+  deps.add)
+    if [ -z "$2" ]; then
+      echo "Usage: m deps.add PACKAGE"
+      exit 1
+    fi
+
+    if [ -f $deps_exs ]; then
+      if grep --silent "$2" $deps_exs; then
+        echo Package $2 already in $deps_exs
+        exit 1
+      fi
+    fi
+
+    # TODO: fix hex.info so that when package is not found, it exits with non-zero
+    config=`mix hex.info $2 | grep Config: | sed 's/Config: //'`
+    echo [m] adding $config to $deps_exs
+    echo $config >> $deps_exs
+    mix deps.get
+    ;;
+
+  *)
+    mix $@
+    ;;
+esac

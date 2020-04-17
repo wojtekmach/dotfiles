@@ -4,4 +4,4 @@ elixir git
 # elixir 1.10.2-otp-22
 ruby 2.7.0
 rebar 3.13.0
-nodejs 12.14.1
+nodejs 12.16.2

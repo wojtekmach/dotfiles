@@ -21,8 +21,9 @@ export GREP_OPTIONS="--color"
 
 # exports
 export EDITOR="vim"
-# export ECTO_EDITOR="itermvim"
 export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
+export ECTO_EDITOR=$ELIXIR_EDITOR
+export PLUG_EDITOR=$ELIXIR_EDITOR
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/src/elixir/.mix/escripts:$PATH"
@@ -148,3 +149,14 @@ export KERL_CONFIGURE_OPTIONS="--enable-hipe
 source /usr/local/opt/asdf/asdf.sh
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+glg() {
+  git log --oneline --color=always \
+      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+      --bind "ctrl-m:execute:
+                (grep -o '[a-f0-9]\{7\}' | head -1 |
+                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+                {}
+FZF-EOF"
+}

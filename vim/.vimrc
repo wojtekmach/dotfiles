@@ -1,5 +1,3 @@
-" vim:set ts=2 sts=2 sw=2 expandtab:
-
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
@@ -20,11 +18,18 @@ Plug 'mhinz/vim-mix-format'
 call plug#end()
 
 " general
+set ts=2 sts=2 sw=2 expandtab
 colorscheme wojtek
 let mapleader=","
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+nnoremap <leader>w :q<CR>
+" cmd+s is mapped to F6 (0x117) in iterm
+nnoremap <F6> :w<CR>
+inoremap <F6> <Esc>:w<CR>a
+"" allow unsaved background buffers and remember marks/undo for them
+set hidden
 
 " vim-projectionist
 let g:projectionist_heuristics = {
@@ -44,8 +49,16 @@ let g:projectionist_heuristics = {
 nnoremap <leader>, :A<CR>
 
 " fzf
-silent! nmap <leader>f :Rg<CR>
+" silent! nmap <leader>f :Rg<CR>
 silent! nmap <leader>t :GFiles<CR>
+
+command! -bang -nargs=* Rg
+      \ call fzf#vim#grep(
+      \   'rg --column --line-number --no-heading --color=auto '.shellescape(<q-args>), 1,
+      \   <bang>0 ? fzf#vim#with_preview('up:60%')
+      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+      \   <bang>0)
+nnoremap <leader>f :Rg!<CR>
 
 " vim-test
 let test#strategy = "vimterminal"
@@ -56,23 +69,16 @@ let test#strategy = "vimterminal"
 "     \ endif
 " augroup END
 nmap <silent> t :wa\|:TestLast<CR>
-nmap <silent> T :wa\|:TestSuite<CR>
 nmap <silent> <c-t> :wa\|:TestNearest<CR>
-nmap <silent> <m-t> :wa\|:TestFile<CR>
-
-" nmap <silent> T :wa\|:TestNearest<CR>
-" nmap <silent> t :wa\|:TestFile<CR>
-" nmap <silent> <leader>a :wa\|:TestSuite<CR>
-" nmap <silent> <leader>l :wa\|:TestLast<CR>
-" nmap <silent> e :wa\|:TestLast<CR>
-" nmap <silent> <leader>g :wa\|:TestVisit<CR>
+nmap <silent> T :wa\|:TestFile<CR>
+nmap <silent> <leader>a :wa\|:TestSuite<CR>
 
 " vim-gist
 let g:gist_post_private = 1
 
 " vim-mix-format
 setlocal formatprg=mix\ format\ -
-let g:mix_format_on_save = 1
+" let g:mix_format_on_save = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -106,7 +112,31 @@ noremap c] :w\|:cnext<CR>
 
 
 
+let s:hidden_all = 0
+function! ToggleHiddenAll()
+    if s:hidden_all  == 0
+        let s:hidden_all = 1
+        set noshowmode
+        set noruler
+        set laststatus=0
+        set noshowcmd
+        set cmdheight=1
+        set showtabline=0
+        set nonumber
+    else
+        let s:hidden_all = 0
+        set showmode
+        set ruler
+        set laststatus=2
+        set showcmd
+        set cmdheight=2
+        set showtabline=1
+        set number
+    endif
+endfunction
 
+nnoremap <S-h> :call ToggleHiddenAll()<CR>
+call ToggleHiddenAll()
 
 
 

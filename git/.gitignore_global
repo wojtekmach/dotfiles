@@ -14,3 +14,4 @@ curl.json
 package-lock.json
 /.vscode
 /.tm_properties
+installer/phx_new-1.5.0-dev.ez
