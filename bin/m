@@ -36,32 +36,26 @@ EOF
   exit 0
 fi
 
-mix_exs=mix.exs
+if ! [ -f mix.exs ]; then
+  app=$(basename $(pwd))
+  module=`echo $app | ruby -ne 'puts $_.split("_").map(&:capitalize).join("")'`
 
-# rm -rf .m
-
-if ! [ -f $mix_exs ]; then
-  mix_exs=.m/mix.exs
-
-  if ! [ -f $mix_exs ]; then
-    mkdir -p .m
-    echo [m] writing $mix_exs
-
-    cat > $mix_exs <<EOF
-defmodule MixProject do
+  echo [m] writing mix.exs
+  cat > mix.exs <<EOF
+defmodule ${module}.MixProject do
   use Mix.Project
 
   def project() do
     [
-      app: :example,
+      app: :${app},
       version: "0.1.0-dev",
       build_path: ".m/_build",
       deps_path: ".m/deps",
-      deps: deps()
+      deps: load_deps_exs()
     ]
   end
 
-  defp deps() do
+  defp load_deps_exs() do
     case File.read("deps.exs") do
       {:error, :enoent} ->
         []
@@ -80,10 +74,7 @@ defmodule MixProject do
   end
 end
 EOF
-  fi
 fi
-
-export MIX_EXS=$mix_exs
 
 deps_exs=deps.exs
 
