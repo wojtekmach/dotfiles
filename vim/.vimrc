@@ -11,7 +11,10 @@ Plug 'wojtekmach/vim-test', {'branch': 'wm-last'}
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
+Plug 'tpope/vim-dadbod'
+Plug 'kristijanhusak/vim-dadbod-ui'
 " elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
@@ -24,12 +27,13 @@ let mapleader=","
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set hidden
 nnoremap <leader>w :q<CR>
 " cmd+s is mapped to F6 (0x117) in iterm
 nnoremap <F6> :w<CR>
 inoremap <F6> <Esc>:w<CR>a
 "" allow unsaved background buffers and remember marks/undo for them
-set hidden
+nnoremap <space> <enter>
 
 " vim-projectionist
 let g:projectionist_heuristics = {
@@ -77,9 +81,8 @@ nmap <silent> <leader>a :wa\|:TestSuite<CR>
 let g:gist_post_private = 1
 
 " vim-mix-format
-setlocal formatprg=mix\ format\ -
+autocmd BufRead,BufNewFile   *.ex,*.exs setlocal formatprg=mix\ format\ -
 " let g:mix_format_on_save = 1
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Random

@@ -92,7 +92,7 @@ case $1 in
   test)
     test_helper_exs=test/test_helper.exs
 
-    if ! [ -f $test_helper_exs ]; then
+    if ! [ -f $test_helper_exs ] && ! [ -d apps/ ] ; then
       mkdir -p test
       echo [m] writing $test_helper_exs
       echo "ExUnit.start()" > $test_helper_exs

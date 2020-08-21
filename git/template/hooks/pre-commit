@@ -5,6 +5,10 @@ if [ -f .formatter.exs ] && [ -z "$SKIP_FORMAT" ]; then
   mix format --check-formatted
 fi
 
+if [ -f mix.exs ]; then
+  MIX_ENV=test mix compile --warnings-as-errors
+fi
+
 if [ -f mix.exs ] && [ -z "$SKIP_TEST" ]; then
   mix test
 fi

@@ -2,3 +2,32 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa
+
+Host rpi
+  User pi
+  HostName 192.168.0.227
+
+Host macos
+  User wojtek
+  HostName 10.211.55.3
+
+Host ubuntu
+  User parallels
+  HostName 10.211.55.4
+
+Host windows
+  User User
+  HostName 10.211.55.5
+
+
+Host macos-10.13
+  User wojtek
+  HostName 192.168.251.130
+
+Host macos-10.14
+  User wojtek
+  HostName 192.168.251.131
+
+Host macos-10.15
+  User wojtek
+  HostName 192.168.251.129

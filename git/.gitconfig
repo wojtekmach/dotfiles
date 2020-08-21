@@ -39,21 +39,32 @@
 [color]
     ui = auto
 [alias]
-    st = status
-    ci = commit
-    co = checkout
-    di = diff
-    dc = diff --cached
-    amend = commit --amend
-    aa = add --all
-    ff = merge --ff-only
-    pullff = pull --ff-only
-    noff = merge --no-ff
-    fa = fetch --all
-    pom = push origin master
-    b = branch
-    ds = diff --stat=160,120
-    dh1 = diff HEAD~1
+    ; master = checkout master
+    ; b = branch
+    ; c = commit --verbose
+    ; co = checkout
+    ; d = diff
+    ; s = status
+    ; t = tag -l --sort=-v:refname
+    ; new = checkout -b
+
+    ; amend = commit --amend --no-edit
+    ; reword = commit --no-verify --amend
+
+    ; st = status
+    ; ci = commit
+    ; co = checkout
+    ; di = diff
+    ; dc = diff --cached
+    ; aa = add --all
+    ; ff = merge --ff-only
+    ; pullff = pull --ff-only
+    ; noff = merge --no-ff
+    ; fa = fetch --all
+    ; pom = push origin master
+    ; b = branch
+    ; ds = diff --stat=160,120
+    ; dh1 = diff HEAD~1
 
     # Divergence (commits we added and commits remote added)
     div = divergence
@@ -76,14 +87,14 @@
     ra = !git r --all
     l = "log --oneline"
     la = !git l --all
-	switch = !legit switch \"$@\"
-	branches = !legit branches
-	sprout = !legit sprout \"$@\"
-	unpublish = !legit unpublish \"$@\"
-	harvest = !legit harvest \"$@\"
-	sync = !legit sync \"$@\"
-	publish = !legit publish \"$@\"
-	graft = !legit graft \"$@\"
+    ; switch = !legit switch \"$@\"
+    ; branches = !legit branches
+    ; sprout = !legit sprout \"$@\"
+    ; unpublish = !legit unpublish \"$@\"
+    ; harvest = !legit harvest \"$@\"
+    ; sync = !legit sync \"$@\"
+    ; publish = !legit publish \"$@\"
+    ; graft = !legit graft \"$@\"
 
 [merge]
     tool = vimdiff
@@ -118,3 +129,5 @@
 	; gpgsign = true
 ; [gpg]
 ; 	program = /usr/local/bin/gpg
+[checkout]
+	defaultRemote = origin

@@ -22,7 +22,7 @@ export GREP_OPTIONS="--color"
 # exports
 export EDITOR="vim"
 export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
-export ECTO_EDITOR=$ELIXIR_EDITOR
+# export ECTO_EDITOR=$ELIXIR_EDITOR
 export PLUG_EDITOR=$ELIXIR_EDITOR
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -30,9 +30,9 @@ export PATH="$HOME/src/elixir/.mix/escripts:$PATH"
 export PATH="$HOME/src/elixir/bin:$PATH"
 export MIX_ARCHIVES="$HOME/.mix/archives"
 export MIX_ESCRIPTS="$HOME/.mix/escripts"
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.data
+# export XDG_CONFIG_HOME=$HOME/.config
+# export XDG_CACHE_HOME=$HOME/.cache
+# export XDG_DATA_HOME=$HOME/.data
 
 if [ -f $HOME/.cargo/env ]; then
   source $HOME/.cargo/env
@@ -43,28 +43,40 @@ alias vi="vim "
 alias ..="cd .."
 alias iex="iex -pa $MIX_ARCHIVES/**/ebin/ "
 ## git
+alias g="hub "
 alias git="hub "
-alias gaa="git add --all "
+alias gaa="g add --all "
 alias gb="git branch "
-alias gbc="git rev-parse --abbrev-ref HEAD "
 alias gc="git commit --verbose "
+alias gco="git checkout "
+alias gcl="git add --all . && git reset --hard"
 alias gd="git diff "
 alias gdh="git diff HEAD "
-alias gl="git l "
+alias gmaster="git checkout master "
+alias g-="git checkout - "
 alias gs="git status "
+alias gbc="git rev-parse --abbrev-ref HEAD "
+alias gl="git l "
 alias gt="git tag -l --sort=-v:refname "
-alias amend="git commit --amend --no-edit "
+alias gamend="git commit --amend --no-edit "
+alias greword="git commit --amend --no-verify "
+alias gi="git issue"
+alias gpr="git pr list"
+# alias master="git checkout master "
+# alias stash="git stash "
+# alias unstash="git stash pop "
 ## elixir
-alias iexm="iex -S mix"
-alias iexs="iex -S mix server"
-alias mps="iex -S mix phx.server"
-alias mc="mix compile"
-alias tm="MIX_ENV=test mix "
-alias tmc="MIX_ENV=test mix compile "
-alias xref="time mix compile.xref"
+alias iexmr="iex -S mix run"
+# alias iexs="iex -S mix server"
+# alias mps="iex -S mix phx.server"
+
 ## projects
 
 # elixir
+alias mc="m compile "
+alias iexm="iex -S mix "
+alias ms="iex -S mix phx.server "
+alias tmc="MIX_ENV=test m compile "
 alias cd-elixir="cd ~/src/elixir"
 alias cd-ex_doc="cd ~/src/ex_doc"
 alias decimal="cd ~/src/decimal"
@@ -104,6 +116,9 @@ alias dotlocal="cd ~/src/dotlocal"
 alias ectoplasma="cd ~/src/ectoplasma"
 alias resourceful="cd ~/src/resourceful"
 alias calendar_interval="cd ~/src/calendar_interval"
+alias bash_profile="vi ~/.bash_profile"
+alias bash_profile.local="vi ~/.bash_profile.local"
+alias vimrc="vi ~/.vimrc"
 # other
 alias mint="cd ~/src/mint"
 alias lockscreen="pmset displaysleepnow "
