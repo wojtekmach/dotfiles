@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [[ -z $(git branch --list main) ]]; then
+  git checkout master
+else
+  git checkout main
+fi
