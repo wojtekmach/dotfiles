@@ -13,6 +13,7 @@ all:
 	ln -f -s $(CURDIR)/bin/github ~/bin/
 	ln -f -s $(CURDIR)/bin/glp ~/bin/
 	ln -f -s $(CURDIR)/bin/gm ~/bin/
+	ln -f -s $(CURDIR)/bin/gm ~/bin/
 	ln -f -s $(CURDIR)/bin/harvest ~/bin/
 	ln -f -s $(CURDIR)/bin/itermvim ~/bin/
 	ln -f -s $(CURDIR)/bin/m ~/bin/
