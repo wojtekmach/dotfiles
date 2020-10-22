@@ -64,18 +64,11 @@ alias gpr="git pr list"
 # alias master="git checkout master "
 # alias stash="git stash "
 # alias unstash="git stash pop "
-## elixir
-alias iexmr="iex -S mix run"
-# alias iexs="iex -S mix server"
-# alias mps="iex -S mix phx.server"
 
 ## projects
 
 # elixir
-alias mc="m compile "
-alias iexm="iex -S mix "
 alias ms="iex -S mix phx.server "
-alias tmc="MIX_ENV=test m compile "
 alias cd-elixir="cd ~/src/elixir"
 alias cd-ex_doc="cd ~/src/ex_doc"
 alias decimal="cd ~/src/decimal"

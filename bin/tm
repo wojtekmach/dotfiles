@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+export MIX_ENV=test
+m $@

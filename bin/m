@@ -1,8 +1,21 @@
 #!/bin/bash
 set -e
 
-if [ -n "$1" ]; then
-  mix $@
-else
-  iex -S mix
-fi
+case $1 in
+  "")
+    iex -S mix
+    ;;
+
+  docs)
+    shift
+    if grep --quiet -E "ex_doc.*:docs" mix.exs; then
+      MIX_ENV=docs mix docs -f html $@
+    else
+      mix docs -f html $@
+    fi
+    ;;
+
+  *)
+    mix $@
+    ;;
+esac

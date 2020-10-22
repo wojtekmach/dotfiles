@@ -17,6 +17,7 @@ all:
 	ln -f -s $(CURDIR)/bin/harvest ~/bin/
 	ln -f -s $(CURDIR)/bin/itermvim ~/bin/
 	ln -f -s $(CURDIR)/bin/m ~/bin/
+	ln -f -s $(CURDIR)/bin/tm ~/bin/
 	ln -f -s $(CURDIR)/bin/mdocs ~/bin/
 	ln -f -s $(CURDIR)/bin/pr ~/bin/
 	ln -f -s $(CURDIR)/bin/repush ~/bin/
