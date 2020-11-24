@@ -34,6 +34,8 @@ export MIX_ESCRIPTS="$HOME/.mix/escripts"
 # export XDG_CACHE_HOME=$HOME/.cache
 # export XDG_DATA_HOME=$HOME/.data
 
+export ERL_TOP=/Users/wojtek/src/erlang
+
 if [ -f $HOME/.cargo/env ]; then
   source $HOME/.cargo/env
 fi
