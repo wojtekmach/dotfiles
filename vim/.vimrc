@@ -7,7 +7,8 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'bogado/file-line'
 Plug 'preservim/nerdtree'
-Plug 'wojtekmach/vim-test', {'branch': 'wm-last'}
+" Plug 'wojtekmach/vim-test', {'branch': 'wm-last'}
+Plug 'vim-test/vim-test'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -369,8 +370,6 @@ call ToggleHiddenAll()
 "autocmd BufRead,BufNewFile   *.erl,*.hrl setlocal sw=4 sts=4 et
 "set number
 
-"" let g:mix_format_on_save = 1
-
 "" https://vi.stackexchange.com/a/679
 "augroup Mkdir
 "  autocmd!
@@ -426,14 +425,9 @@ call ToggleHiddenAll()
 
 "nmap <leader>z :call WinZoomToggle()<cr>
 
-"" let g:mix_format_on_save = 1
-
 "noremap c[ :w\|:cprev<CR>
 "noremap c] :w\|:cnext<CR>
 "nnoremap <C-a> 0
 "nnoremap <C-e> $
 "inoremap <C-a> <Esc>0
 "inoremap <C-e> <Esc>$
-
-"setlocal formatprg=mix\ format\ -
-"let g:mix_format_on_save = 1
