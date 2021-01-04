@@ -12,8 +12,8 @@ Host macos
   HostName 10.211.55.3
 
 Host ubuntu
-  User parallels
-  HostName 10.211.55.4
+  User wojtek
+  HostName 10.211.55.3
 
 Host windows
   User User

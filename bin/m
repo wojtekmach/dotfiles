@@ -7,12 +7,16 @@ fi
 
 case $1 in
   "")
-    iex -S mix
+    if [ -f mix.exs ]; then
+      iex -S mix
+    else
+      iex
+    fi
     ;;
 
   docs)
     shift
-    if grep --quiet -E "ex_doc.*:docs" mix.exs; then
+    if grep --quiet -E "ex_doc.*only: :docs" mix.exs; then
       MIX_ENV=docs mix docs -f html $@
     else
       mix docs -f html $@
