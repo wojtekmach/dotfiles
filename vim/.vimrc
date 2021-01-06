@@ -83,7 +83,7 @@ let g:gist_post_private = 1
 
 " vim-mix-format
 autocmd BufRead,BufNewFile   *.ex,*.exs setlocal formatprg=mix\ format\ -
-let g:mix_format_on_save = 1
+" let g:mix_format_on_save = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Random
@@ -431,3 +431,5 @@ call ToggleHiddenAll()
 "nnoremap <C-e> $
 "inoremap <C-a> <Esc>0
 "inoremap <C-e> <Esc>$
+
+"setlocal formatprg=mix\ format\ -
