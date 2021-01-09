@@ -18,11 +18,17 @@ PROMPT='$prompt_host%~$(parse_git_branch)%# '
 
 # PATH
 
-export PATH=$HOME/src/otp/release/arm-apple-darwin20.2.0/bin:$PATH
-# export PATH=$HOME/src/otp/bin:$PATH
+export PATH=$HOME/src/otp/release/bin:$PATH
+# export PATH=$HOME/opt/erlang/current/bin:$PATH
+# alias switch-erlang=$HOME/opt/erlang/switch-erlang
 export PATH=$HOME/src/elixir/bin:$PATH
 export PATH=$HOME/bin:$PATH
-export ERL_TOP=$HOME/src/otp
+
+if [ -d /Applications/Postgres.app ]; then
+  export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+fi
+
+# export ERL_TOP=$HOME/src/otp
 # export PATH=$HOME/Downloads/heroku/bin:$PATH
 # export PATH=$HOME/.beamup/bin:$PATH
 
@@ -36,7 +42,14 @@ export PLUG_EDITOR=$ELIXIR_EDITOR
 
 # ALIASES
 
-alias rg="ag "
+if which ag > /dev/null; then
+  alias rg="ag "
+fi
+
+if which hub > /dev/null; then
+  alias git="hub "
+fi
+
 alias ls="ls -G "
 alias ms="iex -S mix phx.server "
 alias dashbit="cd ~/src/dashbit"
