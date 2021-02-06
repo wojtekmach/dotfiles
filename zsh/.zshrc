@@ -16,25 +16,28 @@ fi
 setopt PROMPT_SUBST
 PROMPT='$prompt_host%~$(parse_git_branch)%# '
 
+# asdf
+. $HOME/.local/share/asdf/asdf.sh
+# . $HOME/.local/share/asdf/completions/asdf.bash
+export KERL_BUILD_DOCS=yes
+
 # PATH
 
-export PATH=$HOME/src/otp/release/bin:$PATH
-# export PATH=$HOME/opt/erlang/current/bin:$PATH
-# alias switch-erlang=$HOME/opt/erlang/switch-erlang
-export PATH=$HOME/src/elixir/bin:$PATH
+# export PATH=$HOME/src/otp/release/bin:$PATH
+# export PATH=$HOME/src/otp/bin:$PATH
+# export PATH=$HOME/src/elixir/bin:$PATH
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/share/mix/escripts:$PATH
+export PATH=$HOME/Library/Python/3.8/bin:$PATH
 
-if [ -d /Applications/Postgres.app ]; then
-  export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
-fi
-
-# export ERL_TOP=$HOME/src/otp
+export ERL_TOP=$HOME/src/otp
 # export PATH=$HOME/Downloads/heroku/bin:$PATH
 # export PATH=$HOME/.beamup/bin:$PATH
 
 # Elixir
 
 export MIX_XDG=true
+export MIX_HOME=$HOME/.local/share/mix
 export ERL_AFLAGS="-kernel shell_history enabled"
 export EDITOR="vim"
 export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
@@ -42,21 +45,20 @@ export PLUG_EDITOR=$ELIXIR_EDITOR
 
 # ALIASES
 
-if which ag > /dev/null; then
-  alias rg="ag "
-fi
-
-if which hub > /dev/null; then
-  alias git="hub "
-fi
-
+alias ..="cd .. " 
 alias ls="ls -G "
 alias ms="iex -S mix phx.server "
 alias dashbit="cd ~/src/dashbit"
 alias cd-elixir="cd ~/src/elixir"
 alias cd-erlang="cd ~/src/otp"
+alias cd-ex_doc="cd ~/src/ex_doc"
 alias hex="cd ~/src/hex"
 alias hexpm="cd ~/src/hexpm"
+alias hex_core="cd ~/src/hex_core"
+alias dotfiles="cd ~/src/dotfiles"
+alias vimrc="cd ~/src/dotfiles && vim vim/.vimrc"
+alias zshrc="cd ~/src/dotfiles && vim zsh/.zshrc"
+# git
 alias gaa="git add --all "
 alias gb="git branch "
 alias gc="git commit --verbose "

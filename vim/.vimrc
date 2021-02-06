@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
@@ -19,6 +20,7 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 " elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'mhinz/vim-mix-format'
+Plug 'rking/ag.vim'
 call plug#end()
 
 " general
@@ -35,6 +37,12 @@ nnoremap <F6> :w<CR>
 inoremap <F6> <Esc>:w<CR>a
 "" allow unsaved background buffers and remember marks/undo for them
 nnoremap <space> <enter>
+
+" auto-reload vimrc
+augroup myvimrc
+  au!
+  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
+augroup END
 
 " vim-projectionist
 let g:projectionist_heuristics = {
@@ -54,16 +62,9 @@ let g:projectionist_heuristics = {
 nnoremap <leader>, :A<CR>
 
 " fzf
-" silent! nmap <leader>f :Rg<CR>
-silent! nmap <leader>t :GFiles<CR>
-
-command! -bang -nargs=* Rg
-      \ call fzf#vim#grep(
-      \   'rg --column --line-number --no-heading --color=auto '.shellescape(<q-args>), 1,
-      \   <bang>0 ? fzf#vim#with_preview('up:60%')
-      \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-      \   <bang>0)
-nnoremap <leader>f :Rg!<CR>
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+silent! nmap <leader>f :Ag<CR>
+silent! nmap <leader>t :Files<CR>
 
 " vim-test
 let test#strategy = "vimterminal"
