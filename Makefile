@@ -26,6 +26,7 @@ all:
 	ln -f -s $(CURDIR)/bin/tm ~/bin/
 	ln -f -s $(CURDIR)/bin/tt ~/bin/
 	ln -f -s $(CURDIR)/bin/wdalias ~/bin/
+	ln -f -s $(CURDIR)/bin/gpull ~/bin/
 	ln -f -s $(CURDIR)/git/.gitconfig ~/
 	ln -f -s $(CURDIR)/git/.gitconfig ~/
 	ln -f -s $(CURDIR)/git/.gitignore_global ~/

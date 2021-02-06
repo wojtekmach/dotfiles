@@ -17,15 +17,12 @@ setopt PROMPT_SUBST
 PROMPT='$prompt_host%~$(parse_git_branch)%# '
 
 # asdf
+
 . $HOME/.local/share/asdf/asdf.sh
-# . $HOME/.local/share/asdf/completions/asdf.bash
 export KERL_BUILD_DOCS=yes
 
 # PATH
 
-# export PATH=$HOME/src/otp/release/bin:$PATH
-# export PATH=$HOME/src/otp/bin:$PATH
-# export PATH=$HOME/src/elixir/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/share/mix/escripts:$PATH
 export PATH=$HOME/Library/Python/3.8/bin:$PATH
@@ -46,18 +43,24 @@ export PLUG_EDITOR=$ELIXIR_EDITOR
 # ALIASES
 
 alias ..="cd .. " 
-alias ls="ls -G "
-alias ms="iex -S mix phx.server "
 alias dashbit="cd ~/src/dashbit"
 alias cd-elixir="cd ~/src/elixir"
 alias cd-erlang="cd ~/src/otp"
 alias cd-ex_doc="cd ~/src/ex_doc"
-alias hex="cd ~/src/hex"
-alias hexpm="cd ~/src/hexpm"
-alias hex_core="cd ~/src/hex_core"
-alias dotfiles="cd ~/src/dotfiles"
+
+for i in hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
+  ecto ecto_sql myxql postgrex \
+  phoenix phoenix_ecto phoenix_html phoenix_view phoenix_live_view phoenix_live_dashboard phoenix_pubsub \
+  mint finch \
+  dotfiles; do
+  alias ${i}="cd ~/src/${i}"
+done
+
 alias vimrc="cd ~/src/dotfiles && vim vim/.vimrc"
 alias zshrc="cd ~/src/dotfiles && vim zsh/.zshrc"
+alias ls="ls -G "
+alias ms="iex -S mix phx.server "
+
 # git
 alias gaa="git add --all "
 alias gb="git branch "
@@ -73,6 +76,7 @@ alias gl="git l "
 alias gt="git tag -l --sort=-v:refname "
 alias gamend="git commit --amend --no-edit "
 alias greword="git commit --amend --no-verify "
+alias gpush="git push "
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
