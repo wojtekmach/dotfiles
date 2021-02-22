@@ -100,12 +100,13 @@
     tool = vimdiff
 [init]
 	templatedir = ~/.git_template
+	defaultBranch = main
 [url "git://github.com/"]
 	insteadOf = gh:
 ; [push]
 ; 	default = simple
 [push]
-	default = upstream
+	default = current
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

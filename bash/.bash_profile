@@ -25,7 +25,6 @@ export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
 # export ECTO_EDITOR=$ELIXIR_EDITOR
 export PLUG_EDITOR=$ELIXIR_EDITOR
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/src/elixir/.mix/escripts:$PATH"
 export PATH="$HOME/src/elixir/bin:$PATH"
 export MIX_ARCHIVES="$HOME/.mix/archives"
@@ -169,4 +168,3 @@ glg() {
                 {}
 FZF-EOF"
 }
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"

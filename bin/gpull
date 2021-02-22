@@ -1,2 +1,15 @@
 #!/bin/bash
-git pull `gbc`
+
+if [ -n "${1}" ]; then
+  remote="${1}"
+else
+  remote="origin"
+fi
+
+if [ -n "${2}" ]; then
+  branch="${2}"
+else
+  branch=$(git rev-parse --abbrev-ref HEAD)
+fi
+
+git pull ${remote} ${branch}

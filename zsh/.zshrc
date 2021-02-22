@@ -16,6 +16,10 @@ fi
 setopt PROMPT_SUBST
 PROMPT='$prompt_host%~$(parse_git_branch)%# '
 
+# rust
+
+. $HOME/.cargo/env
+
 # asdf
 
 . $HOME/.local/share/asdf/asdf.sh
@@ -25,7 +29,6 @@ export KERL_BUILD_DOCS=yes
 
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/share/mix/escripts:$PATH
-export PATH=$HOME/Library/Python/3.8/bin:$PATH
 
 export ERL_TOP=$HOME/src/otp
 # export PATH=$HOME/Downloads/heroku/bin:$PATH
@@ -93,3 +96,5 @@ alias gpush="git push "
 # unset __conda_setup
 # # <<< conda initialize <<<
 
+# eval "$(direnv hook zsh)"
+export PATH=~/src/bazel/bazel-bin/src:$PATH

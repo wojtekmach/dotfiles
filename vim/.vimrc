@@ -44,6 +44,10 @@ augroup myvimrc
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
 augroup END
 
+" line length
+set textwidth=98
+set colorcolumn=98
+
 " vim-projectionist
 let g:projectionist_heuristics = {
     \   ".elixir_core": {

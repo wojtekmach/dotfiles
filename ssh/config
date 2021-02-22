@@ -13,7 +13,7 @@ Host macos
 
 Host ubuntu
   User wojtek
-  HostName 10.211.55.3
+  HostName 10.211.55.4
 
 Host windows
   User User
