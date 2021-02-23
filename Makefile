@@ -7,6 +7,7 @@ all:
 	ln -f -s $(CURDIR)/bash/.git-completion.bash ~/
 	ln -f -s $(CURDIR)/bash/.hushlogin ~/
 	ln -f -s $(CURDIR)/zsh/.zshrc ~/
+	ln -f -s $(CURDIR)/bin/up ~/bin/
 	ln -f -s $(CURDIR)/bin/current_project_name ~/bin/
 	ln -f -s $(CURDIR)/bin/ecto.rebuild ~/bin/
 	ln -f -s $(CURDIR)/bin/ecto.reset ~/bin/
