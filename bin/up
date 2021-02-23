@@ -3,4 +3,4 @@ set -e
 
 git add --all
 git commit -m up
-gpush
+git push
