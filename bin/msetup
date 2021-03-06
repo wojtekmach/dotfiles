@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if grep --quiet -E " setup: " mix.exs; then
-  mix setup
-else
-  mix deps.get && mix compile
-fi
