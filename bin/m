@@ -24,7 +24,7 @@ case $1 in
     ;;
 
   format)
-    if grep --quiet -E "inputs:" .formatter.exs; then
+    if [ -f .formatter.exs ] && grep --quiet -E "inputs:" .formatter.exs; then
       mix format $@
     else
       true

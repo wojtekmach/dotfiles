@@ -85,7 +85,8 @@ nmap <silent> <leader>a :wa\|:TestSuite<CR>
 " vim-gist
 let g:gist_post_private = 1
 
-autocmd! BufWritePost   *.ex,*.exs :Dispatch! ~/bin/m "format <afile>"
+" mix format
+autocmd! BufWritePost   *.ex,*.exs :Dispatch! ~/bin/m format <afile>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Random
@@ -167,7 +168,6 @@ call ToggleHiddenAll()
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Plug 'junegunn/fzf.vim'
 "Plug 'elixir-lang/vim-elixir'
-"Plug 'mhinz/vim-mix-format'
 "Plug 'slashmili/alchemist.vim', {'for': 'elixir'}
 "Plug 'jremmen/vim-ripgrep'
 "Plug 'wojtekmach/vim-test', {'branch': 'wm-erlang-eunit'}
@@ -433,5 +433,3 @@ call ToggleHiddenAll()
 "nnoremap <C-e> $
 "inoremap <C-a> <Esc>0
 "inoremap <C-e> <Esc>$
-
-"setlocal formatprg=mix\ format\ -
