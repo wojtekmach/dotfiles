@@ -14,20 +14,28 @@ case $1 in
     fi
     ;;
 
-  setup)
-    if grep --quiet -E " setup: \[" mix.exs; then
-      mix setup
-    else
-      mix deps.get && mix compile
-    fi
-    ;;
-
   docs)
     shift
     if grep --quiet -E "ex_doc.*only: :docs" mix.exs; then
       MIX_ENV=docs mix docs -f html $@
     else
       mix docs -f html $@
+    fi
+    ;;
+
+  format)
+    if grep --quiet -E "inputs:" .formatter.exs; then
+      mix format $@
+    else
+      true
+    fi
+    ;;
+
+  setup)
+    if grep --quiet -E " setup: \[" mix.exs; then
+      mix setup
+    else
+      mix deps.get && mix compile
     fi
     ;;
 

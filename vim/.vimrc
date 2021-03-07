@@ -19,7 +19,6 @@ Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
 " elixir
 Plug 'elixir-editors/vim-elixir'
-Plug 'mhinz/vim-mix-format'
 Plug 'rking/ag.vim'
 call plug#end()
 
@@ -86,9 +85,7 @@ nmap <silent> <leader>a :wa\|:TestSuite<CR>
 " vim-gist
 let g:gist_post_private = 1
 
-" vim-mix-format
-autocmd BufRead,BufNewFile   *.ex,*.exs setlocal formatprg=mix\ format\ -
-let g:mix_format_on_save = 1
+autocmd! BufWritePost   *.ex,*.exs :Dispatch! ~/bin/m "format <afile>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Random
