@@ -24,10 +24,13 @@ case $1 in
     ;;
 
   format)
-    if [ -f .formatter.exs ] && grep --quiet -E "inputs:" .formatter.exs; then
-      mix format $@
-    else
-      true
+    if [[ -f .formatter.exs ]]; then
+      inputs=$(grep "inputs:" .formatter.exs)
+
+      if [[ -n "$inputs" ]] && [[ "$inputs" != *"inputs: []"* ]]; then
+        shift;
+        echo mix format $@
+      fi
     fi
     ;;
 

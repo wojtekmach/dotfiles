@@ -29,6 +29,7 @@ export KERL_BUILD_DOCS=yes
 
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/share/mix/escripts:$PATH
+export PATH=$HOME/opt/google-cloud-sdk/bin:$PATH
 
 export ERL_TOP=$HOME/src/otp
 # export PATH=$HOME/Downloads/heroku/bin:$PATH
@@ -54,7 +55,7 @@ alias cd-ex_doc="cd ~/src/ex_doc"
 for i in hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
   ecto ecto_sql myxql postgrex \
   phoenix phoenix_ecto phoenix_html phoenix_view phoenix_live_view phoenix_live_dashboard phoenix_pubsub \
-  mint finch \
+  decimal mint finch \
   dotfiles; do
   alias ${i}="cd ~/src/${i}"
 done
