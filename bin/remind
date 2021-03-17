@@ -15,9 +15,8 @@ fi
 
 osascript - "$1" "$date" <<END
 on run argv
-  set t to date (item 2 of argv)
   tell application "Reminders"
-    make new reminder with properties {name:item 1 of argv, due date: t}
+    make new reminder with properties {name:item 1 of argv, due date: date (item 2 of argv)}
   end tell
 end run
 END
