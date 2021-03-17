@@ -65,7 +65,7 @@ let g:projectionist_heuristics = {
 nnoremap <leader>, :A<CR>
 
 " fzf
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
 silent! nmap <leader>f :Ag<CR>
 silent! nmap <leader>t :Files<CR>
 

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+if [ -z "$2" ]; then
+  echo "Usage:"
+  echo "  remind WHAT TIME"
+  echo "  remind WHAT DATE TIME"
+  exit 1
+fi
+
+if [ -n "$3" ]; then
+  date="$(date -jf "%Y-%m-%d" $2 +%d/%m/%Y) $3"
+else
+  date="$(date +%d/%m/%Y) $2"
+fi
+
+osascript - "$1" "$date" <<END
+on run argv
+  set t to date (item 2 of argv)
+  tell application "Reminders"
+    make new reminder with properties {name:item 1 of argv, due date: t}
+  end tell
+end run
+END

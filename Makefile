@@ -18,6 +18,7 @@ all:
 	ln -f -s $(CURDIR)/bin/m ~/bin/
 	ln -f -s $(CURDIR)/bin/pr ~/bin/
 	ln -f -s $(CURDIR)/bin/repush ~/bin/
+	ln -f -s $(CURDIR)/bin/remind ~/bin/
 	ln -f -s $(CURDIR)/bin/t ~/bin/
 	ln -f -s $(CURDIR)/bin/tm ~/bin/
 	ln -f -s $(CURDIR)/bin/tt ~/bin/
