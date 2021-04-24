@@ -1,10 +1,4 @@
-erlang git
+erlang 24.0-rc3
 elixir git
-# elixir 1.10.2-otp-22
-ruby 2.7.0
-rebar 3.12.0
 nodejs 12.16.2
-deno 1.0.0
-gleam git
-golang 1.14.4
-bazel 3.7.2
+bazel 3.1.0

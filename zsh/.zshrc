@@ -18,11 +18,12 @@ PROMPT='$prompt_host%~$(parse_git_branch)%# '
 
 # rust
 
-. $HOME/.cargo/env
+# . $HOME/.cargo/env
 
 # asdf
 
-. $HOME/.local/share/asdf/asdf.sh
+. $HOME/.asdf/asdf.sh
+
 export KERL_BUILD_DOCS=yes
 
 # PATH
@@ -30,6 +31,7 @@ export KERL_BUILD_DOCS=yes
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/share/mix/escripts:$PATH
 export PATH=$HOME/opt/google-cloud-sdk/bin:$PATH
+export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
 export ERL_TOP=$HOME/src/otp
 # export PATH=$HOME/Downloads/heroku/bin:$PATH
@@ -99,3 +101,5 @@ alias gpush="git push "
 
 # eval "$(direnv hook zsh)"
 export PATH=~/src/bazel/bazel-bin/src:$PATH
+
+export PATH=$HOME/Downloads/google-cloud-sdk/bin:$PATH
