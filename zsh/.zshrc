@@ -25,10 +25,7 @@ fi
 
 # asdf
 
-if [ -f /opt/homebrew/opt/asdf/asdf.sh ]; then
-  . /opt/homebrew/opt/asdf/asdf.sh
-fi
-
+. $(brew --prefix asdf)/asdf.sh
 export KERL_CONFIGURE_OPTIONS="--without-jinterface --without-odbc --without-hipe"
 export KERL_BUILD_DOCS=yes
 
@@ -36,8 +33,11 @@ export KERL_BUILD_DOCS=yes
 
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/share/mix/escripts:$PATH
-export PATH=$HOME/opt/google-cloud-sdk/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+
+if [ -d /usr/local/Caskroom/google-cloud-sdk/ ]; then
+  . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+fi
 
 export ERL_TOP=$HOME/src/otp
 # export PATH=$HOME/Downloads/heroku/bin:$PATH
@@ -107,5 +107,3 @@ alias gpush="git push "
 
 # eval "$(direnv hook zsh)"
 export PATH=~/src/bazel/bazel-bin/src:$PATH
-
-export PATH=$HOME/Downloads/google-cloud-sdk/bin:$PATH
