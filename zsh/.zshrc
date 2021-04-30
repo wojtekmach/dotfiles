@@ -16,14 +16,20 @@ fi
 setopt PROMPT_SUBST
 PROMPT='$prompt_host%~$(parse_git_branch)%# '
 
-# rust
+# brew
 
-# . $HOME/.cargo/env
+if [ -d /opt/homebrew ]; then
+  export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+fi
 
 # asdf
 
-. $HOME/.asdf/asdf.sh
+if [ -f /opt/homebrew/opt/asdf/asdf.sh ]; then
+  . /opt/homebrew/opt/asdf/asdf.sh
+fi
 
+export KERL_CONFIGURE_OPTIONS="--without-jinterface --without-odbc --without-hipe"
 export KERL_BUILD_DOCS=yes
 
 # PATH

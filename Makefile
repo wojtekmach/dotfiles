@@ -31,6 +31,7 @@ all:
 	ln -f -s $(CURDIR)/vim/.vimrc ~/
 	ln -f -s $(CURDIR)/vim/colors ~/.vim/
 	ln -f -s $(CURDIR)/zsh/.zshrc ~/
+	ln -f -s $(CURDIR)/dig/.digrc ~/
 	rm -rf ~/.iterm2
 	ln -f -s $(CURDIR)/iterm2 ~/.iterm2
 	curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
