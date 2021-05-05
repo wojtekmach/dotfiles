@@ -39,6 +39,10 @@ if [ -d /usr/local/Caskroom/google-cloud-sdk/ ]; then
   . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
 
+if [ -d $HOME/opt/zig ]; then
+  export PATH=$HOME/opt/zig:$PATH
+fi
+
 export ERL_TOP=$HOME/src/otp
 # export PATH=$HOME/Downloads/heroku/bin:$PATH
 # export PATH=$HOME/.beamup/bin:$PATH

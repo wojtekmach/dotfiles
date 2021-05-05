@@ -132,3 +132,5 @@
 ; 	program = /usr/local/bin/gpg
 [checkout]
 	defaultRemote = origin
+[url "git@github.com:"]
+	insteadOf = https://github.com/
