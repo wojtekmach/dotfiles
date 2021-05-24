@@ -17,6 +17,7 @@ Plug 'mattn/webapi-vim'
 Plug 'mattn/gist-vim'
 Plug 'tpope/vim-dadbod'
 Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'ziglang/zig.vim'
 " elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'rking/ag.vim'
@@ -30,6 +31,8 @@ set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set hidden
+set listchars=tab:>-,trail:~,extends:>,precedes:<
+set list
 nnoremap <leader>w :q<CR>
 " cmd+s is mapped to F6 (0x117) in iterm
 nnoremap <F6> :w<CR>

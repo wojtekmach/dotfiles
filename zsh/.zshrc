@@ -39,10 +39,6 @@ if [ -d /usr/local/Caskroom/google-cloud-sdk/ ]; then
   . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
 
-if [ -d $HOME/opt/zig ]; then
-  export PATH=$HOME/opt/zig:$PATH
-fi
-
 export ERL_TOP=$HOME/src/otp
 # export PATH=$HOME/Downloads/heroku/bin:$PATH
 # export PATH=$HOME/.beamup/bin:$PATH
@@ -72,7 +68,7 @@ for i in hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
   alias ${i}="cd ~/src/${i}"
 done
 
-alias vimrc="cd ~/src/dotfiles && vim vim/.vimrc"
+alias vimrc="sh -c 'cd ~/src/dotfiles && vim vim/.vimrc'"
 alias zshrc="cd ~/src/dotfiles && vim zsh/.zshrc"
 alias ls="ls -G "
 alias ms="iex -S mix phx.server "

@@ -1,6 +1,7 @@
-erlang 23.3.2
+erlang git-release
 elixir git
 ruby 2.7.0
-rebar 3.15.0
+rebar 3.15.1
 nodejs 12.16.2
 bazel 3.1.0
+zig master

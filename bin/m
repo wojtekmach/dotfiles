@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+export M=1
 
 if [ -f mix.lock ] && [ ! -d deps ]; then
   mix deps.get
