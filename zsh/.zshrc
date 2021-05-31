@@ -59,6 +59,7 @@ alias dashbit="cd ~/src/dashbit"
 alias cd-elixir="cd ~/src/elixir"
 alias cd-erlang="cd ~/src/otp"
 alias cd-ex_doc="cd ~/src/ex_doc"
+alias cd-zig="cd ~/src/zig"
 
 for i in hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
   ecto ecto_sql myxql postgrex \
@@ -106,4 +107,7 @@ alias gpush="git push "
 # # <<< conda initialize <<<
 
 # eval "$(direnv hook zsh)"
-export PATH=~/src/bazel/bazel-bin/src:$PATH
+
+if [ -d "/Users/wojtek/.asdf/installs/bazel/4.1.0/bin" ]; then
+  export PATH="/Users/wojtek/.asdf/installs/bazel/4.1.0/bin":$PATH
+fi
