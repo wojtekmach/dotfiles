@@ -40,8 +40,6 @@ if [ -d /usr/local/Caskroom/google-cloud-sdk/ ]; then
 fi
 
 export ERL_TOP=$HOME/src/otp
-# export PATH=$HOME/Downloads/heroku/bin:$PATH
-# export PATH=$HOME/.beamup/bin:$PATH
 
 # Elixir
 
@@ -55,17 +53,19 @@ export PLUG_EDITOR=$ELIXIR_EDITOR
 # ALIASES
 
 alias ..="cd .. " 
-alias dashbit="cd ~/src/dashbit"
 alias cd-elixir="cd ~/src/elixir"
 alias cd-erlang="cd ~/src/otp"
 alias cd-ex_doc="cd ~/src/ex_doc"
 alias cd-zig="cd ~/src/zig"
+alias cd-livebook="cd ~/src/livebook"
 
-for i in hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
-  ecto ecto_sql myxql postgrex \
+for i in \
+  hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
+  ecto ecto_sql myxql postgrex connection db_connection \
   phoenix phoenix_ecto phoenix_html phoenix_view phoenix_live_view phoenix_live_dashboard phoenix_pubsub \
-  decimal mint finch \
-  dotfiles; do
+  decimal mint finch dashbit kino \
+  dotfiles \
+; do
   alias ${i}="cd ~/src/${i}"
 done
 
@@ -73,6 +73,10 @@ alias vimrc="sh -c 'cd ~/src/dotfiles && vim vim/.vimrc'"
 alias zshrc="cd ~/src/dotfiles && vim zsh/.zshrc"
 alias ls="ls -G "
 alias ms="iex -S mix phx.server "
+
+# livebook
+alias notebooks="livebook server --open --root-path ~/src/notebooks"
+alias private_notebooks="livebook server --open --root-path ~/src/private_notebooks"
 
 # git
 alias gaa="git add --all "
@@ -90,24 +94,3 @@ alias gt="git tag -l --sort=-v:refname "
 alias gamend="git commit --amend --no-edit "
 alias greword="git commit --amend --no-verify "
 alias gpush="git push "
-
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/Users/wojtek/opt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/Users/wojtek/opt/anaconda3/etc/profile.d/conda.sh" ]; then
-#         . "/Users/wojtek/opt/anaconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/Users/wojtek/opt/anaconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
-
-# eval "$(direnv hook zsh)"
-
-if [ -d "/Users/wojtek/.asdf/installs/bazel/4.1.0/bin" ]; then
-  export PATH="/Users/wojtek/.asdf/installs/bazel/4.1.0/bin":$PATH
-fi
