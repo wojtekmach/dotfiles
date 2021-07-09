@@ -1,5 +1,4 @@
-# PROMPT
-
+# prompt
 function parse_git_branch {
   b=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"`
   if [ "$b" != "" ]; then
@@ -17,20 +16,17 @@ setopt PROMPT_SUBST
 PROMPT='$prompt_host%~$(parse_git_branch)%# '
 
 # brew
-
 if [ -d /opt/homebrew ]; then
   export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
+  . $(brew --prefix asdf)/asdf.sh
 fi
 
-# asdf
-
-. $(brew --prefix asdf)/asdf.sh
+# kerl
 export KERL_CONFIGURE_OPTIONS="--without-jinterface --without-odbc --without-hipe"
 export KERL_BUILD_DOCS=yes
 
 # PATH
-
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/share/mix/escripts:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
@@ -42,7 +38,6 @@ fi
 export ERL_TOP=$HOME/src/otp
 
 # Elixir
-
 export MIX_XDG=true
 export MIX_HOME=$HOME/.local/share/mix
 export ERL_AFLAGS="-kernel shell_history enabled"
@@ -50,9 +45,8 @@ export EDITOR="vim"
 export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
 export PLUG_EDITOR=$ELIXIR_EDITOR
 
-# ALIASES
-
-alias ..="cd .. " 
+# aliases
+alias ..="cd .. "
 alias cd-elixir="cd ~/src/elixir"
 alias cd-erlang="cd ~/src/otp"
 alias cd-ex_doc="cd ~/src/ex_doc"
