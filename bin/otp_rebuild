@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-git clean -dfx
+# git clean -dfx
 export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
 time ./otp_build setup -a
 make release

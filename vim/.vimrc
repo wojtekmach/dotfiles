@@ -68,8 +68,8 @@ let g:projectionist_heuristics = {
 nnoremap <leader>, :A<CR>
 
 " fzf
-let $FZF_DEFAULT_COMMAND = 'ag --hidden -g ""'
-silent! nmap <leader>f :Ag<CR>
+let $FZF_DEFAULT_COMMAND = 'rg --files --hidden --glob "!.git"'
+silent! nmap <leader>f :Rg<CR>
 silent! nmap <leader>t :Files<CR>
 
 " vim-test

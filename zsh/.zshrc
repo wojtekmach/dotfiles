@@ -17,6 +17,7 @@ PROMPT='$prompt_host%~$(parse_git_branch)%# '
 
 # brew
 if [ -d /opt/homebrew ]; then
+  export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
   export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
   export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
   . $(brew --prefix asdf)/asdf.sh
@@ -28,8 +29,10 @@ export KERL_BUILD_DOCS=yes
 
 # PATH
 export PATH=$HOME/bin:$PATH
-export PATH=$HOME/.local/share/mix/escripts:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
+export PATH=/Applications/CMake.app/Contents/bin:$PATH
+export PATH=$HOME/src/elixir/bin:$PATH
+export PATH=$(echo $HOME/src/otp/release/*/bin):$PATH
 
 if [ -d /usr/local/Caskroom/google-cloud-sdk/ ]; then
   . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
@@ -40,6 +43,7 @@ export ERL_TOP=$HOME/src/otp
 # Elixir
 export MIX_XDG=true
 export MIX_HOME=$HOME/.local/share/mix
+export PATH=$MIX_HOME/escripts:$PATH
 export ERL_AFLAGS="-kernel shell_history enabled"
 export EDITOR="vim"
 export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
@@ -52,6 +56,8 @@ alias cd-erlang="cd ~/src/otp"
 alias cd-ex_doc="cd ~/src/ex_doc"
 alias cd-zig="cd ~/src/zig"
 alias cd-livebook="cd ~/src/livebook"
+alias cd-beam-build="cd ~/src/beam-build"
+alias cd-beam-run="cd ~/src/beam-run"
 
 for i in \
   hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
@@ -67,6 +73,7 @@ alias vimrc="sh -c 'cd ~/src/dotfiles && vim vim/.vimrc'"
 alias zshrc="cd ~/src/dotfiles && vim zsh/.zshrc"
 alias ls="ls -G "
 alias ms="iex -S mix phx.server "
+alias rg="rg --hidden --glob '!.git' "
 
 # livebook
 alias notebooks="livebook server --open --root-path ~/src/notebooks"
