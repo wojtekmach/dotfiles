@@ -31,9 +31,6 @@ export KERL_BUILD_DOCS=yes
 export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export PATH=/Applications/CMake.app/Contents/bin:$PATH
-export PATH=$HOME/src/elixir/bin:$PATH
-export PATH=$HOME/beam-build-cache/otp/master/bin:$PATH
-# export PATH=$(echo $HOME/src/otp/release/*/bin):$PATH
 
 if [ -d /usr/local/Caskroom/google-cloud-sdk/ ]; then
   . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
@@ -97,3 +94,9 @@ alias gt="git tag -l --sort=-v:refname "
 alias gamend="git commit --amend --no-edit "
 alias greword="git commit --amend --no-verify "
 alias gpush="git push "
+
+# custom
+
+if [ -f $HOME/.zshrc.local ]; then
+  . $HOME/.zshrc.local
+fi
