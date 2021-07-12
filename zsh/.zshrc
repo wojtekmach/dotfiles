@@ -32,7 +32,8 @@ export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 export PATH=/Applications/CMake.app/Contents/bin:$PATH
 export PATH=$HOME/src/elixir/bin:$PATH
-export PATH=$(echo $HOME/src/otp/release/*/bin):$PATH
+export PATH=$HOME/beam-build-cache/otp/master/bin:$PATH
+# export PATH=$(echo $HOME/src/otp/release/*/bin):$PATH
 
 if [ -d /usr/local/Caskroom/google-cloud-sdk/ ]; then
   . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
@@ -57,6 +58,7 @@ alias cd-ex_doc="cd ~/src/ex_doc"
 alias cd-zig="cd ~/src/zig"
 alias cd-livebook="cd ~/src/livebook"
 alias cd-beam-build="cd ~/src/beam-build"
+alias cd-beam-exe="cd ~/src/beam-exe"
 alias cd-beam-run="cd ~/src/beam-run"
 
 for i in \
