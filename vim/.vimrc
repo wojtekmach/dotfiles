@@ -48,7 +48,6 @@ augroup END
 
 " line length
 set textwidth=98
-set colorcolumn=98
 
 " vim-projectionist
 let g:projectionist_heuristics = {
@@ -133,6 +132,7 @@ function! ToggleHiddenAll()
         set cmdheight=1
         set showtabline=0
         set nonumber
+        set colorcolumn=
     else
         let s:hidden_all = 0
         set showmode
@@ -142,6 +142,7 @@ function! ToggleHiddenAll()
         set cmdheight=2
         set showtabline=1
         set number
+        set colorcolumn=98
     endif
 endfunction
 
