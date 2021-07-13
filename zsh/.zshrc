@@ -73,7 +73,7 @@ for i in \
   ecto ecto_sql myxql postgrex connection db_connection \
   phoenix phoenix_ecto phoenix_html phoenix_view phoenix_live_view phoenix_live_dashboard phoenix_pubsub \
   decimal mint finch dashbit kino \
-  dotfiles \
+  dotfiles req \
 ; do
   alias ${i}="cd ~/src/${i}"
 done
