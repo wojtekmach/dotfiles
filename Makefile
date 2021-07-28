@@ -25,6 +25,7 @@ all:
 	ln -f -s $(CURDIR)/bin/tt ~/bin/
 	ln -f -s $(CURDIR)/bin/up ~/bin/
 	ln -f -s $(CURDIR)/bin/wdalias ~/bin/
+	ln -f -s $(CURDIR)/bin/edoc_chunk.exs ~/bin/
 	ln -f -s $(CURDIR)/dig/.digrc ~/
 	ln -f -s $(CURDIR)/elixir/.iex.exs ~/
 	ln -f -s $(CURDIR)/git/.gitconfig ~/
