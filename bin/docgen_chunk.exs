@@ -1,37 +1,66 @@
 #! /usr/bin/env elixir
 
 defmodule Main do
+  @switches [pretty: :string, moduledoc: :boolean, functions: :boolean]
+
   def main(args) do
-    {opts, args} = OptionParser.parse!(args, strict: [pretty: :string])
+    {opts, args} = OptionParser.parse!(args, strict: @switches)
 
     case args do
       [erl_path] ->
         module = erlc(erl_path)
-        :ok = docgen(module)
+        :ok = xml(module)
+        :ok = edoc(module)
 
         case Code.fetch_docs(module) do
           {:docs_v1, _, _, _, _, _, _} = chunk ->
-            case Keyword.get(opts, :pretty, "elixir") do
-              "elixir" ->
-                IO.inspect(chunk)
-
-              "erlang" ->
-                :io.format("~p~n", [chunk])
-            end
+            chunk
+            |> filter_chunk(opts)
+            |> pretty(opts)
         end
 
       _ ->
-        IO.puts("Usage: docgen PATH/TO/MODULE.erl")
+        IO.write("""
+        Usage:
+
+            docs_chunk.exs MODULE.erl [OPTIONS]
+
+        Options:
+
+            --pretty     can be `elixir` or `erlang`, defaults to `erlang`
+            --moduledoc  whether to only print module doc, defaults to `false`
+            --functions  whether to only print function docs, defaults to `false`
+        """)
+
         System.halt(1)
     end
   end
 
-  def erlc(path) do
+  defp filter_chunk(chunk, opts) do
+    if opts[:moduledoc] do
+      {:docs_v1, _, _, _, %{"en" => moduledoc}, _, _} = chunk
+      moduledoc
+    else
+      chunk
+    end
+  end
+
+  defp pretty(doc, opts) do
+    case Keyword.get(opts, :pretty, "elixir") do
+      "elixir" ->
+        IO.inspect(doc)
+
+      "erlang" ->
+        :io.format("~p~n", [doc])
+    end
+  end
+
+  defp erlc(path) do
     module = Path.basename(path, ".erl") |> String.to_atom()
     erlc(module, File.read!(path))
   end
 
-  def erlc(module, code) do
+  defp erlc(module, code) do
     dir = System.tmp_dir!()
 
     src_path = Path.join([dir, "#{module}.erl"])
@@ -53,7 +82,7 @@ defmodule Main do
     module
   end
 
-  defp docgen(module) do
+  defp xml(module) do
     erl_path = module.module_info(:compile)[:source]
     [xml] = docs(erl_path)
 
@@ -86,6 +115,19 @@ defmodule Main do
       '% ' ++ rest -> [rest, ?\n]
     end)
     |> :erlang.iolist_to_binary()
+  end
+
+  defp edoc(module) do
+    source_path = module.module_info(:compile)[:source]
+    dir = :filename.dirname(source_path)
+
+    :ok =
+      :edoc.files([source_path],
+        preprocess: true,
+        doclet: :edoc_doclet_chunks,
+        layout: :edoc_layout_chunks,
+        dir: dir ++ '/doc'
+      )
   end
 end
 
