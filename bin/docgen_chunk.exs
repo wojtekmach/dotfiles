@@ -1,4 +1,4 @@
-#!/usr/bin/env elixir
+#! /usr/bin/env elixir
 
 defmodule Main do
   def main(args) do
@@ -73,7 +73,8 @@ defmodule Main do
   end
 
   defp docs(path) do
-    for {_, _, 0, ['% @doc' | lines]} <- :erl_comment_scan.file(path) do
+    for {_, _, 0, ['% @xml' | lines]} <- :erl_comment_scan.file(path) do
+      lines = ['% <?xml version="1.0" encoding="utf-8" ?>\n' | lines]
       doc(lines)
     end
   end
