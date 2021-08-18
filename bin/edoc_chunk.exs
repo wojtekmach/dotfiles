@@ -1,4 +1,4 @@
-#! /usr/bin/env elixir
+#!/usr/bin/env elixir
 
 defmodule Main do
   def main(args) do
@@ -14,6 +14,7 @@ defmodule Main do
             case Keyword.get(opts, :pretty_print, "elixir") do
               "elixir" ->
                 IO.inspect(chunk)
+
               "erlang" ->
                 :io.format("~p~n", [chunk])
             end
@@ -37,6 +38,7 @@ defmodule Main do
 
     {:ok, module} =
       :compile.file(String.to_charlist(src_path), [
+        :return_errors,
         :debug_info,
         outdir: String.to_charlist(ebin_dir)
       ])

@@ -26,6 +26,7 @@ all:
 	ln -f -s $(CURDIR)/bin/up ~/bin/
 	ln -f -s $(CURDIR)/bin/wdalias ~/bin/
 	ln -f -s $(CURDIR)/bin/edoc_chunk.exs ~/bin/
+	ln -f -s $(CURDIR)/bin/docgen_chunk.exs ~/bin/
 	ln -f -s $(CURDIR)/dig/.digrc ~/
 	ln -f -s $(CURDIR)/elixir/.iex.exs ~/
 	ln -f -s $(CURDIR)/git/.gitconfig ~/
@@ -43,3 +44,5 @@ all:
 	# brew services start postgresql
 	# createuser ${USER}
 	# createuser postgres --password --superuser
+
+# https://apple.stackexchange.com/a/376494

@@ -149,7 +149,9 @@ endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
 call ToggleHiddenAll()
 
-
+autocmd FileType elixir imap ii  IO.inspect()<esc>ha
+autocmd FileType elixir imap \|ii  \|> IO.inspect()<esc>ha
+autocmd FileType elixir imap \|il  \|> IO.inspect(label: )<esc>ha
 
 
 

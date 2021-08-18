@@ -3,8 +3,8 @@ set -ex
 
 # git clean -dfx
 export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
-time ./otp_build setup -a
+time ./otp_build setup
 make release
-make release_docs DOC_TARGETS=chunks
+# make release_docs DOC_TARGETS=chunks
 cd release/*
-./Install -sasl $PWD
+# ./Install -sasl $PWD

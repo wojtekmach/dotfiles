@@ -22,6 +22,10 @@ case $1 in
     else
       mix docs -f html $@
     fi
+
+    if [[ "$1" == "--open" ]]; then
+      open doc/index.html
+    fi
     ;;
 
   format)

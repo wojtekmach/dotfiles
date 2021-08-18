@@ -1,4 +1,4 @@
-erlang 24.0.4
+erlang git
 elixir git
 ruby 2.7.4
 rebar 3.16.1
@@ -6,3 +6,4 @@ nodejs 12.16.2
 bazel 3.1.0
 zig master
 golang 1.16.5
+rust 1.54.0

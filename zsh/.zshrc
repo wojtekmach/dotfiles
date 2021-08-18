@@ -18,9 +18,10 @@ PROMPT='$prompt_host%~$(parse_git_branch)%# '
 # brew
 if which brew > /dev/null; then
   brew_prefix=$(brew --prefix )
-  export PATH="$brew_prefix/opt/openssl@1.1/bin:$PATH"
-  export LDFLAGS="-L$brew_prefix/opt/openssl@1.1/lib"
-  export CPPFLAGS="-I$brew_prefix/opt/openssl@1.1/include"
+
+  # export PATH="$brew_prefix/opt/openssl@1.1/bin:$PATH"
+  # export LDFLAGS="-L$brew_prefix/opt/openssl@1.1/lib"
+  # export CPPFLAGS="-I$brew_prefix/opt/openssl@1.1/include"
 
   . "$brew_prefix/opt/asdf/asdf.sh"
 fi
