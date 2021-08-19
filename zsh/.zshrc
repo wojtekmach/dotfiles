@@ -6,14 +6,15 @@ function parse_git_branch {
   fi
 }
 
-if [ -n "$SSH_CLIENT" ]; then
-  prompt_host="%m:"
+os=`uname -mv`
+if echo $os | grep --silent "ARM64_T8101 x86_64"; then
+  prompt_rosetta="(rosetta)"
 else
-  prompt_host=""
+  prompt_rosetta=""
 fi
 
 setopt PROMPT_SUBST
-PROMPT='$prompt_host%~$(parse_git_branch)%# '
+PROMPT='$prompt_host$prompt_rosetta%~$(parse_git_branch)%# '
 
 # brew
 if which brew > /dev/null; then
@@ -84,6 +85,8 @@ alias zshrc="cd ~/src/dotfiles && vim zsh/.zshrc"
 alias ls="ls -G "
 alias ms="iex -S mix phx.server "
 alias rg="rg --hidden --glob '!.git' "
+alias tarx="tar xzvf "
+alias tarc="tar czvf "
 
 # livebook
 alias notebooks="livebook server --open --root-path ~/src/notebooks"
