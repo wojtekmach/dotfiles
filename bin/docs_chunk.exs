@@ -78,7 +78,7 @@ defmodule Main do
 
         code = File.read!(erl_path)
 
-        if code =~ "%% @doc") do
+        if code =~ "%% @doc" do
           :ok = edoc(module)
         end
 
