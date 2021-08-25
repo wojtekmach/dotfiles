@@ -18,7 +18,7 @@ defmodule Main do
       $ cat edoc_example.erl
       %% @doc
       %% {@link erlang}
-      -module(mod).
+      -module(edoc_example).
       -export([f/0]).
 
       -spec f() -> ok.
