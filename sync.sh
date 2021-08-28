@@ -1,8 +1,6 @@
 #!/bin/sh
 set -e
 
-cd ~/src
-
 for i in elixir-lang/{elixir,ex_doc} \
   wojtekmach/{req,mix_install_examples,notebooks,private_notebooks} \
   hexpm/{hex,hexpm,hex_core,bob,diff,preview,hexdocs} \
@@ -15,8 +13,10 @@ for i in elixir-lang/{elixir,ex_doc} \
   erlang/otp \
 ; do
   echo $i
+  cd $HOME/src
 
   if [[ -d $HOME/src/$(basename "$i") ]]; then
+    cd ~/src/$(basename "$i")
     current="$(git rev-parse --abbrev-ref HEAD)"
     main=$(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@')
 

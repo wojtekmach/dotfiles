@@ -1,10 +1,12 @@
 #!/bin/bash
 set -ex
 
-# git clean -dfx
+git clean -dfx
 export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
+export DOC_TARGETS="chunks html"
 time ./otp_build setup
 make release
-make release_docs DOC_TARGETS=chunks
+make docs
+make release_docs
 cd release/*
 ./Install -sasl $PWD
