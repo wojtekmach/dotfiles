@@ -13,8 +13,14 @@ else
   prompt_rosetta=""
 fi
 
+if [[ -n "${SSH_CLIENT}" ]]; then
+  prompt_host="$(hostname):"
+else
+  prompt_host=""
+fi
+
 setopt PROMPT_SUBST
-PROMPT='$prompt_host$prompt_rosetta%~$(parse_git_branch)%# '
+PROMPT='$prompt_rosetta$prompt_host%~$(parse_git_branch)%# '
 
 # brew
 if which brew > /dev/null; then
