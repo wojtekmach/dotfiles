@@ -2,8 +2,4 @@
 set -ex
 
 git clean -dfx
-export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
-time ./otp_build all -a
-make release_docs -j8 DOC_TARGETS="chunks man"
-cd release/*
-./Install -sasl $PWD
+otp_build $@
