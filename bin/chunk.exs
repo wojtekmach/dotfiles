@@ -36,17 +36,6 @@ defmodule Main do
   defp module(atom) when is_atom(atom), do: atom
   defp module({:__aliases__, _, parts}), do: Module.concat(parts)
 
-  @colors [
-    atom: :cyan,
-    string: :green,
-    list: :default_color,
-    boolean: :magenta,
-    nil: :magenta,
-    tuple: :default_color,
-    binary: :default_color,
-    map: :default_color
-  ]
-
   defp docs_module(module, opts) do
     {:docs_v1, _anno, _language, _format, doc, metadata, _docs} = Code.fetch_docs(module)
 
@@ -69,7 +58,7 @@ defmodule Main do
         data
       end
 
-    IO.inspect(data, syntax_colors: @colors)
+    io_inspect(data)
   end
 
   defp docs_mfa(module, name, arity, opts) do
@@ -97,9 +86,7 @@ defmodule Main do
           data
         end
 
-      IO.inspect(data,
-        syntax_colors: @colors
-      )
+      io_inspect(data)
     end
   end
 
@@ -141,6 +128,25 @@ defmodule Main do
         _ ->
           :ok
       end
+    end
+  end
+
+  defp io_inspect(term) do
+    if IO.ANSI.enabled?() do
+      colors = [
+        atom: :cyan,
+        string: :green,
+        list: :default_color,
+        boolean: :magenta,
+        nil: :magenta,
+        tuple: :default_color,
+        binary: :default_color,
+        map: :default_color
+      ]
+
+      IO.inspect(term, syntax_colors: colors)
+    else
+      IO.inspect(term)
     end
   end
 

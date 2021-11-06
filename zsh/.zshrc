@@ -22,24 +22,8 @@ fi
 setopt PROMPT_SUBST
 PROMPT='$prompt_rosetta$prompt_host%~$(parse_git_branch)%# '
 
-# brew
-if which brew > /dev/null; then
-  brew_prefix=$(brew --prefix )
-
-  # export PATH="$brew_prefix/opt/openssl@1.1/bin:$PATH"
-  # export LDFLAGS="-L$brew_prefix/opt/openssl@1.1/lib"
-  # export CPPFLAGS="-I$brew_prefix/opt/openssl@1.1/include"
-
-  . "$brew_prefix/opt/asdf/asdf.sh"
-fi
-
-if [ -d /opt/homebrew ]; then
-  export PATH="/opt/homebrew/opt/openssl@1.1/bin:$PATH"
-  export LDFLAGS="-L/opt/homebrew/opt/openssl@1.1/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/openssl@1.1/include"
-
-  . $(brew --prefix asdf)/asdf.sh
-fi
+# asdf
+. $(brew --prefix asdf)/asdf.sh
 
 # kerl
 export KERL_CONFIGURE_OPTIONS="--without-jinterface --without-odbc --without-hipe"

@@ -7,6 +7,11 @@ fi
 
 export ERLC_USE_SERVER=true
 export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
+
+if [ -z "$1" ]; then
+  set -- "-a"
+fi
+
 time ./otp_build all $@
 make release_docs -j8 DOC_TARGETS="chunks"
 cd release/*

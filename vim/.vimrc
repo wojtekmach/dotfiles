@@ -21,6 +21,7 @@ Plug 'ziglang/zig.vim'
 " elixir
 Plug 'elixir-editors/vim-elixir'
 Plug 'rking/ag.vim'
+Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " general
@@ -83,6 +84,7 @@ nmap <silent> t :wa\|:TestLast<CR>
 nmap <silent> <c-t> :wa\|:TestNearest<CR>
 nmap <silent> T :wa\|:TestFile<CR>
 nmap <silent> <leader>a :wa\|:TestSuite<CR>
+let g:test#elixir#exunit#file_pattern = '\.exs$'
 
 " vim-gist
 let g:gist_post_private = 1
@@ -149,9 +151,9 @@ endfunction
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
 call ToggleHiddenAll()
 
-autocmd FileType elixir imap ii  IO.inspect()<esc>ha
-autocmd FileType elixir imap \|ii  \|> IO.inspect()<esc>ha
-autocmd FileType elixir imap \|il  \|> IO.inspect(label: )<esc>ha
+" autocmd FileType elixir imap ii  IO.inspect()<esc>ha
+" autocmd FileType elixir imap \|ii  \|> IO.inspect()<esc>ha
+" autocmd FileType elixir imap \|il  \|> IO.inspect(label: )<esc>ha
 
 
 

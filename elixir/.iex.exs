@@ -1,28 +1,26 @@
 if :mix not in Enum.map(Application.loaded_applications(), &elem(&1, 0)) do
   Mix.install([
-    # :decimal,
-    # {:req, path: "~/src/req"},
+    :decimal,
+    {:req, path: "~/src/req"},
     # {:system_castore, path: "~/src/system_castore"},
-    # {:easyxml, path: "~/src/easyxml", override: true},
+    {:easyxml, path: "~/src/easyxml"}
     # :saxmerl,
     # :floki,
-    {:sigils, path: "~/src/sigils"}
+    # {:sigils, path: "~/src/sigils"}
   ])
 end
 
 defmodule MyInspect do
-  import Inspect.Algebra
-
   def inspect(%URI{} = url, _opts) do
-    concat(["~URI[", URI.to_string(url), "]"])
+    "#URI[" <> URI.to_string(url) <> "]"
   end
 
-  def inspect(%Date.Range{step: 1} = range, _opts) do
-    "~Date.Range[#{range.first}..#{range.last}]"
+  def inspect(%Date.Range{step: 1} = daterange, _opts) do
+    "~Date.Range[#{daterange.first}/#{daterange.last}]"
   end
 
-  def inspect(%Date.Range{} = range, _opts) do
-    "~Date.Range[#{range.first}..#{range.last}//#{range.step}]"
+  def inspect(%Date.Range{} = daterange, _opts) do
+    "~Date.Range[#{daterange.first}/#{daterange.last}//#{daterange.step}]"
   end
 
   def inspect(term, opts) do
