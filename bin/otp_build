@@ -13,6 +13,10 @@ if [ -z "$1" ]; then
 fi
 
 time ./otp_build all $@
-make release_docs -j8 DOC_TARGETS="chunks"
+
+if [ "$1" = "-a" ]; then
+  make release_docs -j8 DOC_TARGETS="chunks"
+fi
+
 cd release/*
 ./Install -sasl $PWD
