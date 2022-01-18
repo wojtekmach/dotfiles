@@ -1,6 +1,5 @@
 #!/bin/bash
 set -e
-export M=1
 
 if [ -f mix.lock ] && [ ! -d deps ]; then
   mix deps.get
@@ -15,17 +14,26 @@ case $1 in
     fi
     ;;
 
+  setup)
+    if grep --quiet -E " setup: \[" mix.exs; then
+      shift
+      mix setup $@
+    else
+      mix deps.get && mix compile
+    fi
+    ;;
+
   docs)
     shift
     if grep --quiet -E "ex_doc.*only: :docs" mix.exs; then
-      MIX_ENV=docs mix docs -f html $@
+      MIX_ENV=docs mix docs -f html --open $@
     else
-      mix docs -f html $@
+      mix docs -f html --open $@
     fi
+    ;;
 
-    if [[ "$1" == "--open" ]]; then
-      open doc/index.html
-    fi
+  s)
+    iex -S mix phx.server --open
     ;;
 
   format)
@@ -37,18 +45,6 @@ case $1 in
         mix format $@
       fi
     fi
-    ;;
-
-  setup)
-    if grep --quiet -E " setup: \[" mix.exs; then
-      mix setup
-    else
-      mix deps.get && mix compile
-    fi
-    ;;
-
-  s)
-    iex -S mix phx.server
     ;;
 
   *)
