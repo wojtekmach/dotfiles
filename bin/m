@@ -25,11 +25,7 @@ case $1 in
 
   docs)
     shift
-    if grep --quiet -E "ex_doc.*only: :docs" mix.exs; then
-      MIX_ENV=docs mix docs -f html --open $@
-    else
-      mix docs -f html --open $@
-    fi
+    mix docs -f html --open $@
     ;;
 
   s)

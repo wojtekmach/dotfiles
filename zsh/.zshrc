@@ -73,7 +73,7 @@ done
 alias vimrc="sh -c 'cd ~/src/dotfiles && vim vim/.vimrc'"
 alias zshrc="cd ~/src/dotfiles && vim zsh/.zshrc"
 alias ls="ls -G "
-alias ms="iex -S mix phx.server "
+alias ms="iex -S mix phx.server --open "
 alias rg="rg --hidden --glob '!.git' "
 alias tarx="tar xzvf "
 alias tarc="tar czvf "
@@ -104,4 +104,11 @@ alias gt="git tag -l --sort=-v:refname "
 
 if [ -f $HOME/.zshrc.local ]; then
   . $HOME/.zshrc.local
+fi
+
+# gcloud
+
+if [ -d /opt/homebrew/Caskroom/google-cloud-sdk ]; then
+  source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+  source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
