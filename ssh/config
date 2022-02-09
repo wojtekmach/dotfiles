@@ -31,3 +31,7 @@ Host macos-10.14
 Host macos-10.15
   User wojtek
   HostName 192.168.251.129
+
+Host vm
+  User User
+  HostName 10.211.55.13
