@@ -79,8 +79,8 @@ alias tarx="tar xzvf "
 alias tarc="tar czvf "
 
 # livebook
-alias notebooks="livebook server --open --root-path ~/src/notebooks"
-alias private_notebooks="livebook server --open --root-path ~/src/private_notebooks"
+alias notebooks="livebook server ~/src/notebooks"
+alias private_notebooks="livebook server ~/src/private_notebooks"
 
 # git
 alias g-="git switch - "
