@@ -52,7 +52,6 @@ export PLUG_EDITOR=$ELIXIR_EDITOR
 # aliases
 alias ..="cd .. "
 alias cd-elixir="cd ~/src/elixir"
-alias cd-erlang="cd ~/src/otp"
 alias cd-ex_doc="cd ~/src/ex_doc"
 alias cd-zig="cd ~/src/zig"
 alias cd-livebook="cd ~/src/livebook"
@@ -63,9 +62,12 @@ alias cd-beam-run="cd ~/src/beam-run"
 for i in \
   hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
   ecto ecto_sql myxql postgrex connection db_connection \
-  phoenix phoenix_ecto phoenix_html phoenix_view phoenix_live_view phoenix_live_dashboard phoenix_pubsub \
-  decimal mint finch dashbit kino \
-  dotfiles req \
+  phoenix phoenix_{ecto,html,view,live_view,live_dashboard,pubsub} \
+  nimble_{csv,options,parsec,pool,publisher,totp} \
+  decimal mint finch dashbit kino goth \
+  otp rebar3 \
+  req req_{athena,bigquery,github_oauth,hex,s3} \
+  dotfiles max easyxml easyhtml \
 ; do
   alias ${i}="cd ~/src/${i}"
 done
