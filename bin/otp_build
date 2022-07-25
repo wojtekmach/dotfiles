@@ -16,9 +16,9 @@ time ./otp_build configure --with-ssl=$(brew --prefix openssl@1.1)
 time ./otp_build boot $@
 time ./otp_build release $@
 
-if [ "$1" = "-a" ]; then
-  make release_docs DOC_TARGETS="chunks"
-fi
+# if [ "$1" = "-a" ]; then
+#   make release_docs DOC_TARGETS="chunks"
+# fi
 
 cd release/*
 ./Install -sasl $PWD

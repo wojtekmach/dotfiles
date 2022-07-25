@@ -1,139 +1,62 @@
 [user]
-	name = Wojtek Mach
-	email = wojtek@wojtekmach.pl
-	; signingkey = 95997701189D319B
-
+  name = Wojtek Mach
+  email = wojtek@wojtekmach.pl
 [github]
   user = wojtekmach
-
 [core]
   editor = vim
-	excludesfile = /Users/wojtek/.gitignore_global
-	autocrlf = input
-	; hooksPath = /Users/wojtek/.git_template/hooks
-
-; [color]
-;   branch = auto
-;   diff = auto
-;   status = auto
-
-; [color "branch"]
-;   current = yellow reverse
-;   local = yellow
-;   remote = green
-
-; [color "diff"]
-;   meta = yellow bold
-;   frag = magenta bold
-;   old = red bold
-;   new = green bold
-
-; [color "status"]
-;   added = yellow
-;   changed = green
-;   untracked = cyan
-; [alias]
-; 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-
-[diff]
-[color]
-    ui = auto
-[alias]
-    ; master = checkout master
-    ; b = branch
-    ; c = commit --verbose
-    ; co = checkout
-    ; d = diff
-    ; s = status
-    ; t = tag -l --sort=-v:refname
-    ; new = checkout -b
-
-    ; amend = commit --amend --no-edit
-    ; reword = commit --no-verify --amend
-
-    ; st = status
-    ; ci = commit
-    ; co = checkout
-    ; di = diff
-    ; dc = diff --cached
-    ; aa = add --all
-    ; ff = merge --ff-only
-    ; pullff = pull --ff-only
-    ; noff = merge --no-ff
-    ; fa = fetch --all
-    ; pom = push origin master
-    ; b = branch
-    ; ds = diff --stat=160,120
-    ; dh1 = diff HEAD~1
-
-    # Divergence (commits we added and commits remote added)
-    div = divergence
-
-    # Goodness (summary of diff lines added/removed/total)
-    gn = goodness
-    gnc = goodness --cached
-
-    # Fancy logging.
-    #   h = head
-    #   hp = head with patch
-    #   r = recent commits, only current branch
-    #   ra = recent commits, all reachable refs
-    #   l = all commits, only current branch
-    #   la = all commits, all reachable refs
-    head = !git l -1
-    h = !git head
-    hp = "!. ~/.githelpers && show_git_head"
-    r = !git l -30
-    ra = !git r --all
-    l = "log --oneline"
-    la = !git l --all
-    ; switch = !legit switch \"$@\"
-    ; branches = !legit branches
-    ; sprout = !legit sprout \"$@\"
-    ; unpublish = !legit unpublish \"$@\"
-    ; harvest = !legit harvest \"$@\"
-    ; sync = !legit sync \"$@\"
-    ; publish = !legit publish \"$@\"
-    ; graft = !legit graft \"$@\"
-
-[merge]
-    tool = vimdiff
+  excludesfile = /Users/wojtek/.gitignore_global
+  autocrlf = input
+  ; pager = delta
+  ; hooksPath = /Users/wojtek/.git_template/hooks
 [init]
-	; templatedir = ~/.git_template
-	defaultBranch = main
-[url "git://github.com/"]
-	insteadOf = gh:
-; [push]
-; 	default = simple
-[push]
-	default = current
-	autoSetupRemote = true
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-[filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
-[credential]
-	helper = osxkeychain
+  ; templatedir = ~/.git_template
+  defaultBranch = main
+[color]
+  ui = auto
 [diff]
-	indentHeuristic = true
-[web]
-	browser = open
+  indentHeuristic = true
+  colorMoved = default
+[merge]
+  tool = vimdiff
+  conflictstyle = diff3
 [rebase]
-	autosquash = true
-[commit]
-	verbose = true
-	; gpgsign = true
-; [gpg]
-; 	program = /usr/local/bin/gpg
-[checkout]
-	defaultRemote = origin
+  autosquash = true
+[delta]
+  navigate = true
+[url "git://github.com/"]
+  insteadOf = gh:
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
+[commit]
+  verbose = true
 [pull]
-	ff = only
+  ff = only
+[push]
+  ; default = simple
+  default = current
+[checkout]
+  defaultRemote = origin
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[credential]
+  helper = osxkeychain
+[web]
+  browser = open
+[alias]
+  # Divergence (commits we added and commits remote added)
+  div = divergence
+
+  # Goodness (summary of diff lines added/removed/total)
+  gn = goodness
+  gnc = goodness --cached
+
+  head = !git l -1
+  h = !git head
+  hp = "!. ~/.githelpers && show_git_head"
+  r = !git l -30
+  ra = !git r --all
+  l = "log --oneline"
+  la = !git l --all

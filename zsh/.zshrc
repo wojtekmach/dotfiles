@@ -23,7 +23,7 @@ setopt PROMPT_SUBST
 PROMPT='$prompt_rosetta$prompt_host%~$(parse_git_branch)%# '
 
 # asdf
-. $(brew --prefix asdf)/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # kerl
 export KERL_CONFIGURE_OPTIONS="--without-jinterface --without-odbc --without-hipe"
@@ -114,3 +114,6 @@ if [ -d /opt/homebrew/Caskroom/google-cloud-sdk ]; then
   source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
   source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
+
+# direnv
+eval "$(direnv hook zsh)"
