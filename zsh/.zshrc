@@ -117,3 +117,10 @@ fi
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# bun completions
+[ -s "/Users/wojtek/.bun/_bun" ] && source "/Users/wojtek/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
