@@ -18,3 +18,4 @@ package-lock.json
 installer/phx_new-*.ez
 /lib/ssl/src/deps/ssl.d
 /lib/ssh/src/deps/ssh.d
+._*

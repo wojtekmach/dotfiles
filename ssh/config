@@ -1,3 +1,5 @@
+Include config.local
+
 Host github.com
     UpdateHostKeys yes
 
@@ -19,8 +21,11 @@ Host ubuntu
   HostName 10.211.55.4
 
 Host windows
-  # User User
-  HostName 10.211.55.5
+  User User
+  HostName 10.211.55.14
 
 Host vm
   HostName 10.211.55.3
+
+Host mba
+  HostName macbook-air-wojtek.local

@@ -23,7 +23,7 @@ setopt PROMPT_SUBST
 PROMPT='$prompt_rosetta$prompt_host%~$(parse_git_branch)%# '
 
 # asdf
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+. $(brew --prefix asdf)/asdf.sh
 
 # kerl
 export KERL_CONFIGURE_OPTIONS="--without-jinterface --without-odbc --without-hipe"
@@ -50,6 +50,9 @@ export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
 export PLUG_EDITOR=$ELIXIR_EDITOR
 
 # aliases
+alias mba="mosh --server=/opt/homebrew/bin/mosh-server macbook-air-wojtek.local "
+
+# aliases directories
 alias ..="cd .. "
 alias cd-elixir="cd ~/src/elixir"
 alias cd-ex_doc="cd ~/src/ex_doc"
@@ -58,16 +61,18 @@ alias cd-livebook="cd ~/src/livebook"
 alias cd-beam-build="cd ~/src/beam-build"
 alias cd-beam-exe="cd ~/src/beam-exe"
 alias cd-beam-run="cd ~/src/beam-run"
+alias cd-rebar3="cd ~/src/rebar3"
 
 for i in \
   hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
   ecto ecto_sql myxql postgrex connection db_connection \
   phoenix phoenix_{ecto,html,view,live_view,live_dashboard,pubsub} \
   nimble_{csv,options,parsec,pool,publisher,totp} \
+  livebook_enterprise \
   decimal mint finch dashbit kino goth \
-  otp rebar3 \
+  otp \
   req req_{athena,bigquery,github_oauth,hex,s3} \
-  dotfiles max easyxml easyhtml \
+  dotfiles mix_install_examples max easyxml easyhtml \
 ; do
   alias ${i}="cd ~/src/${i}"
 done
@@ -76,15 +81,16 @@ alias vimrc="sh -c 'cd ~/src/dotfiles && vim vim/.vimrc'"
 alias zshrc="cd ~/src/dotfiles && vim zsh/.zshrc"
 alias ls="ls -G "
 alias ms="iex -S mix phx.server --open "
+alias i="iex --dot-iex '' "
 alias rg="rg --hidden --glob '!.git' "
 alias tarx="tar xzvf "
 alias tarc="tar czvf "
 
-# livebook
+# aliases livebook
 alias notebooks="livebook server ~/src/notebooks"
 alias private_notebooks="livebook server ~/src/private_notebooks"
 
-# git
+# aliases git
 alias g-="git switch - "
 alias gaa="git add --all "
 alias gamend="git commit --amend --no-edit "

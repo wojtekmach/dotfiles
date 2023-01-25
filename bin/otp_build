@@ -12,7 +12,7 @@ if [ -z "$1" ]; then
   set -- "-a"
 fi
 
-time ./otp_build configure --with-ssl=$(brew --prefix openssl@1.1)
+time ./otp_build configure --with-ssl=$(brew --prefix openssl@1.1) --disable-dynamic-ssl-lib
 time ./otp_build boot $@
 time ./otp_build release $@
 
