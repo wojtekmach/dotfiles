@@ -1,3 +1,6 @@
+set swapfile
+set dir=~/tmp
+
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-rhubarb'

@@ -22,9 +22,6 @@ fi
 setopt PROMPT_SUBST
 PROMPT='$prompt_rosetta$prompt_host%~$(parse_git_branch)%# '
 
-# asdf
-. $(brew --prefix asdf)/asdf.sh
-
 # kerl
 export KERL_CONFIGURE_OPTIONS="--without-jinterface --without-odbc --without-hipe"
 export KERL_BUILD_DOCS=yes
@@ -51,6 +48,7 @@ export PLUG_EDITOR=$ELIXIR_EDITOR
 
 # aliases
 alias mba="mosh --server=/opt/homebrew/bin/mosh-server macbook-air-wojtek.local "
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # aliases directories
 alias ..="cd .. "
@@ -62,13 +60,14 @@ alias cd-beam-build="cd ~/src/beam-build"
 alias cd-beam-exe="cd ~/src/beam-exe"
 alias cd-beam-run="cd ~/src/beam-run"
 alias cd-rebar3="cd ~/src/rebar3"
+alias cd-reqbin="cd ~/src/reqbin"
 
 for i in \
   hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
   ecto ecto_sql myxql postgrex connection db_connection \
   phoenix phoenix_{ecto,html,view,live_view,live_dashboard,pubsub} \
   nimble_{csv,options,parsec,pool,publisher,totp} \
-  livebook_enterprise \
+  lt \
   decimal mint finch dashbit kino goth \
   otp \
   req req_{athena,bigquery,github_oauth,hex,s3} \
@@ -109,24 +108,13 @@ alias gsw="git switch "
 alias gt="git tag -l --sort=-v:refname "
 
 # custom
-
 if [ -f $HOME/.zshrc.local ]; then
   . $HOME/.zshrc.local
 fi
 
 # gcloud
-
 if [ -d /opt/homebrew/Caskroom/google-cloud-sdk ]; then
   source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
   source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
-
-# direnv
-eval "$(direnv hook zsh)"
-
-# bun completions
-[ -s "/Users/wojtek/.bun/_bun" ] && source "/Users/wojtek/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+eval "$(~/bin/rtx activate zsh)"
