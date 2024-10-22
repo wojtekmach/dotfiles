@@ -10,8 +10,6 @@ vendor/bundle
 .mix
 .projections.json
 .elixir_core
-curl.sh
-curl.json
 package-lock.json
 /.vscode
 /.tm_properties

@@ -1,5 +1,4 @@
 set swapfile
-set dir=~/tmp
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
@@ -23,20 +22,23 @@ Plug 'kristijanhusak/vim-dadbod-ui'
 Plug 'ziglang/zig.vim'
 " elixir
 Plug 'elixir-editors/vim-elixir'
+Plug 'lfe/vim-lfe'
+Plug 'gleam-lang/gleam.vim'
 Plug 'rking/ag.vim'
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " general
-set ts=2 sts=2 sw=2 expandtab
+set ts=4 sts=2 sw=2 expandtab
 colorscheme wojtek
 let mapleader=","
 set backup
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=/Users/wojtek/tmp
 set hidden
 set listchars=tab:>-,trail:~,extends:>,precedes:<
 set list
+set fillchars=eob:\ 
 nnoremap <leader>w :q<CR>
 " cmd+s is mapped to F6 (0x117) in iterm
 nnoremap <F6> :w<CR>
@@ -52,6 +54,13 @@ augroup END
 
 " line length
 set textwidth=98
+
+
+" Keep wrap for .md files but don't insert newlines automatically
+autocmd FileType markdown setlocal wrap
+autocmd FileType markdown setlocal textwidth=0
+
+au BufNewFile,BufRead .erlang set filetype=erlang
 
 " vim-projectionist
 let g:projectionist_heuristics = {
@@ -77,6 +86,7 @@ silent! nmap <leader>t :Files<CR>
 
 " vim-test
 let test#strategy = "vimterminal"
+let test#vim#term_position = "vert botright"
 " augroup test
 "   autocmd!
 "   autocmd BufWrite * if test#exists() |

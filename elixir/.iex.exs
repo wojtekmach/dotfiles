@@ -1,10 +1,6 @@
-# if :mix not in Enum.map(Application.loaded_applications(), &elem(&1, 0)) do
-#   Mix.install([
-#     :decimal,
-#     {:req, path: "~/src/req"},
-#     {:easyxml, path: "~/src/easyxml"},
-#     {:easyhtml, path: "~/src/easyhtml"}
-#   ])
-# end
+# Code.prepend_path("/Users/wojtek/src/batteries/_build/dev/lib/batteries/ebin")
+# Code.prepend_path("/Users/wojtek/src/batteries/_build/dev/lib/ezstd/ebin")
 
-# Application.put_env(:elixir, :dbg_callback, {Macro, :dbg, []})
+# import Batteries
+# Inspect.Opts.default_inspect_fun(&Batteries.__inspect__/2)
+# IEx.configure(default_prompt: "iex>")

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-m test $@
+# m test $@
 
 # file=$1
 # args=""

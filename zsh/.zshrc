@@ -44,7 +44,9 @@ export PATH=$MIX_HOME/escripts:$PATH
 export ERL_AFLAGS="-kernel shell_history enabled"
 export EDITOR="vim"
 export ELIXIR_EDITOR="itermvim +__LINE__ __FILE__"
+# export ELIXIR_EDITOR="zed __LINE__:__FILE__"
 export PLUG_EDITOR=$ELIXIR_EDITOR
+export HEX_DIFF_COMMAND="git diff --color=always --no-index __PATH1__ __PATH2__"
 
 # aliases
 alias mba="mosh --server=/opt/homebrew/bin/mosh-server macbook-air-wojtek.local "
@@ -52,6 +54,7 @@ alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # aliases directories
 alias ..="cd .. "
+alias ...="cd ../.."
 alias cd-elixir="cd ~/src/elixir"
 alias cd-ex_doc="cd ~/src/ex_doc"
 alias cd-zig="cd ~/src/zig"
@@ -64,9 +67,10 @@ alias cd-reqbin="cd ~/src/reqbin"
 
 for i in \
   hex hexpm hex_core hexdocs hexdiff hexpreview hexpm-ops bob \
-  ecto ecto_sql myxql postgrex connection db_connection \
-  phoenix phoenix_{ecto,html,view,live_view,live_dashboard,pubsub} \
-  nimble_{csv,options,parsec,pool,publisher,totp} \
+  ecto ecto_sql myxql postgrex tds connection db_connection \
+  phoenix phoenix_{ecto,html,view,live_view,live_dashboard,live_reload,pubsub,playground} \
+  plug plug_crypto \
+  nimble_{csv,options,parsec,pool,publisher,totp,ownership} mox \
   lt \
   decimal mint finch dashbit kino goth \
   otp \
@@ -118,3 +122,5 @@ if [ -d /opt/homebrew/Caskroom/google-cloud-sdk ]; then
   source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
 eval "$(~/bin/rtx activate zsh)"
+
+. "/Users/wojtek/.local/share/rtx/installs/rust/1.78.0/env"

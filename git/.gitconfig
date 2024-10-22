@@ -4,7 +4,7 @@
 [github]
   user = wojtekmach
 [core]
-  editor = vim
+	editor = vim
   excludesfile = /Users/wojtek/.gitignore_global
   autocrlf = input
   ; pager = delta
