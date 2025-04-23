@@ -58,7 +58,7 @@ set textwidth=98
 
 " Keep wrap for .md files but don't insert newlines automatically
 autocmd FileType markdown setlocal wrap
-autocmd FileType markdown setlocal textwidth=0
+autocmd FileType markdown setlocal textwidth=0 colorcolumn=""
 
 au BufNewFile,BufRead .erlang set filetype=erlang
 
@@ -168,6 +168,44 @@ call ToggleHiddenAll()
 " autocmd FileType elixir imap \|ii  \|> IO.inspect()<esc>ha
 " autocmd FileType elixir imap \|il  \|> IO.inspect(label: )<esc>ha
 
+" vim-elixir
+augroup elixir_custom_syntax
+  autocmd!
+  autocmd Syntax elixir call s:elixir_syntax_patch()
+augroup END
+
+function! s:elixir_syntax_patch()
+  syntax clear elixirSigil
+  syntax clear elixirHeexSigil
+
+  " ~HTML
+  unlet! b:current_syntax
+  syntax region elixirHtmlSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~HTML\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@html fold
+  syntax region elixirHtmlSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~HTML"+ skip=+\\"+ end=+"+ contains=@html
+  syntax region elixirHtmlSigilBrace matchgroup=elixirSigilDelimiter keepend start=+\~HTML{+ end=+}+ contains=@html
+  syntax cluster elixirTemplateSigils add=elixirHtmlSigilTripleDouble,elixirHtmlSigilDouble,elixirHtmlSigilBrace
+
+  " ~JS
+  unlet! b:current_syntax
+  syntax include @javascript syntax/javascript.vim
+  syntax region elixirJsSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~JS\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@javascript fold
+  syntax region elixirJsSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~JS"+ skip=+\\"+ end=+"+ contains=@javascript
+  syntax cluster elixirTemplateSigils add=elixirJsSigilTripleDouble,elixirJsSigilDouble
+
+  " ~PY
+  unlet! b:current_syntax
+  syntax include @python syntax/python.vim
+  syntax region elixirPySigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~PY\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@python fold
+  syntax region elixirPySigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~PY"+ skip=+\\"+ end=+"+ contains=@python
+  syntax cluster elixirTemplateSigils add=elixirPySigilTripleDouble,elixirPySigilDouble
+
+  " ~SQL
+  unlet! b:current_syntax
+  syntax include @sql syntax/sql.vim
+  syntax region elixirSqlSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~SQL\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@sql fold
+  syntax region elixirSqlSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~SQL"+ skip=+\\"+ end=+"+ contains=@sql
+  syntax cluster elixirTemplateSigils add=elixirSqlSigilTripleDouble,elixirSqlSigilDouble
+endfunction
 
 
 
