@@ -178,6 +178,21 @@ function! s:elixir_syntax_patch()
   syntax clear elixirSigil
   syntax clear elixirHeexSigil
 
+  " ~CPP
+  unlet! b:current_syntax
+  syntax include @cpp syntax/cpp.vim
+  syntax region elixirCppSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~CPP\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@cpp fold
+  syntax region elixirCppSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~CPP"+ skip=+\\"+ end=+"+ contains=@cpp
+  syntax region elixirCppSigilBrace matchgroup=elixirSigilDelimiter keepend start=+\~CPP{+ end=+}+ contains=@cpp
+  syntax cluster elixirTemplateSigils add=elixirCppSigilTripleDouble,elixirCppSigilDouble,elixirCppSigilBrace
+
+  " ~ERL
+  unlet! b:current_syntax
+  syntax include @erlang syntax/erlang.vim
+  syntax region elixirErlSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~ERL\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@erlang fold
+  syntax region elixirErlSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~ERL"+ skip=+\\"+ end=+"+ contains=@erlang
+  syntax cluster elixirTemplateSigils add=elixirErlSigilTripleDouble,elixirErlSigilDouble
+
   " ~HTML
   unlet! b:current_syntax
   syntax region elixirHtmlSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~HTML\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@html fold
@@ -192,6 +207,13 @@ function! s:elixir_syntax_patch()
   syntax region elixirJsSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~JS"+ skip=+\\"+ end=+"+ contains=@javascript
   syntax cluster elixirTemplateSigils add=elixirJsSigilTripleDouble,elixirJsSigilDouble
 
+  " ~MD
+  unlet! b:current_syntax
+  syntax include @markdown syntax/markdown.vim
+  syntax region elixirMdSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~MD\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@markdown fold
+  syntax region elixirMdSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~MD"+ skip=+\\"+ end=+"+ contains=@markdown
+  syntax cluster elixirTemplateSigils add=elixirMdSigilTripleDouble,elixirMdSigilDouble
+
   " ~PY
   unlet! b:current_syntax
   syntax include @python syntax/python.vim
@@ -199,12 +221,33 @@ function! s:elixir_syntax_patch()
   syntax region elixirPySigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~PY"+ skip=+\\"+ end=+"+ contains=@python
   syntax cluster elixirTemplateSigils add=elixirPySigilTripleDouble,elixirPySigilDouble
 
+  " ~RS
+  unlet! b:current_syntax
+  syntax include @rust syntax/rust.vim
+  syntax region elixirRsSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~RS\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@rust fold
+  syntax region elixirRsSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~RS"+ skip=+\\"+ end=+"+ contains=@rust
+  syntax cluster elixirTemplateSigils add=elixirRsSigilTripleDouble,elixirRsSigilDouble
+
+  " ~TOML
+  unlet! b:current_syntax
+  syntax include @toml syntax/toml.vim
+  syntax region elixirTomlSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~TOML\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@toml fold
+  syntax region elixirTomlSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~TOML"+ skip=+\\"+ end=+"+ contains=@toml
+  syntax cluster elixirTemplateSigils add=elixirTomlSigilTripleDouble,elixirTomlSigilDouble
+
   " ~SQL
   unlet! b:current_syntax
   syntax include @sql syntax/sql.vim
   syntax region elixirSqlSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~SQL\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@sql fold
   syntax region elixirSqlSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~SQL"+ skip=+\\"+ end=+"+ contains=@sql
   syntax cluster elixirTemplateSigils add=elixirSqlSigilTripleDouble,elixirSqlSigilDouble
+
+  " ~ZIG
+  unlet! b:current_syntax
+  syntax include @zig syntax/zig.vim
+  syntax region elixirZigSigilTripleDouble matchgroup=elixirSigilDelimiter keepend start=+^\s*\~ZIG\z("""\)+ skip=+\\"+ end=+^\s*\z1+ contains=@zig fold
+  syntax region elixirZigSigilDouble matchgroup=elixirSigilDelimiter keepend start=+\~ZIG"+ skip=+\\"+ end=+"+ contains=@zig
+  syntax cluster elixirTemplateSigils add=elixirZigSigilTripleDouble,elixirZigSigilDouble
 endfunction
 
 

@@ -20,20 +20,17 @@ else
 fi
 
 setopt PROMPT_SUBST
-PROMPT='$prompt_rosetta$prompt_host%~$(parse_git_branch)%# '
+PROMPT='$prompt_rosetta$prompt_host%~$(parse_git_branch)\$ '
 
-# kerl
-export KERL_CONFIGURE_OPTIONS="--without-jinterface --without-odbc --without-hipe"
-export KERL_BUILD_DOCS=yes
+# homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+
+# mise
+eval "$(mise activate zsh)"
 
 # PATH
 export PATH=$HOME/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
-export PATH=/Applications/CMake.app/Contents/bin:$PATH
-
-if [ -d /usr/local/Caskroom/google-cloud-sdk/ ]; then
-  . /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-fi
 
 export ERL_TOP=$HOME/src/otp
 
@@ -121,6 +118,6 @@ if [ -d /opt/homebrew/Caskroom/google-cloud-sdk ]; then
   source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
   source /opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 fi
-eval "$(~/bin/rtx activate zsh)"
 
-. "/Users/wojtek/.local/share/rtx/installs/rust/1.78.0/env"
+# bun completions
+[ -s "/opt/homebrew/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/share/zsh/site-functions/_bun"

@@ -5,16 +5,19 @@ if [[ -z "$1" ]]; then
   set -- "-a"
 fi
 
+export ERL_TOP=$PWD
 export ERLC_USE_SERVER=true
 export MAKEFLAGS="-j$(getconf _NPROCESSORS_ONLN)"
+export RELEASE_ROOT=$ERL_TOP/release
+ulimit -n 65535
 
 if [ -z "$1" ]; then
   set -- "-a"
 fi
 
-time ./otp_build configure --with-ssl=$(brew --prefix openssl@1.1) --disable-dynamic-ssl-lib
+time ./otp_build configure --with-ssl=$(brew --prefix openssl) # --disable-dynamic-ssl-lib
 time ./otp_build boot $@
-time ./otp_build release $@
+time ./otp_build release $@ "$RELEASE_ROOT"
 
-cd release/*
+cd "$RELEASE_ROOT"
 ./Install -sasl $PWD

@@ -18,3 +18,6 @@ installer/phx_new-*.ez
 /lib/ssh/src/deps/ssh.d
 ._*
 .rgignore
+.mise.toml
+mise.toml
+/.iex.exs
