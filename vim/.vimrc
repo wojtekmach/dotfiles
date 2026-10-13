@@ -1,3 +1,8 @@
+if $TERM_PROGRAM == 'ghostty'
+    source ~/.config/vim/ghostty.vimrc
+    finish
+endif
+
 set swapfile
 
 call plug#begin('~/.vim/plugged')

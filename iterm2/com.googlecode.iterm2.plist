@@ -8,6 +8,8 @@
 	<integer>2</integer>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>ClaudeCodeWorkgroupUpsellSuppressed</key>
+	<true/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>Github</key>

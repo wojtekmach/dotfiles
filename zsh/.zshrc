@@ -1,3 +1,10 @@
+# print -n '\e[6 q'
+
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    source ~/.config/zsh/ghostty.zshrc
+    return
+fi
+
 # prompt
 function parse_git_branch {
   b=`git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"`
@@ -30,6 +37,7 @@ eval "$(mise activate zsh)"
 
 # PATH
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 export PATH=/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH
 
 export ERL_TOP=$HOME/src/otp
@@ -46,6 +54,7 @@ export PLUG_EDITOR=$ELIXIR_EDITOR
 export HEX_DIFF_COMMAND="git diff --color=always --no-index __PATH1__ __PATH2__"
 
 # aliases
+function $ { "$@"; }
 alias mba="mosh --server=/opt/homebrew/bin/mosh-server macbook-air-wojtek.local "
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
@@ -55,7 +64,8 @@ alias ...="cd ../.."
 alias cd-elixir="cd ~/src/elixir"
 alias cd-ex_doc="cd ~/src/ex_doc"
 alias cd-zig="cd ~/src/zig"
-alias cd-livebook="cd ~/src/livebook"
+alias cd-livebook="cd ~/Shared/livebook"
+alias tidewave_app="cd ~/Shared/tidewave_app"
 alias cd-beam-build="cd ~/src/beam-build"
 alias cd-beam-exe="cd ~/src/beam-exe"
 alias cd-beam-run="cd ~/src/beam-run"
@@ -68,13 +78,14 @@ for i in \
   phoenix phoenix_{ecto,html,view,live_view,live_dashboard,live_reload,pubsub,playground} \
   plug plug_crypto \
   nimble_{csv,options,parsec,pool,publisher,totp,ownership} mox \
-  lt \
+  ts \
+  elixirkit lt \
   decimal mint finch dashbit kino goth \
   otp \
   req req_{athena,bigquery,github_oauth,hex,s3} \
   dotfiles mix_install_examples max easyxml easyhtml \
 ; do
-  alias ${i}="cd ~/src/${i}"
+  alias cd-${i}="cd ~/src/${i}"
 done
 
 alias vimrc="sh -c 'cd ~/src/dotfiles && vim vim/.vimrc'"
@@ -121,3 +132,4 @@ fi
 
 # bun completions
 [ -s "/opt/homebrew/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/share/zsh/site-functions/_bun"
+eval "$(ruby ~/.local/try.rb init ~/src/tries)"

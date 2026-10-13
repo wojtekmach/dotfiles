@@ -1,0 +1,4 @@
+# `mise bootstrap` runs the `bootstrap` task last; it must stay idempotent.
+[tasks.bootstrap]
+description = "Caps Lock -> Control (defaults -currentHost, not supported by [bootstrap.macos.defaults])"
+run = "./macos/capslock-to-control.sh"

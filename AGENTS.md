@@ -1,0 +1,3 @@
+- Write your responses, documentation, code comments, and similar in ASD-STE100 (Simplified Technical English).
+- Do not add "Co-Authored-By:" to commit messages.
+- Never create a PR, issue, or comment without my permission.

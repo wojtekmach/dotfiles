@@ -21,3 +21,6 @@ installer/phx_new-*.ez
 .mise.toml
 mise.toml
 /.iex.exs
+.claude
+/CLAUDE.md
+
