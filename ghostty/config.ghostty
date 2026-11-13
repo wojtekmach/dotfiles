@@ -1,0 +1,40 @@
+macos-icon = xray
+# macos-titlebar-style = tabs
+macos-option-as-alt = left
+window-padding-x = 20
+window-padding-y = 5
+font-size = 15
+font-family = "SF Mono"
+
+background = #f8f3ea
+foreground = #181818
+palette = 0=#4A4A4A
+palette = 1=#D7263D
+palette = 2=#148A7C
+palette = 3=#E2B714
+palette = 4=#1877B2
+palette = 5=#A052A3
+palette = 6=#39B7B7
+palette = 7=#6E6E6E
+palette = 8=#8D8D8D
+palette = 9=#FF5757
+palette = 10=#2FD6A7
+palette = 11=#FFE066
+palette = 12=#47A7FF
+palette = 13=#F685B4
+palette = 14=#8CE3FF
+palette = 15=#4A4A4A
+
+keybind = "cmd+s=text:\x1b[99~"
+keybind = "cmd+/=text:\x1b[97~"
+keybind = page_up=scroll_page_up
+keybind = page_down=scroll_page_down
+
+# keybind = cmd+c=text:\x1b"+y
+# keybind = cmd+a=text:\x1bgg\x1bVG
+# keybind = "cmd+a=text:\x1b[98~"
+
+# keybind = unconsumed:cmd+a=select_all
+# keybind = unconsumed:cmd+c=copy_to_clipboardd
+# keybind = unconsumed:super+a=select_all
+# keybind = unconsumed:super+c=copy_to_clipboard

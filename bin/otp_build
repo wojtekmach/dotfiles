@@ -15,7 +15,13 @@ if [ -z "$1" ]; then
   set -- "-a"
 fi
 
-time ./otp_build configure --with-ssl=$(brew --prefix openssl) # --disable-dynamic-ssl-lib
+if command -v brew >/dev/null; then
+  ssl=$(brew --prefix openssl)
+else
+  ssl=$(mise bootstrap packages where brew:openssl@3)
+fi
+
+time ./otp_build configure --with-ssl="$ssl" # --disable-dynamic-ssl-lib
 time ./otp_build boot $@
 time ./otp_build release $@ "$RELEASE_ROOT"
 

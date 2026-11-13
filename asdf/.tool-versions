@@ -13,3 +13,6 @@
 # rust   latest
 # golang latest
 # bun    latest
+erlang path:~/src/otp
+elixir path:~/src/elixir
+claude latest

@@ -32,9 +32,6 @@ PROMPT='$prompt_rosetta$prompt_host%~$(parse_git_branch)\$ '
 # homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
-# mise
-eval "$(mise activate zsh)"
-
 # PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
@@ -132,4 +129,5 @@ fi
 
 # bun completions
 [ -s "/opt/homebrew/share/zsh/site-functions/_bun" ] && source "/opt/homebrew/share/zsh/site-functions/_bun"
-eval "$(ruby ~/.local/try.rb init ~/src/tries)"
+# eval "$(ruby ~/.local/try.rb init ~/src/tries)"
+eval "$(/Users/wojtek/.local/bin/mise activate zsh)"

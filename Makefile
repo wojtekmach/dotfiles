@@ -4,9 +4,11 @@ all:
 	mkdir -p ~/.config/vim
 	mkdir -p ~/.config/zsh
 	mkdir -p ~/.config/delta
+	mkdir -p ~/.config/zed
 	mkdir -p ~/.codex
 	mkdir -p ~/.claude
 	ln -f -s $(CURDIR)/AGENTS.md ~/.config/delta/AGENTS.md
+	ln -f -s $(CURDIR)/AGENTS.md ~/.config/zed/AGENTS.md
 	ln -f -s $(CURDIR)/AGENTS.md ~/.codex/AGENTS.md
 	ln -f -s $(CURDIR)/AGENTS.md ~/.claude/CLAUDE.md
 	ln -f -s $(CURDIR)/ag/.agignore ~/
@@ -38,6 +40,8 @@ all:
 	ln -f -s $(CURDIR)/bin/chunk.exs ~/bin/
 	ln -f -s $(CURDIR)/dig/.digrc ~/
 	ln -f -s $(CURDIR)/elixir/.iex.exs ~/
+	mkdir -p ~/Library/Application\ Support/com.mitchellh.ghostty
+	ln -f -s $(CURDIR)/ghostty/config.ghostty ~/Library/Application\ Support/com.mitchellh.ghostty/
 	ln -f -s $(CURDIR)/git/.gitconfig ~/
 	ln -f -s $(CURDIR)/git/.gitignore_global ~/
 	ln -f -s $(CURDIR)/git/template ~/.git_template
@@ -48,9 +52,9 @@ all:
 	ln -f -s $(CURDIR)/vim/after ~/.vim/
 	ln -f -s $(CURDIR)/zsh/.zshrc ~/
 	ln -f -s $(CURDIR)/zsh/ghostty.zshrc ~/.config/zsh/
-	ln -f -s $(CURDIR)/launchagents/pl.wojtekmach.eds.plist ~/Library/LaunchAgents/
+	# ln -f -s $(CURDIR)/launchagents/pl.wojtekmach.eds.plist ~/Library/LaunchAgents/
 	rm -rf ~/.iterm2
-	ln -f -s $(CURDIR)/iterm2 ~/.iterm2
+	# ln -f -s $(CURDIR)/iterm2 ~/.iterm2
 	curl --silent -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 	# brew install postgresql
